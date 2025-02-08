@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Crypto Staking Reward Calculator</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    /* Global Styles */
+    body {
+      font-family: Arial, sans-serif;
+      background: #f8f8f8;
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+    
+    /* Shared container styles */
+    .calculator, .description, .faq {
+      background: #fff;
+      padding: 20px 30px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      width: 100%;
+      margin-bottom: 20px;
+    }
+    
+    /* Calculator remains at 400px max width */
+    .calculator {
+      max-width: 400px;
+    }
+    
+    /* About and FAQ sections get a larger width on desktop */
+    .description, .faq {
+      max-width: 600px;
+    }
+    
+    .calculator h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    
+    .calculator label {
+      display: block;
+      margin: 10px 0 5px;
+    }
+    
+    .calculator input {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    
+    .calculator button {
+      width: 100%;
+      padding: 10px;
+      background: #17a2b8;
+      border: none;
+      color: #fff;
+      font-size: 16px;
+      border-radius: 4px;
+      margin-top: 20px;
+      cursor: pointer;
+    }
+    
+    .calculator button:hover {
+      background: #138496;
+    }
+    
+    .result {
+      margin-top: 20px;
+      text-align: center;
+      font-weight: bold;
+    }
+    
+    .description h3,
+    .faq h3 {
+      margin-bottom: 10px;
+      text-align: center;
+    }
+    
+    .description p,
+    .faq p {
+      font-size: 1rem;
+      line-height: 1.6;
+      text-align: justify;
+    }
+    
+    .faq ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    
+    .faq li {
+      margin-bottom: 10px;
+      line-height: 1.4;
+    }
+    
+    .back-link {
+      margin-top: 15px;
+      text-align: center;
+    }
+    
+    .back-link a {
+      text-decoration: none;
+      color: #007BFF;
+    }
+    
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      body {
+        padding: 10px;
+      }
+      .calculator, .description, .faq {
+        padding: 15px 20px;
+      }
+      .calculator h2 {
+        font-size: 1.8rem;
+      }
+      .calculator button {
+        font-size: 14px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .calculator, .description, .faq {
+        padding: 10px 15px;
+      }
+      .calculator h2 {
+        font-size: 1.6rem;
+      }
+      .calculator label, 
+      .calculator input, 
+      .calculator button {
+        font-size: 14px;
+      }
+      .result {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Calculator Section -->
+  <div class="calculator">
+    <h2>Crypto Staking Reward Calculator</h2>
+    <label for="amount">Amount Staked:</label>
+    <input type="number" id="amount" placeholder="Enter amount staked" step="0.01" />
+    
+    <label for="apy">Annual Percentage Yield (APY %):</label>
+    <input type="number" id="apy" placeholder="Enter APY" step="0.01" />
+    
+    <label for="years">Duration (Years):</label>
+    <input type="number" id="years" placeholder="Enter duration in years" step="0.1" />
+    
+    <button onclick="calculateStaking()">Calculate Rewards</button>
+    
+    <div class="result" id="result"></div>
+    <div class="back-link"><a href="index.html">Back to Home</a></div>
+  </div>
+  
+  <!-- About This Tool Section -->
+  <div class="description">
+    <h3>About This Tool</h3>
+    <p>
+      The Crypto Staking Reward Calculator is designed to help cryptocurrency investors estimate the rewards earned by staking their digital assets. Simply enter the amount you plan to stake, the Annual Percentage Yield (APY), and the duration in years. The calculator uses a compound interest formula to compute both the estimated final balance and the total reward earned, allowing you to plan your investment strategy and understand potential returns.
+    </p>
+  </div>
+  
+  <!-- Frequently Asked Questions (FAQ) Section -->
+  <div class="faq">
+    <h3>Frequently Asked Questions (FAQ)</h3>
+    <ul>
+      <li>
+        <strong>Q: What does this calculator estimate?</strong><br>
+        <em>A:</em> It estimates the total reward earned and the final balance after staking your cryptocurrency over a specified period using a compound interest formula.
+      </li>
+      <li>
+        <strong>Q: Is this calculator free to use?</strong><br>
+        <em>A:</em> Yes, this tool is completely free.
+      </li>
+      <li>
+        <strong>Q: Can I use this calculator for any cryptocurrency?</strong><br>
+        <em>A:</em> Yes, as long as you know the APY for the cryptocurrency you are staking, the calculator will work effectively.
+      </li>
+      <li>
+        <strong>Q: How accurate are the estimates?</strong><br>
+        <em>A:</em> The estimates are based on the input values and assume a constant APY over the period. Actual returns may vary due to market fluctuations and specific platform details.
+      </li>
+    </ul>
+  </div>
+  
+  <script>
+    function calculateStaking() {
+      var amount = parseFloat(document.getElementById("amount").value);
+      var apy = parseFloat(document.getElementById("apy").value);
+      var years = parseFloat(document.getElementById("years").value);
+      
+      if (isNaN(amount) || isNaN(apy) || isNaN(years)) {
+        document.getElementById("result").innerHTML = "Please fill in all fields with valid numbers.";
+        return;
+      }
+      
+      // Using compound interest formula (annually compounded)
+      var finalAmount = amount * Math.pow((1 + (apy / 100)), years);
+      var reward = finalAmount - amount;
+      
+      document.getElementById("result").innerHTML =
+        "Estimated Reward: $" + reward.toFixed(2) + "<br>" +
+        "Final Amount: $" + finalAmount.toFixed(2);
+    }
+  </script>
+</body>
+</html>

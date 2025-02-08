@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Comprehensive collection of useful online tools for finance, health, and cryptocurrency calculations" />
+  <title>SmallToolsPro - Ultimate Online Calculators Collection</title>
+  <!-- Font Awesome for social icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    :root {
+      --primary-color: #2563eb;
+      --secondary-color: #1e40af;
+      --background: #f8fafc;
+      --text-color: #1e293b;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+      color: var(--text-color);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+    
+    /* Header Navigation - Updated with Blue Gradient */
+    header {
+      background: linear-gradient(to right, #2563eb, #1e40af);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+    }
+    
+    nav h2 {
+      font-size: 1.8rem;
+      color: #ffffff;
+    }
+    
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
+    
+    .nav-links a {
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+    
+    .nav-links a:hover {
+      color: var(--primary-color);
+    }
+    
+    /* Hero Section */
+    .hero {
+      text-align: center;
+      padding: 4rem 0;
+    }
+    
+    .hero h1 {
+      font-size: 2.5rem;
+      color: var(--primary-color);
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+    
+    .hero p {
+      font-size: 1.1rem;
+      color: var(--text-color);
+    }
+    
+    /* Ad Container for AdSense (optional) */
+    .ad-container {
+      margin: 2rem 0;
+      padding: 1rem;
+      background: white;
+      border-radius: 0.5rem;
+      text-align: center;
+      font-style: italic;
+      color: #64748b;
+    }
+    
+    /* Tools Section */
+    #tools .tool-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+    
+    .tool-card {
+      background: white;
+      border-radius: 1rem;
+      padding: 2rem;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: 1px solid rgba(203, 213, 225, 0.3);
+    }
+    
+    /* Color variations for visual interest */
+    .tool-card:nth-child(1) { background: hsl(210, 80%, 95%); }
+    .tool-card:nth-child(2) { background: hsl(160, 80%, 95%); }
+    .tool-card:nth-child(3) { background: hsl(320, 80%, 95%); }
+    .tool-card:nth-child(4) { background: hsl(40, 80%, 95%); }
+    .tool-card:nth-child(5) { background: hsl(270, 80%, 95%); }
+    .tool-card:nth-child(6) { background: hsl(30, 80%, 95%); }
+    
+    .tool-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    }
+    
+    .tool-card a {
+      color: var(--text-color);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.1rem;
+      display: block;
+    }
+    
+    .tool-card p {
+      color: #64748b;
+      margin-top: 0.5rem;
+      font-size: 0.9rem;
+    }
+    
+    /* Updated About Section */
+    .about-section {
+      background: rgba(255, 255, 255, 0.95);
+      padding: 3rem;
+      border-radius: 1rem;
+      margin: 3rem 0;
+      line-height: 1.8;
+    }
+    
+    .about-section h2 {
+      margin-bottom: 1rem;
+      color: var(--primary-color);
+    }
+    
+    .about-section p {
+      font-size: 1rem;
+      color: var(--text-color);
+    }
+    
+    /* Social Media Section */
+    .social-media {
+      text-align: center;
+      margin: 2rem 0;
+    }
+    
+    .social-media h3 {
+      margin-bottom: 1rem;
+    }
+    
+    .social-icons {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+    }
+    
+    .social-icons a {
+      color: var(--text-color);
+      font-size: 1.5rem;
+      transition: color 0.3s ease;
+    }
+    
+    .social-icons a:hover {
+      color: var(--primary-color);
+    }
+    
+    /* Footer */
+    footer {
+      text-align: center;
+      margin-top: 3rem;
+      padding: 2rem;
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 1rem;
+    }
+    
+    footer nav a {
+      color: var(--text-color);
+      text-decoration: none;
+      margin: 0 0.5rem;
+      transition: color 0.3s ease;
+    }
+    
+    footer nav a:hover {
+      color: var(--primary-color);
+    }
+    
+    /* Responsive Adjustments */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+      
+      .hero {
+        padding: 2rem 0;
+      }
+      
+      .hero h1 {
+        font-size: 2rem;
+      }
+      
+      .about-section {
+        padding: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header with Navigation Links -->
+  <header>
+    <nav>
+      <h2>SmallToolsPro</h2>
+      <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#tools">Tools</a>
+        <a href="#about">About</a>
+        <!-- The Contact link here points to a separate contact page -->
+        <a href="contact.html">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <div class="container">
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+      <h1>Your All-in-One Calculator Solution</h1>
+      <p>Smart tools for modern life calculations</p>
+    </section>
+
+    <!-- Tools Section -->
+    <section id="tools">
+      <div class="tool-grid">
+        <div class="tool-card">
+          <a href="podcast.html">
+            🎙️ Podcast Revenue Calculator
+            <p>Estimate your podcast advertising earnings</p>
+          </a>
+        </div>
+
+        <div class="tool-card">
+          <a href="crypto-profit.html">
+            ₿ Crypto Profit Calculator
+            <p>Calculate cryptocurrency investments returns</p>
+          </a>
+        </div>
+
+        <div class="tool-card">
+          <a href="crypto-staking.html">
+            🔒 Staking Rewards Calculator
+            <p>Estimate your crypto staking earnings</p>
+          </a>
+        </div>
+
+        <div class="tool-card">
+          <a href="mortgage.html">
+            🏠 Mortgage Calculator
+            <p>Calculate monthly mortgage payments</p>
+          </a>
+        </div>
+
+        <div class="tool-card">
+          <a href="bmi.html">
+            ⚖️ BMI Calculator
+            <p>Calculate your Body Mass Index</p>
+          </a>
+        </div>
+
+        <div class="tool-card">
+          <a href="budget.html">
+            💵 Budget Calculator
+            <p>Plan and track your budget easily</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- First AdSense Container -->
+    <div class="ad-container">
+      Advertisement
+    </div>
+
+    <!-- Updated About Section -->
+    <section class="about-section" id="about">
+      <h2>About Our Tools</h2>
+      <p>
+        At SmallToolsPro, we’re redefining smart decision-making with our cutting-edge online calculators. Whether you’re planning your finances, tracking your health, or diving into the dynamic world of cryptocurrencies, our suite of precision-engineered tools delivers real-time, reliable results. Designed with innovation and simplicity in mind, our calculators empower you to make informed choices—fueling smarter investments, healthier lifestyles, and financial freedom. Join thousands of users who trust SmallToolsPro to elevate their decision-making to the next level.
+      </p>
+    </section>
+
+    <!-- Second AdSense Container -->
+    <div class="ad-container">
+      Advertisement
+    </div>
+
+    <!-- Social Media Section -->
+    <div class="social-media">
+      <h3>Connect With Us</h3>
+      <div class="social-icons">
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+      <p>© 2023 SmallToolsPro. All rights reserved.</p>
+      <nav>
+        <a href="privacy.html">Privacy Policy</a> |
+        <a href="terms.html">Terms of Service</a>
+      </nav>
+    </footer>
+  </div>
+</body>
+</html>

@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Calculate your monthly budget by comparing your income and expenses." />
+  <title>Budget Calculator - MultiTools Pro</title>
+  <!-- Font Awesome for any icons (optional) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    :root {
+      --primary-color: #2563eb;
+      --secondary-color: #1e40af;
+      --background: #f8fafc;
+      --text-color: #1e293b;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+      background: linear-gradient(135deg, var(--background) 0%, #e2e8f0 100%);
+      color: var(--text-color);
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    
+    /* Budget Calculator Form Container - Reduced Height */
+    .container {
+      max-width: 400px;
+      margin: 0 auto;
+      background: white;
+      padding: 1rem 1.5rem; /* Reduced vertical padding for a medium height */
+      border-radius: 1rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      width: 100%;
+    }
+    
+    h1 {
+      text-align: center;
+      margin-bottom: 1rem;
+      color: var(--primary-color);
+      font-size: 1.8rem;
+    }
+    
+    form {
+      display: grid;
+      gap: 0.8rem;
+    }
+    
+    .form-group {
+      display: flex;
+      flex-direction: column;
+    }
+    
+    label {
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+    
+    input {
+      padding: 0.6rem;
+      border: 1px solid #e2e8f0;
+      border-radius: 0.5rem;
+      font-size: 0.95rem;
+    }
+    
+    button {
+      padding: 0.7rem;
+      background: var(--primary-color);
+      border: none;
+      border-radius: 0.5rem;
+      color: white;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    
+    button:hover {
+      background: var(--secondary-color);
+    }
+    
+    .result {
+      text-align: center;
+      margin-top: 1rem;
+      font-size: 1rem;
+      font-weight: bold;
+      color: var(--primary-color);
+    }
+    
+    .back-home {
+      text-align: center;
+      margin-top: 1.5rem;
+    }
+    
+    .back-home a {
+      color: var(--primary-color);
+      text-decoration: none;
+      font-weight: bold;
+    }
+    
+    .back-home a:hover {
+      text-decoration: underline;
+    }
+    
+    /* About and FAQ Sections - Larger Width */
+    .description, .faq {
+      background: #fff;
+      padding: 20px 30px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      max-width: 600px;
+      width: 100%;
+      margin: 20px auto;
+    }
+    
+    .description h3, .faq h3 {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    
+    .description p, .faq p {
+      font-size: 1rem;
+      line-height: 1.6;
+      text-align: justify;
+    }
+    
+    .faq ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    
+    .faq li {
+      margin-bottom: 10px;
+      line-height: 1.4;
+    }
+    
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      body {
+        padding: 10px;
+      }
+      .container, .description, .faq {
+        padding: 15px 20px;
+      }
+      h1 {
+        font-size: 1.8rem;
+      }
+      button {
+        font-size: 14px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .container, .description, .faq {
+        padding: 10px 15px;
+      }
+      h1 {
+        font-size: 1.6rem;
+      }
+      label, input, button {
+        font-size: 14px;
+      }
+      .result {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Budget Calculator Section -->
+  <div class="container">
+    <h1>Budget Calculator</h1>
+    <form id="budgetForm">
+      <div class="form-group">
+        <label for="income">Monthly Income ($):</label>
+        <input type="number" id="income" name="income" required placeholder="e.g., 5000" />
+      </div>
+      <div class="form-group">
+        <label for="rent">Rent/Mortgage ($):</label>
+        <input type="number" id="rent" name="rent" required placeholder="e.g., 1500" />
+      </div>
+      <div class="form-group">
+        <label for="utilities">Utilities ($):</label>
+        <input type="number" id="utilities" name="utilities" required placeholder="e.g., 200" />
+      </div>
+      <div class="form-group">
+        <label for="groceries">Groceries ($):</label>
+        <input type="number" id="groceries" name="groceries" required placeholder="e.g., 500" />
+      </div>
+      <div class="form-group">
+        <label for="transportation">Transportation ($):</label>
+        <input type="number" id="transportation" name="transportation" required placeholder="e.g., 300" />
+      </div>
+      <div class="form-group">
+        <label for="entertainment">Entertainment ($):</label>
+        <input type="number" id="entertainment" name="entertainment" required placeholder="e.g., 150" />
+      </div>
+      <button type="submit">Calculate Budget</button>
+    </form>
+    <div class="result" id="result"></div>
+    <div class="back-home">
+      <a href="index.html">← Back to Home</a>
+    </div>
+  </div>
+  
+  <!-- About This Tool Section -->
+  <div class="description">
+    <h3>About This Tool</h3>
+    <p>
+      The Budget Calculator is designed to help you manage your monthly finances by comparing your income with your expenses. Simply enter your monthly income along with key expense categories—such as rent/mortgage, utilities, groceries, transportation, and entertainment—and this tool will calculate your total expenses and your remaining budget. Use this calculator to plan your spending, set savings goals, and work toward financial stability.
+    </p>
+  </div>
+  
+  <!-- Frequently Asked Questions (FAQ) Section -->
+  <div class="faq">
+    <h3>Frequently Asked Questions (FAQ)</h3>
+    <ul>
+      <li>
+        <strong>Q: How are total expenses calculated?</strong><br>
+        <em>A:</em> The calculator adds all the expense values you provide (rent, utilities, groceries, transportation, and entertainment) to determine your total monthly expenses.
+      </li>
+      <li>
+        <strong>Q: Is the Budget Calculator free to use?</strong><br>
+        <em>A:</em> Yes, this tool is completely free.
+      </li>
+      <li>
+        <strong>Q: What does the remaining budget represent?</strong><br>
+        <em>A:</em> It is the difference between your monthly income and your total expenses.
+      </li>
+      <li>
+        <strong>Q: Can I use this calculator for personal budgeting?</strong><br>
+        <em>A:</em> Absolutely. It is designed to help you manage and plan your personal finances effectively.
+      </li>
+    </ul>
+  </div>
+  
+  <script>
+    document.getElementById("budgetForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      
+      // Retrieve values from the form
+      const income = parseFloat(document.getElementById("income").value) || 0;
+      const rent = parseFloat(document.getElementById("rent").value) || 0;
+      const utilities = parseFloat(document.getElementById("utilities").value) || 0;
+      const groceries = parseFloat(document.getElementById("groceries").value) || 0;
+      const transportation = parseFloat(document.getElementById("transportation").value) || 0;
+      const entertainment = parseFloat(document.getElementById("entertainment").value) || 0;
+      
+      // Calculate total expenses and remaining budget
+      const totalExpenses = rent + utilities + groceries + transportation + entertainment;
+      const remainingBudget = income - totalExpenses;
+      
+      // Display the result
+      const resultDiv = document.getElementById("result");
+      resultDiv.innerHTML = 
+        "Total Expenses: $" + totalExpenses.toFixed(2) + "<br>" +
+        "Remaining Budget: $" + remainingBudget.toFixed(2);
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Podcast Ad Revenue Calculator</title>
+  <style>
+    /* Global Styles */
+    body {
+      font-family: Arial, sans-serif;
+      background: #f8f8f8;
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+    
+    /* Shared container styles */
+    .calculator, .description, .faq {
+      background: #fff;
+      padding: 20px 30px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      margin-bottom: 20px;
+    }
+    
+    /* Calculator stays at 400px max width */
+    .calculator {
+      max-width: 400px;
+    }
+    
+    /* About and FAQ sections are a bit larger on desktop */
+    .description, .faq {
+      max-width: 600px;
+    }
+    
+    .calculator h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    
+    .calculator label {
+      display: block;
+      margin: 10px 0 5px;
+    }
+    
+    .calculator input {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    
+    .calculator button {
+      width: 100%;
+      padding: 10px;
+      background: #007BFF;
+      border: none;
+      color: #fff;
+      font-size: 16px;
+      border-radius: 4px;
+      margin-top: 20px;
+      cursor: pointer;
+    }
+    
+    .calculator button:hover {
+      background: #0056b3;
+    }
+    
+    .result {
+      margin-top: 20px;
+      text-align: center;
+      font-weight: bold;
+    }
+    
+    .description h3,
+    .faq h3 {
+      margin-bottom: 10px;
+      text-align: center;
+    }
+    
+    .description p,
+    .faq p {
+      font-size: 1rem;
+      line-height: 1.6;
+      text-align: justify;
+    }
+    
+    .faq ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    
+    .faq li {
+      margin-bottom: 10px;
+      line-height: 1.4;
+    }
+    
+    .back-link {
+      margin-top: 15px;
+      text-align: center;
+    }
+    
+    .back-link a {
+      text-decoration: none;
+      color: #007BFF;
+    }
+    
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      body {
+        padding: 10px;
+      }
+      .calculator, .description, .faq {
+        padding: 15px 20px;
+      }
+      .calculator h2 {
+        font-size: 1.8rem;
+      }
+      .calculator button {
+        font-size: 14px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .calculator, .description, .faq {
+        padding: 10px 15px;
+      }
+      .calculator h2 {
+        font-size: 1.6rem;
+      }
+      .calculator label, 
+      .calculator input, 
+      .calculator button {
+        font-size: 14px;
+      }
+      .result {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Calculator Section -->
+  <div class="calculator">
+    <h2>Podcast Ad Revenue Calculator</h2>
+    <label for="downloads">Downloads per Episode:</label>
+    <input type="number" id="downloads" placeholder="Enter downloads per episode" />
+    
+    <label for="adSlots">Ad Slots per Episode:</label>
+    <input type="number" id="adSlots" placeholder="Enter number of ad slots" />
+    
+    <label for="cpm">CPM Rate ($ per 1000 downloads):</label>
+    <input type="number" id="cpm" placeholder="Enter CPM rate" step="0.01" />
+    
+    <label for="episodes">Episodes per Month:</label>
+    <input type="number" id="episodes" placeholder="Enter episodes per month" />
+    
+    <button onclick="calculateRevenue()">Calculate Revenue</button>
+    
+    <div class="result" id="result"></div>
+    <div class="back-link"><a href="index.html">Back to Home</a></div>
+  </div>
+  
+  <!-- About This Tool Section -->
+  <div class="description">
+    <h3>About This Tool</h3>
+    <p>
+      The Podcast Ad Revenue Calculator is designed to help podcasters and content creators estimate their potential advertising revenue. Simply enter your average downloads per episode, the number of ad slots available, the cost per thousand impressions (CPM), and the number of episodes released per month. The tool then calculates both your revenue per episode and your estimated monthly revenue. Use this information to plan your podcast monetization strategy and negotiate better advertising deals.
+    </p>
+  </div>
+  
+  <!-- Frequently Asked Questions (FAQ) Section -->
+  <div class="faq">
+    <h3>Frequently Asked Questions (FAQ)</h3>
+    <ul>
+      <li>
+        <strong>Q: How does this calculator work?</strong><br>
+        <em>A:</em> It divides your average downloads by 1000, multiplies by your CPM rate, and then factors in the number of ad slots and episodes to estimate your revenue.
+      </li>
+      <li>
+        <strong>Q: Is this calculator free to use?</strong><br>
+        <em>A:</em> Yes, this tool is completely free.
+      </li>
+      <li>
+        <strong>Q: Can I use this calculator for any podcast?</strong><br>
+        <em>A:</em> Absolutely—provided you have accurate data for downloads, ad slots, and CPM.
+      </li>
+      <li>
+        <strong>Q: How accurate are the revenue estimates?</strong><br>
+        <em>A:</em> The estimates are based on your input and average CPM values. Actual revenue may vary based on listener engagement and ad performance.
+      </li>
+    </ul>
+  </div>
+  
+  <script>
+    function calculateRevenue() {
+      var downloads = parseFloat(document.getElementById("downloads").value);
+      var adSlots = parseFloat(document.getElementById("adSlots").value);
+      var cpm = parseFloat(document.getElementById("cpm").value);
+      var episodes = parseFloat(document.getElementById("episodes").value);
+      
+      if (isNaN(downloads) || isNaN(adSlots) || isNaN(cpm) || isNaN(episodes)) {
+        document.getElementById("result").innerHTML = "Please fill in all fields with valid numbers.";
+        return;
+      }
+      
+      var revenuePerEpisode = (downloads / 1000) * cpm * adSlots;
+      var monthlyRevenue = revenuePerEpisode * episodes;
+      
+      document.getElementById("result").innerHTML =
+        "Revenue per Episode: $" + revenuePerEpisode.toFixed(2) + "<br>" +
+        "Monthly Revenue: $" + monthlyRevenue.toFixed(2);
+    }
+  </script>
+</body>
+</html>

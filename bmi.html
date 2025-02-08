@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Calculate your Body Mass Index (BMI) quickly using your weight and height measurements." />
+  <title>BMI Calculator - MultiTools Pro</title>
+  <style>
+    :root {
+      --primary-color: #6f42c1;
+      --secondary-color: #593196;
+      --background: #f8f8f8;
+      --text-color: #1e293b;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: Arial, sans-serif;
+      background: #f8f8f8;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+    
+    /* Calculator Section (Tool Section) */
+    .calculator {
+      background: #fff;
+      padding: 20px 30px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      max-width: 400px;
+      width: 100%;
+      margin-bottom: 20px;
+    }
+    
+    .calculator h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    
+    .calculator label {
+      display: block;
+      margin: 10px 0 5px;
+    }
+    
+    .calculator input {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    
+    .calculator button {
+      width: 100%;
+      padding: 10px;
+      background: var(--primary-color);
+      border: none;
+      color: #fff;
+      font-size: 16px;
+      border-radius: 4px;
+      margin-top: 20px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    
+    .calculator button:hover {
+      background: var(--secondary-color);
+    }
+    
+    .result {
+      margin-top: 20px;
+      text-align: center;
+      font-weight: bold;
+      color: var(--primary-color);
+    }
+    
+    .back-link {
+      margin-top: 15px;
+      text-align: center;
+    }
+    
+    .back-link a {
+      text-decoration: none;
+      color: var(--primary-color);
+      font-weight: bold;
+    }
+    
+    .back-link a:hover {
+      text-decoration: underline;
+    }
+    
+    /* About and FAQ Sections - Wider Layout */
+    .description, .faq {
+      background: #fff;
+      padding: 20px 30px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      max-width: 600px;
+      width: 100%;
+      margin: 20px auto;
+    }
+    
+    .description h3, .faq h3 {
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    
+    .description p, .faq p {
+      font-size: 1rem;
+      line-height: 1.6;
+      text-align: justify;
+    }
+    
+    .faq ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    
+    .faq li {
+      margin-bottom: 10px;
+      line-height: 1.4;
+    }
+    
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      body {
+        padding: 10px;
+      }
+      .calculator, .description, .faq {
+        padding: 15px 20px;
+      }
+      .calculator h2 {
+        font-size: 1.8rem;
+      }
+      .calculator button {
+        font-size: 14px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .calculator, .description, .faq {
+        padding: 10px 15px;
+      }
+      .calculator h2 {
+        font-size: 1.6rem;
+      }
+      .calculator label,
+      .calculator input,
+      .calculator button {
+        font-size: 14px;
+      }
+      .result {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Calculator Section -->
+  <div class="calculator">
+    <h2>BMI Calculator</h2>
+    <label for="weight">Weight (kg):</label>
+    <input type="number" id="weight" placeholder="Enter your weight in kg" step="0.1" />
+
+    <label for="height">Height (cm):</label>
+    <input type="number" id="height" placeholder="Enter your height in cm" step="0.1" />
+
+    <button onclick="calculateBMI()">Calculate BMI</button>
+
+    <div class="result" id="result"></div>
+    <div class="back-link"><a href="index.html">← Back to Home</a></div>
+  </div>
+
+  <!-- About This Tool Section -->
+  <div class="description">
+    <h3>About This Tool</h3>
+    <p>
+      The BMI Calculator is designed to help you quickly determine your Body Mass Index (BMI) using your weight and height measurements. BMI is a simple calculation that can indicate whether you are underweight, normal weight, overweight, or obese. This tool provides an easy and free way to track your health status and make informed decisions about your wellness journey.
+    </p>
+  </div>
+
+  <!-- Frequently Asked Questions (FAQ) Section -->
+  <div class="faq">
+    <h3>Frequently Asked Questions (FAQ)</h3>
+    <ul>
+      <li>
+        <strong>Q: What is BMI?</strong><br>
+        <em>A:</em> BMI stands for Body Mass Index. It is a measurement that uses your weight and height to estimate body fat.
+      </li>
+      <li>
+        <strong>Q: How is BMI calculated?</strong><br>
+        <em>A:</em> BMI is calculated by dividing your weight in kilograms by the square of your height in meters.
+      </li>
+      <li>
+        <strong>Q: Is BMI a perfect measure of health?</strong><br>
+        <em>A:</em> While BMI is a useful screening tool, it does not directly measure body fat or account for factors like muscle mass or distribution of weight.
+      </li>
+      <li>
+        <strong>Q: Is this calculator free to use?</strong><br>
+        <em>A:</em> Yes, the BMI Calculator is completely free.
+      </li>
+    </ul>
+  </div>
+
+  <script>
+    function calculateBMI() {
+      var weight = parseFloat(document.getElementById("weight").value);
+      var heightCm = parseFloat(document.getElementById("height").value);
+      
+      if (isNaN(weight) || isNaN(heightCm) || heightCm === 0) {
+        document.getElementById("result").innerHTML = "Please fill in all fields with valid numbers.";
+        return;
+      }
+      
+      var heightM = heightCm / 100;
+      var bmi = weight / (heightM * heightM);
+      
+      document.getElementById("result").innerHTML = "Your BMI is: " + bmi.toFixed(2);
+    }
+  </script>
+</body>
+</html>
