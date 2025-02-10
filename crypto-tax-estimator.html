@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0ZKNDHKLJN"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-0ZKNDHKLJN');
+</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Crypto Tax Estimator - SmallToolsPro</title>
+  <meta name="description" content="Estimate your crypto tax liability by entering your total gains, losses, and applicable tax rate." />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    :root {
+      --primary-color: #2563eb;
+      --secondary-color: #1e40af;
+      --accent-color: #10B981;
+      --background: #f8fafc;
+      --text-color: #1e293b;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+  font-family: 'Segoe UI', sans-serif;
+  display: flex;                /* Make body a flex container */
+  flex-direction: column;       /* Stack children vertically */
+  justify-content: center;      /* Center vertically */
+  align-items: center;          /* Center horizontally */
+  background: linear-gradient(135deg, var(--background) 0%, #e2e8f0 100%);
+  color: var(--text-color);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+    header {
+      width: 100%;
+      background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+      padding: 1rem 2rem;
+      margin-bottom: 20px;
+    }
+    header nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header nav h2 { color: #fff; font-size: 1.8rem; }
+    .nav-links a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 1rem;
+      font-weight: 500;
+    }
+    .nav-links a:hover { color: #a3bffa; }
+    /* Main Container */
+    .container {
+      max-width: 800px;
+      width: 100%;
+      background: #fff;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+    }
+    .tool-section { margin-bottom: 2rem; }
+    .tool-section h2 {
+      text-align: center;
+      margin-bottom: 1rem;
+      color: var(--primary-color);
+    }
+    .tool-section label {
+      display: block;
+      margin: 10px 0 5px;
+      font-weight: bold;
+    }
+    .tool-section input, .tool-section button {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 1rem;
+      margin-bottom: 10px;
+    }
+    .tool-section button {
+      background: var(--primary-color);
+      color: #fff;
+      cursor: pointer;
+      border: none;
+      transition: background 0.3s ease;
+    }
+    .tool-section button:hover { background: var(--secondary-color); }
+    .result {
+      margin-top: 15px;
+      padding: 10px;
+      background: #f1f5f9;
+      border-radius: 4px;
+      text-align: center;
+    }
+    .description, .faq {
+      background: #fff;
+      padding: 1rem 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+      width: 100%;
+    }
+    .description h3, .faq h3 {
+      text-align: center;
+      margin-bottom: 0.5rem;
+      color: var(--primary-color);
+    }
+    .description p, .faq p, .faq li {
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-bottom: 0.5rem;
+    }
+    .faq ul { list-style-type: none; padding-left: 0; }
+    footer {
+      width: 100%;
+      background: #fff;
+      padding: 1rem;
+      text-align: center;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      margin-top: 20px;
+    }
+    footer nav a {
+      color: var(--text-color);
+      text-decoration: none;
+      margin: 0 0.5rem;
+      font-weight: 500;
+    }
+    footer nav a:hover { color: var(--primary-color); }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <nav>
+      <h2>SmallToolsPro</h2>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="index.html#tools">Tools</a>
+        <a href="index.html#about">About</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </nav>
+  </header>
+  <!-- Main Container -->
+  <div class="container">
+    <div class="tool-section">
+      <h2>Crypto Tax Estimator</h2>
+      <label for="totalGains">Total Gains ($):</label>
+      <input type="number" id="totalGains" placeholder="Enter your total gains" />
+      
+      <label for="totalLosses">Total Losses ($):</label>
+      <input type="number" id="totalLosses" placeholder="Enter your total losses" />
+      
+      <label for="taxRate">Tax Rate (%):</label>
+      <input type="number" id="taxRate" placeholder="Enter your tax rate" />
+      
+      <button onclick="calculateTax()">Calculate Tax Liability</button>
+      <div class="result" id="taxResult"></div>
+    </div>
+    <div class="description">
+      <h3>About This Tool</h3>
+      <p>
+        Use this Crypto Tax Estimator to quickly estimate your tax liability on cryptocurrency transactions. Enter your total gains, losses, and the tax rate to see your net gain and estimated tax.
+      </p>
+    </div>
+    <div class="faq">
+      <h3>FAQ</h3>
+      <ul>
+        <li>
+          <strong>Q:</strong> How does it work?<br>
+          <em>A:</em> It subtracts losses from gains and applies the tax rate to the net gain.
+        </li>
+        <li>
+          <strong>Q:</strong> Is this a substitute for professional advice?<br>
+          <em>A:</em> No, it provides an estimate. Consult a professional for accurate tax calculations.
+        </li>
+      </ul>
+    </div>
+  </div>
+  
+  <!-- Footer -->
+  <footer>
+    <p>© 2023 SmallToolsPro. All rights reserved.</p>
+    <nav>
+      <a href="privacy.html">Privacy Policy</a> |
+      <a href="terms.html">Terms of Service</a>
+    </nav>
+  </footer>
+  
+  <script>
+    function calculateTax() {
+      const gains = parseFloat(document.getElementById("totalGains").value) || 0;
+      const losses = parseFloat(document.getElementById("totalLosses").value) || 0;
+      const taxRate = parseFloat(document.getElementById("taxRate").value);
+      const resultDiv = document.getElementById("taxResult");
+      
+      if (isNaN(taxRate)) {
+        alert("Please enter a valid tax rate.");
+        return;
+      }
+      
+      const netGain = gains - losses;
+      const taxLiability = netGain > 0 ? (netGain * taxRate / 100).toFixed(2) : 0;
+      
+      resultDiv.innerHTML = `<p><strong>Net Gain:</strong> $${netGain.toFixed(2)}</p>
+                             <p><strong>Estimated Tax Liability:</strong> $${taxLiability}</p>`;
+    }
+  </script>
+</body>
+</html>
