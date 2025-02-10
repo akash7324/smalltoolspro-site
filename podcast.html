@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
- <!-- Google tag (gtag.js) -->
+   <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-0ZKNDHKLJN"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -12,217 +12,180 @@
 </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Podcast Ad Revenue Calculator</title>
+  <title>Podcast Revenue Calculator - SmallToolsPro</title>
+  <meta name="description" content="Estimate your podcast ad revenue using our Podcast Revenue Calculator." />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <style>
-    /* Global Styles */
+    :root {
+      --primary-color: #2563eb;
+      --secondary-color: #1e40af;
+      --background: #f8fafc;
+      --text-color: #1e293b;
+    }
+    * { margin:0; padding:0; box-sizing:border-box; }
     body {
-      font-family: Arial, sans-serif;
-      background: #f8f8f8;
-      margin: 0;
-      padding: 20px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      min-height: 100vh;
+  font-family: 'Segoe UI', sans-serif;
+  display: flex;                /* Make body a flex container */
+  flex-direction: column;       /* Stack children vertically */
+  justify-content: center;      /* Center vertically */
+  align-items: center;          /* Center horizontally */
+  background: linear-gradient(135deg, var(--background) 0%, #e2e8f0 100%);
+  color: var(--text-color);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+    header {
+      width:100%;
+      background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+      padding:1rem 2rem;
+      margin-bottom:20px;
+      position:sticky;
+      top:0;
+      z-index:100;
     }
-    
-    /* Shared container styles */
-    .calculator, .description, .faq {
-      background: #fff;
-      padding: 20px 30px;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    header nav { display:flex; justify-content:space-between; align-items:center; }
+    header nav h2 { color:#fff; font-size:1.8rem; }
+    .nav-links a { color:#fff; text-decoration:none; margin-left:1rem; font-weight:500; transition:color 0.3s ease; }
+    .nav-links a:hover { color:var(--primary-color); }
+    .container {
+      max-width:500px;
+      width:100%;
+      background:#fff;
+      padding:20px 30px;
+      border-radius:8px;
+      box-shadow:0 2px 8px rgba(0,0,0,0.1);
+      margin-bottom:20px;
+    }
+     /* AD CONTAINER with smaller banner dimensions */
+     .ad-container {
       width: 100%;
-      margin-bottom: 20px;
+      text-align: center;
+      margin: 20px 0;
     }
-    
-    /* Calculator stays at 400px max width */
-    .calculator {
-      max-width: 400px;
+    .ad-container ins {
+      display: inline-block;
+      width: 468px;  /* Updated width */
+      height: 60px;  /* Updated height */
     }
-    
-    /* About and FAQ sections are a bit larger on desktop */
+    .tool-section h2 { text-align:center; margin-bottom:1rem; color:var(--primary-color); }
+    .tool-section label { display:block; margin:10px 0 5px; font-weight:bold; }
+    .tool-section input {
+      width:100%;
+      padding:10px;
+      border:1px solid #ccc;
+      border-radius:4px;
+      margin-bottom:10px;
+      font-size:1rem;
+    }
+    .tool-section button {
+      width:100%;
+      padding:10px;
+      background:var(--primary-color);
+      color:#fff;
+      border:none;
+      border-radius:4px;
+      margin-top:20px;
+      cursor:pointer;
+      transition:background 0.3s ease;
+      font-size:1rem;
+    }
+    .tool-section button:hover { background:var(--secondary-color); }
+    .result { margin-top:15px; text-align:center; font-weight:bold; color:var(--primary-color); font-size:1.2rem; }
+    .back-link { margin-top:15px; text-align:center; }
+    .back-link a { text-decoration:none; color:var(--primary-color); font-weight:bold; }
+    .back-link a:hover { text-decoration:underline; }
     .description, .faq {
-      max-width: 600px;
+      background:#fff;
+      padding:20px 30px;
+      border-radius:8px;
+      box-shadow:0 2px 8px rgba(0,0,0,0.1);
+      max-width:600px;
+      width:100%;
+      margin:20px auto;
     }
-    
-    .calculator h2 {
-      text-align: center;
-      margin-bottom: 20px;
+    .description h3, .faq h3 { text-align:center; margin-bottom:10px; color:var(--primary-color); }
+    .description p, .faq p, .faq li { font-size:1rem; line-height:1.6; margin-bottom:10px; }
+    .faq ul { list-style-type:none; padding-left:0; }
+    footer {
+      width:100%;
+      background:#fff;
+      padding:1rem;
+      text-align:center;
+      border-radius:8px;
+      box-shadow:0 2px 8px rgba(0,0,0,0.1);
+      margin-top:20px;
     }
-    
-    .calculator label {
-      display: block;
-      margin: 10px 0 5px;
-    }
-    
-    .calculator input {
-      width: 100%;
-      padding: 8px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-    }
-    
-    .calculator button {
-      width: 100%;
-      padding: 10px;
-      background: #007BFF;
-      border: none;
-      color: #fff;
-      font-size: 16px;
-      border-radius: 4px;
-      margin-top: 20px;
-      cursor: pointer;
-    }
-    
-    .calculator button:hover {
-      background: #0056b3;
-    }
-    
-    .result {
-      margin-top: 20px;
-      text-align: center;
-      font-weight: bold;
-    }
-    
-    .description h3,
-    .faq h3 {
-      margin-bottom: 10px;
-      text-align: center;
-    }
-    
-    .description p,
-    .faq p {
-      font-size: 1rem;
-      line-height: 1.6;
-      text-align: justify;
-    }
-    
-    .faq ul {
-      list-style-type: none;
-      padding: 0;
-    }
-    
-    .faq li {
-      margin-bottom: 10px;
-      line-height: 1.4;
-    }
-    
-    .back-link {
-      margin-top: 15px;
-      text-align: center;
-    }
-    
-    .back-link a {
-      text-decoration: none;
-      color: #007BFF;
-    }
-    
-    /* Responsive Styles */
-    @media (max-width: 768px) {
-      body {
-        padding: 10px;
-      }
-      .calculator, .description, .faq {
-        padding: 15px 20px;
-      }
-      .calculator h2 {
-        font-size: 1.8rem;
-      }
-      .calculator button {
-        font-size: 14px;
-      }
-    }
-    
-    @media (max-width: 480px) {
-      .calculator, .description, .faq {
-        padding: 10px 15px;
-      }
-      .calculator h2 {
-        font-size: 1.6rem;
-      }
-      .calculator label, 
-      .calculator input, 
-      .calculator button {
-        font-size: 14px;
-      }
-      .result {
-        font-size: 14px;
-      }
-    }
+    footer nav a { color:var(--text-color); text-decoration:none; margin:0 0.5rem; font-weight:500; transition:color 0.3s ease; }
+    footer nav a:hover { color:var(--primary-color); }
   </style>
 </head>
 <body>
-  <!-- Calculator Section -->
-  <div class="calculator">
-    <h2>Podcast Ad Revenue Calculator</h2>
-    <label for="downloads">Downloads per Episode:</label>
-    <input type="number" id="downloads" placeholder="Enter downloads per episode" />
-    
-    <label for="adSlots">Ad Slots per Episode:</label>
-    <input type="number" id="adSlots" placeholder="Enter number of ad slots" />
-    
-    <label for="cpm">CPM Rate ($ per 1000 downloads):</label>
-    <input type="number" id="cpm" placeholder="Enter CPM rate" step="0.01" />
-    
-    <label for="episodes">Episodes per Month:</label>
-    <input type="number" id="episodes" placeholder="Enter episodes per month" />
-    
-    <button onclick="calculateRevenue()">Calculate Revenue</button>
-    
-    <div class="result" id="result"></div>
-    <div class="back-link"><a href="index.html">Back to Home</a></div>
+  <!-- HEADER -->
+  <header>
+    <nav>
+      <h2>SmallToolsPro</h2>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="index.html#tools">Tools</a>
+        <a href="index.html#about">About</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </nav>
+  </header>
+  <!-- MAIN CONTAINER -->
+  <div class="container">
+    <div class="tool-section">
+      <h2>Podcast Revenue Calculator</h2>
+      <label for="downloads">Downloads per Episode:</label>
+      <input type="number" id="downloads" placeholder="Enter downloads per episode" />
+      <label for="adSlots">Ad Slots per Episode:</label>
+      <input type="number" id="adSlots" placeholder="Enter number of ad slots" />
+      <label for="cpm">CPM Rate ($ per 1000 downloads):</label>
+      <input type="number" id="cpm" placeholder="Enter CPM rate" step="0.01" />
+      <label for="episodes">Episodes per Month:</label>
+      <input type="number" id="episodes" placeholder="Enter episodes per month" />
+      <button onclick="calculatePodcastRevenue()">Calculate Revenue</button>
+      <div class="result" id="podcastResult"></div>
+      <div class="back-link"><a href="index.html">← Back to Home</a></div>
+    </div>
+    <div class="description">
+      <h3>About This Tool</h3>
+      <p>
+        The Podcast Revenue Calculator estimates your advertising revenue based on your downloads per episode, ad slots, CPM rate, and number of episodes per month.
+      </p>
+    </div>
+    <div class="faq">
+      <h3>FAQ</h3>
+      <ul>
+        <li><strong>Q:</strong> How does it calculate revenue?<br><em>A:</em> It calculates revenue per episode and multiplies it by the number of episodes.</li>
+        <li><strong>Q:</strong> Is this tool free?<br><em>A:</em> Yes, it is completely free.</li>
+      </ul>
+    </div>
   </div>
-  
-  <!-- About This Tool Section -->
-  <div class="description">
-    <h3>About This Tool</h3>
-    <p>
-      The Podcast Ad Revenue Calculator is designed to help podcasters and content creators estimate their potential advertising revenue. Simply enter your average downloads per episode, the number of ad slots available, the cost per thousand impressions (CPM), and the number of episodes released per month. The tool then calculates both your revenue per episode and your estimated monthly revenue. Use this information to plan your podcast monetization strategy and negotiate better advertising deals.
-    </p>
-  </div>
-  
-  <!-- Frequently Asked Questions (FAQ) Section -->
-  <div class="faq">
-    <h3>Frequently Asked Questions (FAQ)</h3>
-    <ul>
-      <li>
-        <strong>Q: How does this calculator work?</strong><br>
-        <em>A:</em> It divides your average downloads by 1000, multiplies by your CPM rate, and then factors in the number of ad slots and episodes to estimate your revenue.
-      </li>
-      <li>
-        <strong>Q: Is this calculator free to use?</strong><br>
-        <em>A:</em> Yes, this tool is completely free.
-      </li>
-      <li>
-        <strong>Q: Can I use this calculator for any podcast?</strong><br>
-        <em>A:</em> Absolutely—provided you have accurate data for downloads, ad slots, and CPM.
-      </li>
-      <li>
-        <strong>Q: How accurate are the revenue estimates?</strong><br>
-        <em>A:</em> The estimates are based on your input and average CPM values. Actual revenue may vary based on listener engagement and ad performance.
-      </li>
-    </ul>
-  </div>
-  
+  <!-- FOOTER -->
+  <footer>
+    <nav>
+      <a href="privacy.html">Privacy Policy</a> |
+      <a href="terms.html">Terms of Service</a> |
+      <a href="about.html">About Us</a>
+    </nav>
+    <p>© 2023 SmallToolsPro. All rights reserved.</p>
+  </footer>
   <script>
-    function calculateRevenue() {
-      var downloads = parseFloat(document.getElementById("downloads").value);
-      var adSlots = parseFloat(document.getElementById("adSlots").value);
-      var cpm = parseFloat(document.getElementById("cpm").value);
-      var episodes = parseFloat(document.getElementById("episodes").value);
-      
+    function calculatePodcastRevenue() {
+      const downloads = parseFloat(document.getElementById("downloads").value);
+      const adSlots = parseFloat(document.getElementById("adSlots").value);
+      const cpm = parseFloat(document.getElementById("cpm").value);
+      const episodes = parseFloat(document.getElementById("episodes").value);
       if (isNaN(downloads) || isNaN(adSlots) || isNaN(cpm) || isNaN(episodes)) {
-        document.getElementById("result").innerHTML = "Please fill in all fields with valid numbers.";
+        document.getElementById("podcastResult").innerText = "Please enter valid numbers for all fields.";
         return;
       }
-      
-      var revenuePerEpisode = (downloads / 1000) * cpm * adSlots;
-      var monthlyRevenue = revenuePerEpisode * episodes;
-      
-      document.getElementById("result").innerHTML =
-        "Revenue per Episode: $" + revenuePerEpisode.toFixed(2) + "<br>" +
-        "Monthly Revenue: $" + monthlyRevenue.toFixed(2);
+      const revenuePerEpisode = (downloads / 1000) * cpm * adSlots;
+      const monthlyRevenue = revenuePerEpisode * episodes;
+      document.getElementById("podcastResult").innerText =
+        "Revenue per Episode: $" + revenuePerEpisode.toFixed(2) + "\nMonthly Revenue: $" + monthlyRevenue.toFixed(2);
     }
   </script>
 </body>
