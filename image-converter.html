@@ -37,21 +37,92 @@
   min-height: 100vh;
 }
 
-    header {
-      background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
-      padding: 1rem 2rem;
-      width: 100%;
-      text-align: center;
-    }
-    header nav { display: flex; justify-content: space-between; align-items: center; }
-    header nav h2 { color: #fff; font-size: 1.8rem; }
-    .nav-links a {
-      color: #fff;
-      text-decoration: none;
-      margin-left: 1.5rem;
-      font-weight: 500;
-    }
-    .nav-links a:hover { color: #a3bffa; }
+   :root {
+  --primary-color: #2563eb;
+  --secondary-color: #1e40af;
+  --accent-color: #10B981;
+  --background: #f8fafc;
+  --text-color: #1e293b;
+}
+
+/* Existing global styles… */
+
+header {
+  width: 100%;
+  background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+  padding: 1rem 2rem;
+  margin-bottom: 20px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+header nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header nav h2 {
+  color: #fff;
+  font-size: 1.8rem;
+}
+
+/* Hide the hamburger by default */
+.menu-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* Navigation links styling */
+.nav-links {
+  display: flex;
+  gap: 2rem;
+}
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: var(--primary-color);
+}
+
+/* Mobile-specific styles */
+@media (max-width: 768px) {
+  /* Show hamburger and hide nav links initially */
+  .menu-toggle {
+    display: block;
+  }
+  
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+    position: absolute;
+    top: 70px; /* Adjust based on header height */
+    left: 0;
+  }
+  
+  .nav-links a {
+    margin: 0.5rem 0;
+    padding: 0.5rem 1rem;
+  }
+  
+  /* When active, display the navigation */
+  .nav-links.active {
+    display: flex;
+  }
+}
+
     .container {
       max-width: 1200px;
       margin: 2rem auto;
@@ -116,18 +187,20 @@
   </style>
 </head>
 <body>
-  <!-- Header Section -->
-  <header>
-    <nav>
-      <h2>SmallToolsPro</h2>
-      <div class="nav-links">
-        <a href="index.html">Home</a>
-        <a href="index.html#tools">Tools</a>
-        <a href="index.html#about">About</a>
-        <a href="contact.html">Contact</a>
-      </div>
-    </nav>
-  </header>
+<header>
+  <nav>
+    <h2>SmallToolsPro</h2>
+    <!-- Hamburger menu button for smartphones -->
+    <button class="menu-toggle" aria-label="Toggle navigation"><i class="fas fa-bars"></i></button>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="index.html#tools">Tools</a>
+      <a href="index.html#about">About</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </nav>
+</header>
+
   
   <!-- Main Container -->
   <div class="container">
@@ -220,5 +293,12 @@
       reader.readAsDataURL(file);
     }
   </script>
+   <script>
+  // Toggle the navigation menu on small screens
+  document.querySelector('.menu-toggle').addEventListener('click', function() {
+    document.querySelector('.nav-links').classList.toggle('active');
+  });
+</script>
+
 </body>
 </html>
