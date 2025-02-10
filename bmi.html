@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
- <!-- Google tag (gtag.js) -->
+   <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-0ZKNDHKLJN"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -12,226 +12,215 @@
 </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Calculate your Body Mass Index (BMI) quickly using your weight and height measurements." />
-  <title>BMI Calculator - MultiTools Pro</title>
+  <title>BMI Calculator - SmallToolsPro</title>
+  <meta name="description" content="Calculate your Body Mass Index (BMI) quickly." />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <style>
     :root {
-      --primary-color: #6f42c1;
-      --secondary-color: #593196;
-      --background: #f8f8f8;
+      --primary-color: #2563eb;
+      --secondary-color: #1e40af;
+      --background: #f8fafc;
       --text-color: #1e293b;
     }
-    
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    
+    * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      font-family: Arial, sans-serif;
-      background: #f8f8f8;
-      padding: 20px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      min-height: 100vh;
+  font-family: 'Segoe UI', sans-serif;
+  display: flex;                /* Make body a flex container */
+  flex-direction: column;       /* Stack children vertically */
+  justify-content: center;      /* Center vertically */
+  align-items: center;          /* Center horizontally */
+  background: linear-gradient(135deg, var(--background) 0%, #e2e8f0 100%);
+  color: var(--text-color);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+    /* HEADER */
+    header {
+      width: 100%;
+      background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+      padding: 1rem 2rem;
+      margin-bottom: 20px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
     }
-    
-    /* Calculator Section (Tool Section) */
-    .calculator {
+    header nav { display: flex; justify-content: space-between; align-items: center; }
+    header nav h2 { color: #fff; font-size: 1.8rem; }
+    .nav-links a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 1rem;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+    .nav-links a:hover { color: var(--primary-color); }
+     /* AD CONTAINER with smaller banner dimensions */
+     .ad-container {
+      width: 100%;
+      text-align: center;
+      margin: 20px 0;
+    }
+    /* MAIN CONTAINER */
+    .container {
+      max-width: 500px;
+      width: 100%;
       background: #fff;
       padding: 20px 30px;
       border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-      max-width: 400px;
-      width: 100%;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
       margin-bottom: 20px;
     }
-    
-    .calculator h2 {
+    .tool-section h2 {
       text-align: center;
-      margin-bottom: 20px;
+      margin-bottom: 1rem;
+      color: var(--primary-color);
     }
-    
-    .calculator label {
+    .tool-section label {
       display: block;
       margin: 10px 0 5px;
+      font-weight: bold;
     }
-    
-    .calculator input {
+    .tool-section input {
       width: 100%;
-      padding: 8px;
+      padding: 10px;
       border: 1px solid #ccc;
       border-radius: 4px;
+      margin-bottom: 10px;
+      font-size: 1rem;
     }
-    
-    .calculator button {
+    .tool-section button {
       width: 100%;
       padding: 10px;
       background: var(--primary-color);
-      border: none;
       color: #fff;
-      font-size: 16px;
+      border: none;
       border-radius: 4px;
       margin-top: 20px;
       cursor: pointer;
       transition: background 0.3s ease;
+      font-size: 1rem;
     }
-    
-    .calculator button:hover {
-      background: var(--secondary-color);
-    }
-    
+    .tool-section button:hover { background: var(--secondary-color); }
     .result {
-      margin-top: 20px;
+      margin-top: 15px;
       text-align: center;
       font-weight: bold;
       color: var(--primary-color);
+      font-size: 1.2rem;
     }
-    
     .back-link {
       margin-top: 15px;
       text-align: center;
     }
-    
     .back-link a {
       text-decoration: none;
       color: var(--primary-color);
       font-weight: bold;
     }
-    
-    .back-link a:hover {
-      text-decoration: underline;
-    }
-    
-    /* About and FAQ Sections - Wider Layout */
+    .back-link a:hover { text-decoration: underline; }
+    /* DESCRIPTION & FAQ */
     .description, .faq {
       background: #fff;
       padding: 20px 30px;
       border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
       max-width: 600px;
       width: 100%;
       margin: 20px auto;
     }
-    
     .description h3, .faq h3 {
       text-align: center;
       margin-bottom: 10px;
+      color: var(--primary-color);
     }
-    
-    .description p, .faq p {
+    .description p, .faq p, .faq li {
       font-size: 1rem;
       line-height: 1.6;
-      text-align: justify;
-    }
-    
-    .faq ul {
-      list-style-type: none;
-      padding: 0;
-    }
-    
-    .faq li {
       margin-bottom: 10px;
-      line-height: 1.4;
     }
-    
-    /* Responsive Styles */
-    @media (max-width: 768px) {
-      body {
-        padding: 10px;
-      }
-      .calculator, .description, .faq {
-        padding: 15px 20px;
-      }
-      .calculator h2 {
-        font-size: 1.8rem;
-      }
-      .calculator button {
-        font-size: 14px;
-      }
+    .faq ul { list-style-type: none; padding-left: 0; }
+    /* FOOTER */
+    footer {
+      width: 100%;
+      background: #fff;
+      padding: 1rem;
+      text-align: center;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      margin-top: 20px;
     }
-    
-    @media (max-width: 480px) {
-      .calculator, .description, .faq {
-        padding: 10px 15px;
-      }
-      .calculator h2 {
-        font-size: 1.6rem;
-      }
-      .calculator label,
-      .calculator input,
-      .calculator button {
-        font-size: 14px;
-      }
-      .result {
-        font-size: 14px;
-      }
+    footer nav a {
+      color: var(--text-color);
+      text-decoration: none;
+      margin: 0 0.5rem;
+      font-weight: 500;
+      transition: color 0.3s ease;
     }
+    footer nav a:hover { color: var(--primary-color); }
   </style>
 </head>
 <body>
-  <!-- Calculator Section -->
-  <div class="calculator">
-    <h2>BMI Calculator</h2>
-    <label for="weight">Weight (kg):</label>
-    <input type="number" id="weight" placeholder="Enter your weight in kg" step="0.1" />
-
-    <label for="height">Height (cm):</label>
-    <input type="number" id="height" placeholder="Enter your height in cm" step="0.1" />
-
-    <button onclick="calculateBMI()">Calculate BMI</button>
-
-    <div class="result" id="result"></div>
-    <div class="back-link"><a href="index.html">← Back to Home</a></div>
+  <!-- HEADER -->
+  <header>
+    <nav>
+      <h2>SmallToolsPro</h2>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="index.html#tools">Tools</a>
+        <a href="index.html#about">About</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </nav>
+  </header>
+  <!-- MAIN CONTAINER -->
+  <div class="container">
+    <div class="tool-section">
+      <h2>BMI Calculator</h2>
+      <label for="weight">Weight (kg):</label>
+      <input type="number" id="weight" placeholder="Enter your weight in kg" step="0.1" />
+      <label for="height">Height (cm):</label>
+      <input type="number" id="height" placeholder="Enter your height in cm" step="0.1" />
+      <button onclick="calculateBMI()">Calculate BMI</button>
+      <div class="result" id="result"></div>
+      <div class="back-link">
+        <a href="index.html">← Back to Home</a>
+      </div>
+    </div>
+    <div class="description">
+      <h3>About This Tool</h3>
+      <p>
+        Our BMI Calculator quickly determines your Body Mass Index (BMI) using your weight and height. It helps you assess whether you're underweight, normal, overweight, or obese.
+      </p>
+    </div>
+    <div class="faq">
+      <h3>FAQ</h3>
+      <ul>
+        <li><strong>Q:</strong> What is BMI?<br><em>A:</em> BMI stands for Body Mass Index, a measure of body fat based on your weight and height.</li>
+        <li><strong>Q:</strong> Is this tool free?<br><em>A:</em> Yes, it's completely free.</li>
+      </ul>
+    </div>
   </div>
-
-  <!-- About This Tool Section -->
-  <div class="description">
-    <h3>About This Tool</h3>
-    <p>
-      The BMI Calculator is designed to help you quickly determine your Body Mass Index (BMI) using your weight and height measurements. BMI is a simple calculation that can indicate whether you are underweight, normal weight, overweight, or obese. This tool provides an easy and free way to track your health status and make informed decisions about your wellness journey.
-    </p>
-  </div>
-
-  <!-- Frequently Asked Questions (FAQ) Section -->
-  <div class="faq">
-    <h3>Frequently Asked Questions (FAQ)</h3>
-    <ul>
-      <li>
-        <strong>Q: What is BMI?</strong><br>
-        <em>A:</em> BMI stands for Body Mass Index. It is a measurement that uses your weight and height to estimate body fat.
-      </li>
-      <li>
-        <strong>Q: How is BMI calculated?</strong><br>
-        <em>A:</em> BMI is calculated by dividing your weight in kilograms by the square of your height in meters.
-      </li>
-      <li>
-        <strong>Q: Is BMI a perfect measure of health?</strong><br>
-        <em>A:</em> While BMI is a useful screening tool, it does not directly measure body fat or account for factors like muscle mass or distribution of weight.
-      </li>
-      <li>
-        <strong>Q: Is this calculator free to use?</strong><br>
-        <em>A:</em> Yes, the BMI Calculator is completely free.
-      </li>
-    </ul>
-  </div>
-
+  <!-- FOOTER -->
+  <footer>
+    <nav>
+      <a href="privacy.html">Privacy Policy</a> |
+      <a href="terms.html">Terms of Service</a> |
+      <a href="about.html">About Us</a>
+    </nav>
+    <p>© 2023 SmallToolsPro. All rights reserved.</p>
+  </footer>
   <script>
     function calculateBMI() {
-      var weight = parseFloat(document.getElementById("weight").value);
-      var heightCm = parseFloat(document.getElementById("height").value);
-      
-      if (isNaN(weight) || isNaN(heightCm) || heightCm === 0) {
-        document.getElementById("result").innerHTML = "Please fill in all fields with valid numbers.";
+      const weight = parseFloat(document.getElementById("weight").value);
+      const heightCm = parseFloat(document.getElementById("height").value);
+      if (isNaN(weight) || isNaN(heightCm) || weight <= 0 || heightCm <= 0) {
+        document.getElementById("result").innerText = "Please enter valid values.";
         return;
       }
-      
-      var heightM = heightCm / 100;
-      var bmi = weight / (heightM * heightM);
-      
-      document.getElementById("result").innerHTML = "Your BMI is: " + bmi.toFixed(2);
+      const heightM = heightCm / 100;
+      const bmi = weight / (heightM * heightM);
+      document.getElementById("result").innerText = "Your BMI is: " + bmi.toFixed(2);
     }
   </script>
 </body>
