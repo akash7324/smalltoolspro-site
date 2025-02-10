@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0ZKNDHKLJN"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-0ZKNDHKLJN');
+</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Market Sentiment Analyzer - SmallToolsPro</title>
+  <meta name="description" content="Analyze the sentiment of financial or tech news by pasting your text. A simple frontend tool to gauge market sentiment." />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    /* Global & Common Styles */
+    :root {
+      --primary-color: #2563eb;
+      --secondary-color: #1e40af;
+      --accent-color: #10B981;
+      --background: #f8fafc;
+      --text-color: #1e293b;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+  font-family: 'Segoe UI', sans-serif;
+  display: flex;                /* Make body a flex container */
+  flex-direction: column;       /* Stack children vertically */
+  justify-content: center;      /* Center vertically */
+  align-items: center;          /* Center horizontally */
+  background: linear-gradient(135deg, var(--background) 0%, #e2e8f0 100%);
+  color: var(--text-color);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+    header {
+      width: 100%;
+      background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+      padding: 1rem 2rem;
+      margin-bottom: 20px;
+    }
+    header nav { display: flex; justify-content: space-between; align-items: center; }
+    header nav h2 { color: #fff; font-size: 1.8rem; }
+    .nav-links a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 1rem;
+      font-weight: 500;
+    }
+    .nav-links a:hover { color: #a3bffa; }
+    .container {
+      max-width: 800px;
+      width: 100%;
+      background: #fff;
+      padding: 2rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+    }
+    .tool-section { margin-bottom: 2rem; }
+    .tool-section h2 {
+      text-align: center;
+      margin-bottom: 1rem;
+      color: var(--primary-color);
+    }
+    .tool-section label {
+      display: block;
+      margin: 10px 0 5px;
+      font-weight: bold;
+    }
+    .tool-section textarea, .tool-section button {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 1rem;
+    }
+    .tool-section textarea { min-height: 150px; resize: vertical; }
+    .tool-section button {
+      background: var(--primary-color);
+      color: #fff;
+      margin-top: 10px;
+      cursor: pointer;
+      border: none;
+      transition: background 0.3s ease;
+    }
+    .tool-section button:hover { background: var(--secondary-color); }
+    .result {
+      margin-top: 15px;
+      padding: 10px;
+      background: #f1f5f9;
+      border-radius: 4px;
+      font-family: monospace;
+      white-space: pre-wrap;
+    }
+    .description, .faq {
+      background: #fff;
+      padding: 1rem 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+      width: 100%;
+    }
+    .description h3, .faq h3 {
+      text-align: center;
+      margin-bottom: 0.5rem;
+      color: var(--primary-color);
+    }
+    .description p, .faq p, .faq li {
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-bottom: 0.5rem;
+    }
+    .faq ul { list-style-type: none; padding-left: 0; }
+    footer {
+      width: 100%;
+      background: #fff;
+      padding: 1rem;
+      text-align: center;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      margin-top: 20px;
+    }
+    footer nav a {
+      color: var(--text-color);
+      text-decoration: none;
+      margin: 0 0.5rem;
+      font-weight: 500;
+    }
+    footer nav a:hover { color: var(--primary-color); }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <nav>
+      <h2>SmallToolsPro</h2>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="index.html#tools">Tools</a>
+        <a href="index.html#about">About</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </nav>
+  </header>  
+  <!-- Main Container -->
+  <div class="container">
+    <div class="tool-section">
+      <h2>Market Sentiment Analyzer</h2>
+      <label for="sentimentText">Paste News Headline or Text:</label>
+      <textarea id="sentimentText" placeholder="Paste your text here..."></textarea>
+      <button onclick="analyzeSentiment()">Analyze Sentiment</button>
+      <div class="result" id="sentimentResult"></div>
+    </div>
+    <div class="description">
+      <h3>About This Tool</h3>
+      <p>
+        Analyze the sentiment of your news or article excerpts. This tool uses a simple dictionary-based method to compute a sentiment score and classify the text as Positive, Neutral, or Negative.
+      </p>
+    </div>
+    <div class="faq">
+      <h3>FAQ</h3>
+      <ul>
+        <li>
+          <strong>Q:</strong> How does it work?<br>
+          <em>A:</em> It compares the frequency of predefined positive and negative words in your text.
+        </li>
+        <li>
+          <strong>Q:</strong> Is it accurate?<br>
+          <em>A:</em> It provides a rough estimate; for detailed analysis, more advanced tools are needed.
+        </li>
+      </ul>
+    </div>
+  </div>
+  
+  <!-- Footer -->
+  <footer>
+    <p>© 2023 SmallToolsPro. All rights reserved.</p>
+    <nav>
+      <a href="privacy.html">Privacy Policy</a> |
+      <a href="terms.html">Terms of Service</a>
+    </nav>
+  </footer>
+  
+  <script>
+    function analyzeSentiment() {
+      const text = document.getElementById("sentimentText").value;
+      const resultDiv = document.getElementById("sentimentResult");
+      if (!text.trim()) {
+        alert("Please enter some text.");
+        return;
+      }
+      
+      // Basic positive and negative word dictionaries
+      const positiveWords = ["gain", "rise", "growth", "improve", "benefit", "profit", "bullish", "surge", "strong", "positive"];
+      const negativeWords = ["loss", "decline", "drop", "fall", "bearish", "weak", "negative", "down", "decrease", "crash"];
+      
+      const words = text.toLowerCase().replace(/[^\w\s]/g, "").split(/\s+/);
+      let posCount = 0, negCount = 0;
+      words.forEach(word => {
+        if (positiveWords.includes(word)) posCount++;
+        if (negativeWords.includes(word)) negCount++;
+      });
+      
+      const score = posCount - negCount;
+      let sentiment = "Neutral";
+      if (score > 0) sentiment = "Positive";
+      else if (score < 0) sentiment = "Negative";
+      
+      resultDiv.innerHTML = `<p><strong>Sentiment:</strong> ${sentiment}</p>
+                             <p><strong>Score:</strong> ${score} (Positive: ${posCount}, Negative: ${negCount})</p>`;
+    }
+  </script>
+</body>
+</html>

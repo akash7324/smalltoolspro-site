@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0ZKNDHKLJN"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-0ZKNDHKLJN');
+</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Watermark Adder - SmallToolsPro</title>
+  <meta name="description" content="Add a text watermark to your image and download the watermarked image. The watermark color adjusts for optimal visibility." />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    :root {
+      --primary-color: #2563eb;
+      --secondary-color: #1e40af;
+      --background: #f8fafc;
+      --text-color: #1e293b;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+  font-family: 'Segoe UI', sans-serif;
+  display: flex;                /* Make body a flex container */
+  flex-direction: column;       /* Stack children vertically */
+  justify-content: center;      /* Center vertically */
+  align-items: center;          /* Center horizontally */
+  background: linear-gradient(135deg, var(--background) 0%, #e2e8f0 100%);
+  color: var(--text-color);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+    header {
+      width: 100%;
+      background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+      padding: 1rem 2rem;
+      margin-bottom: 20px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    header nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header nav h2 {
+      font-size: 1.8rem;
+      color: #fff;
+    }
+    .nav-links a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 1rem;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+    .nav-links a:hover {
+      color: var(--primary-color);
+    }
+    .container {
+      max-width: 800px;
+      width: 100%;
+      margin: 2rem auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .tool-section {
+      margin-bottom: 20px;
+    }
+    .tool-section h2 {
+      text-align: center;
+      margin-bottom: 1rem;
+      color: var(--primary-color);
+    }
+    .tool-section label {
+      display: block;
+      margin: 10px 0 5px;
+    }
+    .tool-section input {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      margin-bottom: 10px;
+    }
+    .tool-section button {
+      width: 100%;
+      padding: 8px;
+      background: var(--primary-color);
+      color: #fff;
+      font-size: 16px;
+      margin-top: 1rem;
+      cursor: pointer;
+      border: none;
+      transition: background 0.3s ease;
+    }
+    .tool-section button:hover {
+      background: var(--secondary-color);
+    }
+    .canvas-container {
+      text-align: center;
+      margin-top: 10px;
+    }
+    /* Updated Download Button Styling with increased top margin (40px) */
+    .download-btn {
+      background: #10B981;
+      color: #fff;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-top: 40px; /* Increased top margin */
+      display: none; /* Hidden initially */
+      transition: background 0.3s ease;
+    }
+    .download-btn:hover {
+      background: #059669;
+    }
+    .description, .faq {
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      max-width: 600px;
+      width: 100%;
+      margin: 20px auto;
+    }
+    .description h3, .faq h3 {
+      text-align: center;
+      margin-bottom: 10px;
+      color: var(--primary-color);
+    }
+    .description p, .faq p, .faq li {
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-bottom: 10px;
+    }
+    .faq ul {
+      list-style-type: none;
+      padding-left: 0;
+    }
+    footer {
+      width: 100%;
+      background: #fff;
+      padding: 1rem;
+      text-align: center;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      margin-top: 20px;
+    }
+    footer nav a {
+      color: var(--text-color);
+      text-decoration: none;
+      margin: 0 0.5rem;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+    footer nav a:hover {
+      color: var(--primary-color);
+    }
+  </style>
+</head>
+<body>
+  <!-- HEADER -->
+  <header>
+    <nav>
+      <h2>SmallToolsPro</h2>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="index.html#tools">Tools</a>
+        <a href="index.html#about">About</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </nav>
+  </header> 
+  <!-- MAIN CONTAINER -->
+  <div class="container">
+    <div class="tool-section">
+      <h2>Watermark Adder</h2>
+      <label for="imgUpload">Select an Image:</label>
+      <input type="file" id="imgUpload" accept="image/*" />
+      <label for="watermarkText">Watermark Text:</label>
+      <input type="text" id="watermarkText" placeholder="Enter watermark text" />
+      <button onclick="addWatermark()">Add Watermark</button>
+      <div class="canvas-container">
+        <canvas id="wmCanvas" style="max-width:100%;"></canvas>
+      </div>
+      <!-- Download button (initially hidden) -->
+      <button class="download-btn" id="downloadBtn" onclick="downloadWatermarkedImage()">Download Watermarked Image</button>
+    </div>
+    <div class="description">
+      <h3>About This Tool</h3>
+      <p>
+        The Watermark Adder allows you to add a text watermark to your image. Upload an image, enter your watermark text, and click "Add Watermark." The watermark color adjusts automatically for optimal visibility. Once applied, click "Download Watermarked Image" to save the result.
+      </p>
+    </div>
+    <div class="faq">
+      <h3>FAQ</h3>
+      <ul>
+        <li><strong>Q:</strong> Can I change the watermark position?<br><em>A:</em> Currently, the watermark is fixed at the bottom right.</li>
+        <li><strong>Q:</strong> How do I save the image?<br><em>A:</em> Click the "Download Watermarked Image" button after applying the watermark.</li>
+        <li><strong>Q:</strong> Will the watermark always be visible?<br><em>A:</em> The script selects a contrasting color based on the image background.</li>
+      </ul>
+    </div>
+  </div>
+  
+  <!-- FOOTER -->
+  <footer>
+    <nav>
+      <a href="privacy.html">Privacy Policy</a> |
+      <a href="terms.html">Terms of Service</a> |
+      <a href="about.html">About Us</a>
+    </nav>
+    <p>© 2023 SmallToolsPro. All rights reserved.</p>
+  </footer>
+  
+  <script>
+    function addWatermark() {
+      const fileInput = document.getElementById('imgUpload');
+      const watermarkText = document.getElementById('watermarkText').value;
+      const canvas = document.getElementById('wmCanvas');
+      const ctx = canvas.getContext('2d');
+      const downloadBtn = document.getElementById('downloadBtn');
+      
+      if (!fileInput.files[0]) {
+        alert("Please select an image file.");
+        return;
+      }
+      if (!watermarkText) {
+        alert("Please enter watermark text.");
+        return;
+      }
+      
+      const file = fileInput.files[0];
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        const img = new Image();
+        img.onload = function() {
+          // Set canvas size to match image dimensions
+          canvas.width = img.width;
+          canvas.height = img.height;
+          // Draw the original image
+          ctx.drawImage(img, 0, 0);
+          
+          // Determine the area where watermark will be drawn (bottom right 100x100 pixels)
+          const regionWidth = Math.min(100, canvas.width);
+          const regionHeight = Math.min(100, canvas.height);
+          const startX = canvas.width - regionWidth;
+          const startY = canvas.height - regionHeight;
+          const imageData = ctx.getImageData(startX, startY, regionWidth, regionHeight);
+          const data = imageData.data;
+          let totalBrightness = 0;
+          const pixelCount = regionWidth * regionHeight;
+          for (let i = 0; i < data.length; i += 4) {
+            const brightness = 0.299 * data[i] + 0.587 * data[i+1] + 0.114 * data[i+2];
+            totalBrightness += brightness;
+          }
+          const avgBrightness = totalBrightness / pixelCount;
+          // Choose watermark color: black for bright areas, white for dark areas (50% opacity)
+          const watermarkColor = avgBrightness > 128 ? "rgba(0, 0, 0, 0.5)" : "rgba(255, 255, 255, 0.5)";
+          
+          // Increase watermark font size for better visibility
+          ctx.font = "40px Arial";
+          ctx.fillStyle = watermarkColor;
+          ctx.textAlign = "right";
+          // Draw watermark text with a 10px padding from the bottom-right corner
+          ctx.fillText(watermarkText, canvas.width - 10, canvas.height - 10);
+          
+          // Show the download button and scroll it into view (centered in viewport)
+          downloadBtn.style.display = "block";
+          downloadBtn.scrollIntoView({ behavior: "smooth", block: "center" });
+        };
+        img.src = e.target.result;
+      };
+      reader.readAsDataURL(file);
+    }
+    
+    function downloadWatermarkedImage() {
+      const canvas = document.getElementById('wmCanvas');
+      const dataUrl = canvas.toDataURL("image/png");
+      const a = document.createElement('a');
+      a.href = dataUrl;
+      a.download = "watermarked-image.png";
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    }
+  </script>
+</body>
+</html>

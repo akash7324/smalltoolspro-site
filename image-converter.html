@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0ZKNDHKLJN"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-0ZKNDHKLJN');
+</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Converter - SmallToolsPro</title>
+  <meta name="description" content="Convert your images between formats (PNG, JPEG) with our Image Converter tool.">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <style>
+    /* Global Styles */
+    :root {
+      --primary-color: #2563eb;
+      --secondary-color: #1e40af;
+      --accent-color: #10B981;
+      --background: #f8fafc;
+      --text-color: #1e293b;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+  font-family: 'Segoe UI', sans-serif;
+  display: flex;                /* Make body a flex container */
+  flex-direction: column;       /* Stack children vertically */
+  justify-content: center;      /* Center vertically */
+  align-items: center;          /* Center horizontally */
+  background: linear-gradient(135deg, var(--background) 0%, #e2e8f0 100%);
+  color: var(--text-color);
+  line-height: 1.6;
+  min-height: 100vh;
+}
+
+    header {
+      background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+      padding: 1rem 2rem;
+      width: 100%;
+      text-align: center;
+    }
+    header nav { display: flex; justify-content: space-between; align-items: center; }
+    header nav h2 { color: #fff; font-size: 1.8rem; }
+    .nav-links a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 1.5rem;
+      font-weight: 500;
+    }
+    .nav-links a:hover { color: #a3bffa; }
+    .container {
+      max-width: 1200px;
+      margin: 2rem auto;
+      padding: 2rem;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      width: 100%;
+    }
+    .tool-section h2 { text-align: center; margin-bottom: 1rem; color: var(--primary-color); }
+    .tool-section label { display: block; margin: 10px 0 5px; }
+    .tool-section input, .tool-section select, .tool-section button {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 1rem;
+    }
+    .tool-section button {
+      background: var(--primary-color);
+      color: #fff;
+      margin-top: 1rem;
+      cursor: pointer;
+      border: none;
+      transition: background 0.3s ease;
+    }
+    .tool-section button:hover { background: var(--secondary-color); }
+    .canvas-container { text-align: center; margin-top: 1rem; }
+    /* Improved Download Button Styling */
+    .download-link a {
+      display: inline-block;
+      background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+      color: #fff;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      border-radius: 4px;
+      text-decoration: none;
+      transition: background 0.3s ease;
+      margin-top: 1rem;
+    }
+    .download-link a:hover {
+      background: linear-gradient(to right, var(--secondary-color), var(--primary-color));
+    }
+    /* Footer Styles */
+    footer {
+      text-align: center;
+      margin-top: 2rem;
+      padding: 1rem;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      width: 100%;
+    }
+    footer nav a {
+      color: var(--text-color);
+      text-decoration: none;
+      margin: 0 0.5rem;
+      font-weight: 500;
+    }
+    footer nav a:hover { color: var(--primary-color); }
+  </style>
+</head>
+<body>
+  <!-- Header Section -->
+  <header>
+    <nav>
+      <h2>SmallToolsPro</h2>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="index.html#tools">Tools</a>
+        <a href="index.html#about">About</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </nav>
+  </header>
+  
+  <!-- Main Container -->
+  <div class="container">
+    <div class="tool-section">
+      <h2>Image Converter</h2>
+      <label for="imgFile">Select an Image:</label>
+      <input type="file" id="imgFile" accept="image/*">
+      
+      <label for="targetFormat">Choose Target Format:</label>
+      <select id="targetFormat">
+        <option value="image/png">PNG</option>
+        <option value="image/jpeg">JPEG</option>
+      </select>
+      
+      <button onclick="convertImage()">Convert Image</button>
+      
+      <div class="canvas-container">
+        <canvas id="convCanvas" style="max-width:100%;"></canvas>
+      </div>
+      
+      <!-- Updated Download Button Section -->
+      <div class="download-link" id="downloadLink"></div>
+    </div>
+    
+    <div class="description">
+      <h3>About This Tool</h3>
+      <p>
+        Convert your images from one format to another. Simply upload an image, select the target format (PNG or JPEG), and click "Convert Image." Once converted, a stylish download button will appear below the image for you to save the converted file.
+      </p>
+    </div>
+    
+    <div class="faq">
+      <h3>FAQ</h3>
+      <ul>
+        <li>
+          <strong>Q:</strong> Which formats are supported?<br>
+          <em>A:</em> You can convert images to PNG and JPEG.
+        </li>
+        <li>
+          <strong>Q:</strong> How do I download the converted image?<br>
+          <em>A:</em> After conversion, click the download button that appears below the image.
+        </li>
+        <li>
+          <strong>Q:</strong> Can I adjust image quality?<br>
+          <em>A:</em> Quality adjustments are not available in this basic version.
+        </li>
+      </ul>
+    </div>
+  </div>
+  
+  <!-- Footer Section -->
+  <footer>
+    <p>© 2023 SmallToolsPro. All rights reserved.</p>
+    <nav>
+      <a href="privacy.html">Privacy Policy</a> |
+      <a href="terms.html">Terms of Service</a>
+    </nav>
+  </footer>
+  
+  <!-- JavaScript for Image Converter -->
+  <script>
+    function convertImage() {
+      const fileInput = document.getElementById('imgFile');
+      const targetFormat = document.getElementById('targetFormat').value;
+      const canvas = document.getElementById('convCanvas');
+      const ctx = canvas.getContext('2d');
+      const downloadLinkDiv = document.getElementById('downloadLink');
+      
+      if (!fileInput.files[0]) {
+        alert("Please select an image file.");
+        downloadLinkDiv.innerHTML = "";
+        return;
+      }
+      
+      const file = fileInput.files[0];
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        const img = new Image();
+        img.onload = function() {
+          canvas.width = img.width;
+          canvas.height = img.height;
+          ctx.drawImage(img, 0, 0);
+          // Convert canvas to the selected format
+          const dataURL = canvas.toDataURL(targetFormat);
+          // Create a styled download button using the updated CSS
+          downloadLinkDiv.innerHTML = '<a href="' + dataURL + '" download="converted.' + (targetFormat === "image/png" ? 'png' : 'jpg') + '">Download Converted Image</a>';
+        }
+        img.src = e.target.result;
+      }
+      reader.readAsDataURL(file);
+    }
+  </script>
+</body>
+</html>
