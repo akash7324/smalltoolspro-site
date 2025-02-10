@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
- <!-- Google tag (gtag.js) -->
+   <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-0ZKNDHKLJN"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -14,29 +14,30 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact Us - SmallToolsPro</title>
   <style>
+    :root {
+      --primary-color: #2563eb;
+      --background: #f8fafc;
+    }
     body {
       font-family: Arial, sans-serif;
-      background: #f8f8f8;
+      background: var(--background);
       padding: 20px;
       margin: 0;
       line-height: 1.6;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
     }
     .container {
       max-width: 600px;
-      margin: 0 auto;
       background: #fff;
       padding: 2rem;
       border-radius: 1rem;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
-    h1 {
-      text-align: center;
-      color: #2563eb;
-    }
-    form {
-      display: flex;
-      flex-direction: column;
-    }
+    h1 { text-align: center; color: var(--primary-color); }
+    form { display: flex; flex-direction: column; }
     input, textarea {
       margin-bottom: 1rem;
       padding: 10px;
@@ -44,16 +45,14 @@
       border-radius: 5px;
     }
     button {
-      background: #2563eb;
+      background: var(--primary-color);
       color: #fff;
       border: none;
       padding: 10px;
       cursor: pointer;
       border-radius: 5px;
     }
-    button:hover {
-      background: #1e4fbb;
-    }
+    button:hover { background: #1e40af; }
   </style>
 </head>
 <body>
