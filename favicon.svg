@@ -1,48 +1,31 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
   <defs>
-    <!-- Glow filter to enhance the neon effect -->
+    <!-- Gradient for circular background -->
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#121212"/>
+      <stop offset="100%" stop-color="#000000"/>
+    </linearGradient>
+    <!-- Neon gradient for STP text -->
+    <linearGradient id="textGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00e5ff"/>
+      <stop offset="100%" stop-color="#7c4dff"/>
+    </linearGradient>
+    <!-- Glow filter for neon effect on text -->
     <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur in="SourceGraphic" stdDeviation="1.5" result="blur"/>
+      <feGaussianBlur in="SourceGraphic" stdDeviation="2" result="blur"/>
       <feMerge>
         <feMergeNode in="blur"/>
         <feMergeNode in="SourceGraphic"/>
       </feMerge>
     </filter>
-    <!-- Neon gradient for futuristic elements -->
-    <linearGradient id="neonGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#00e5ff"/>
-      <stop offset="100%" stop-color="#7c4dff"/>
-    </linearGradient>
   </defs>
   
-  <!-- White background circle -->
-  <circle cx="32" cy="32" r="32" fill="#FFFFFF"/>
+  <!-- Circular background -->
+  <circle cx="32" cy="32" r="32" fill="url(#bgGradient)"/>
   
-  <!-- Neon gear outline with glow -->
-  <g filter="url(#glow)">
-    <!-- Main gear circle -->
-    <circle cx="32" cy="32" r="20" fill="none" stroke="url(#neonGradient)" stroke-width="2"/>
-    <!-- Gear teeth (8 evenly rotated lines) -->
-    <g stroke="url(#neonGradient)" stroke-width="2">
-      <line x1="32" y1="12" x2="32" y2="8"/>
-      <line x1="32" y1="12" x2="32" y2="8" transform="rotate(45,32,32)"/>
-      <line x1="32" y1="12" x2="32" y2="8" transform="rotate(90,32,32)"/>
-      <line x1="32" y1="12" x2="32" y2="8" transform="rotate(135,32,32)"/>
-      <line x1="32" y1="12" x2="32" y2="8" transform="rotate(180,32,32)"/>
-      <line x1="32" y1="12" x2="32" y2="8" transform="rotate(225,32,32)"/>
-      <line x1="32" y1="12" x2="32" y2="8" transform="rotate(270,32,32)"/>
-      <line x1="32" y1="12" x2="32" y2="8" transform="rotate(315,32,32)"/>
-    </g>
-  </g>
-  
-  <!-- Centered STP text with neon glow -->
-  <text x="32" y="38" text-anchor="middle" fill="url(#neonGradient)" font-family="sans-serif" font-size="12" font-weight="bold" filter="url(#glow)">
+  <!-- Large STP text centered -->
+  <text x="32" y="44" text-anchor="middle" fill="url(#textGradient)" 
+        font-family="sans-serif" font-size="28" font-weight="bold" filter="url(#glow)">
     STP
   </text>
-  
-  <!-- Small wrench accent in the lower-right quadrant -->
-  <g filter="url(#glow)" transform="translate(44,44) rotate(20)">
-    <rect x="-0.5" y="0" width="1" height="6" fill="url(#neonGradient)"/>
-    <polygon points="-2,0 -0.5,-3 0.5,-3 2,0 0.5,1 -0.5,1" fill="url(#neonGradient)"/>
-  </g>
 </svg>
