@@ -2,21 +2,20 @@
 <html lang="en">
 <head>
   <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-0ZKNDHKLJN"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-0ZKNDHKLJN');
-</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-0ZKNDHKLJN"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-0ZKNDHKLJN');
+  </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>QR Code Generator - SmallToolsPro</title>
   <meta name="description" content="Generate a high-quality QR code from text or URLs with a white background and download it." />
   <!-- Optional: Font Awesome for icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-   <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <style>
     :root {
       --primary-color: #2563eb;
@@ -27,104 +26,89 @@
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-  font-family: 'Segoe UI', sans-serif;
-  display: flex;                /* Make body a flex container */
-  flex-direction: column;       /* Stack children vertically */
-  justify-content: center;      /* Center vertically */
-  align-items: center;          /* Center horizontally */
-  background: linear-gradient(135deg, var(--background) 0%, #e2e8f0 100%);
-  color: var(--text-color);
-  line-height: 1.6;
-  min-height: 100vh;
-}
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, var(--background) 0%, #e2e8f0 100%);
+      color: var(--text-color);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    /* Responsive container for overall content */
+    .container {
+      width: 100%;
+      max-width: 600px;
+      padding: 0 15px;
+      margin: 0 auto;
+    }
 
     /* Header */
-   :root {
-  --primary-color: #2563eb;
-  --secondary-color: #1e40af;
-  --accent-color: #10B981;
-  --background: #f8fafc;
-  --text-color: #1e293b;
-}
-
-/* Existing global styles… */
-
-header {
-  width: 100%;
-  background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
-  padding: 1rem 2rem;
-  margin-bottom: 20px;
-  position: sticky;
-  top: 0;
-  z-index: 100;
-}
-
-header nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-header nav h2 {
-  color: #fff;
-  font-size: 1.8rem;
-}
-
-/* Hide the hamburger by default */
-.menu-toggle {
-  display: none;
-  background: none;
-  border: none;
-  font-size: 1.8rem;
-  color: #fff;
-  cursor: pointer;
-}
-
-/* Navigation links styling */
-.nav-links {
-  display: flex;
-  gap: 2rem;
-}
-
-.nav-links a {
-  color: #fff;
-  text-decoration: none;
-  font-weight: 500;
-  transition: color 0.3s ease;
-}
-
-.nav-links a:hover {
-  color: var(--primary-color);
-}
-
-/* Mobile-specific styles */
-@media (max-width: 768px) {
-  /* Show hamburger and hide nav links initially */
-  .menu-toggle {
-    display: block;
-  }
-  
-  .nav-links {
-    display: none;
-    flex-direction: column;
-    width: 100%;
-    background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
-    position: absolute;
-    top: 70px; /* Adjust based on header height */
-    left: 0;
-  }
-  
-  .nav-links a {
-    margin: 0.5rem 0;
-    padding: 0.5rem 1rem;
-  }
-  
-  /* When active, display the navigation */
-  .nav-links.active {
-    display: flex;
-  }
-}
- 
+    header {
+      width: 100%;
+      background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+      padding: 1rem 2rem;
+      margin-bottom: 20px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    header nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header nav h2 {
+      color: #fff;
+      font-size: 1.8rem;
+    }
+    /* Hide the hamburger by default */
+    .menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      font-size: 1.8rem;
+      color: #fff;
+      cursor: pointer;
+    }
+    /* Navigation links styling */
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
+    .nav-links a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s ease;
+    }
+    .nav-links a:hover {
+      color: var(--primary-color);
+    }
+    /* Mobile-specific styles */
+    @media (max-width: 768px) {
+      .menu-toggle {
+        display: block;
+      }
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+        position: absolute;
+        top: 70px;
+        left: 0;
+      }
+      .nav-links a {
+        margin: 0.5rem 0;
+        padding: 0.5rem 1rem;
+      }
+      .nav-links.active {
+        display: flex;
+      }
+    }
     
     .tool-section h2 {
       text-align: center;
@@ -171,9 +155,22 @@ header nav h2 {
     .qr-container {
       width: 500px;
       height: 500px;
+      max-width: 100%;
       border: 1px solid #ddd;
       border-radius: 4px;
       overflow: hidden;
+    }
+    /* Responsive adjustments for QR container on smaller screens */
+    @media (max-width: 600px) {
+      .qr-container {
+        width: 90vw;
+        height: 90vw;
+      }
+    }
+    /* Make the generated canvas responsive */
+    .qr-container canvas {
+      width: 100% !important;
+      height: auto !important;
     }
     .download-btn {
       background: var(--accent-color);
@@ -183,7 +180,7 @@ header nav h2 {
       color: #fff;
       font-size: 1rem;
       cursor: pointer;
-      display: none; /* Hidden until QR code is generated */
+      display: none;
       transition: background 0.3s ease;
     }
     .download-btn:hover {
@@ -245,7 +242,7 @@ header nav h2 {
 </head>
 <body>
   <!-- HEADER -->
-   <header>
+  <header>
     <nav>
       <!-- Clickable website name -->
       <a href="index.html" style="text-decoration: none; color: inherit;">
@@ -292,6 +289,7 @@ header nav h2 {
       </ul>
     </div>
   </div>
+  
   <!-- FOOTER -->
   <footer>
     <nav>
@@ -301,6 +299,8 @@ header nav h2 {
     </nav>
     <p>© 2025 SmallToolsPro.com. All rights reserved.</p>
   </footer>
+  
+  <!-- QR Code Library -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
   <script>
     function generateQRCode() {
@@ -356,11 +356,10 @@ header nav h2 {
     }
   </script>
   <script>
-  // Toggle the navigation menu on small screens
-  document.querySelector('.menu-toggle').addEventListener('click', function() {
-    document.querySelector('.nav-links').classList.toggle('active');
-  });
-</script>
-
+    // Toggle the navigation menu on small screens
+    document.querySelector('.menu-toggle').addEventListener('click', function() {
+      document.querySelector('.nav-links').classList.toggle('active');
+    });
+  </script>
 </body>
 </html>
