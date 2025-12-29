@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Same head section as percentage calculator -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7282387677653231" crossorigin="anonymous"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-0ZKNDHKLJN"></script>
+  <script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-0ZKNDHKLJN');</script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://smalltoolspro.com/monthly-sip" />
+  <title>Monthly SIP Calculator - SmallToolsPro</title>
+  <meta name="description" content="Calculate SIP returns, future value and total investment with monthly SIP calculator." />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <!-- Same CSS as percentage calculator -->
+  <style>/* Copy exact CSS from percentage calculator */</style>
+</head>
+<body>
+<!-- Same header -->
+<header><!-- Same header code --></header>
+
+<div class="container">
+  <div class="tool-section">
+    <h2>Monthly SIP Calculator</h2>
+    <label for="monthlyInvestment">Monthly Investment:</label>
+    <input type="number" id="monthlyInvestment" placeholder="Enter monthly SIP amount" step="100" />
+    <label for="sipRate">Expected Return (% p.a.):</label>
+    <input type="number" id="sipRate" placeholder="Enter expected annual return" step="0.01" />
+    <label for="sipTenure">Investment Period (Years):</label>
+    <input type="number" id="sipTenure" placeholder="Enter tenure in years" step="0.1" />
+    <button onclick="calculateSIP()">Calculate Returns</button>
+    <div class="result" id="sipResult"></div>
+    <div class="back-link"><a href="index.html">← Back to Home</a></div>
+  </div>
+
+  <div class="description">
+    <h3>About This Tool</h3>
+    <p>Calculate your SIP future value, total investment and returns based on monthly investments.</p>
+  </div>
+
+  <div class="faq">
+    <h3>FAQ</h3>
+    <ul>
+      <li><strong>Q:</strong> What is SIP?<br><em>A:</em> Systematic Investment Plan - regular monthly investments in mutual funds.</li>
+      <li><strong>Q:</strong> Formula used?<br><em>A:</em> FV = P × (((1 + i)^n - 1) / i) × (1 + i)</li>
+    </ul>
+  </div>
+</div>
+
+<!-- Same footer -->
+<footer><!-- Same footer code --></footer>
+
+<script>
+function calculateSIP() {
+  const P = parseFloat(document.getElementById('monthlyInvestment').value);
+  const R = parseFloat(document.getElementById('sipRate').value) / 12 / 100;
+  const N = parseFloat(document.getElementById('sipTenure').value) * 12;
+
+  if (isNaN(P) || isNaN(R) || isNaN(N) || P <= 0 || N <= 0) {
+    document.getElementById('sipResult').innerText = 'Please enter valid values.';
+    return;
+  }
+
+  const futureValue = P * ((Math.pow(1 + R, N) - 1) / R) * (1 + R);
+  const totalInvested = P * N;
+  const totalReturns = futureValue - totalInvested;
+
+  const text = `Future Value: ₹${futureValue.toFixed(2)}
+Total Invested: ₹${totalInvested.toFixed(2)}
+Total Returns: ₹${totalReturns.toFixed(2)}`;
+  
+  document.getElementById('sipResult').innerText = text;
+}
+</script>
+</body>
+</html>
