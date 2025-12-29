@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7282387677653231" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free Invoice Generator Online - Create PDF Invoices</title>
+  <meta name="description" content="Free online invoice maker. Create professional invoices, add items, calculate totals, download PDF instantly. No sign up required.">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{font-family:'Segoe UI',sans-serif;background:linear-gradient(135deg,#f8fafc,#e2e8f0);color:#1e293b;padding:20px;}
+    
+    header{background:linear-gradient(135deg,#2563eb,#1e40af);color:white;padding:20px;text-align:center;box-shadow:0 4px 20px rgba(37,99,235,.3);}
+    header h1{font-size:2rem;margin:0;}
+    
+    .container{max-width:800px;margin:20px auto;background:white;border-radius:16px;padding:30px;box-shadow:0 10px 40px rgba(0,0,0,.1);}
+    
+    h2{text-align:center;color:#2563eb;margin-bottom:25px;font-size:1.8rem;}
+    
+    .form-group{margin-bottom:20px;}
+    .form-group label{display:block;margin-bottom:8px;font-weight:600;color:#374151;}
+    .form-group input,.form-group select{width:100%;padding:12px;border:2px solid #e5e7eb;border-radius:8px;font-size:16px;transition:border-color .3s;}
+    .form-group input:focus,.form-group select:focus{border-color:#2563eb;outline:none;box-shadow:0 0 0 3px rgba(37,99,235,.1);}
+    
+    .items-section{background:#f8fafc;padding:20px;border-radius:12px;margin:20px 0;}
+    .item-row{display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr;gap:10px;margin-bottom:15px;align-items:center;}
+    .item-row input{padding:10px;border:1px solid #d1d5db;border-radius:6px;font-size:14px;}
+    .item-row button{background:#ef4444;color:white;border:none;padding:10px;border-radius:6px;cursor:pointer;font-size:14px;}
+    
+    .totals{display:grid;grid-template-columns:1fr 1fr;gap:20px;background:#f8fafc;padding:25px;border-radius:12px;margin:25px 0;text-align:center;}
+    .total-item{font-size:1.1rem;color:#64748b;}
+    .total-value{font-size:2rem;font-weight:bold;color:#2563eb;}
+    
+    .action-buttons{display:grid;grid-template-columns:1fr 1fr;gap:15px;margin:30px 0;}
+    .btn{width:100%;padding:18px;background:linear-gradient(135deg,#2563eb,#1e40af);color:white;border:none;border-radius:12px;font-size:1.1rem;font-weight:700;cursor:pointer;transition:all .3s;}
+    .btn:hover{transform:translateY(-2px);box-shadow:0 10px 25px rgba(37,99,235,.4);}
+    .btn-success{background:linear-gradient(135deg,#10b981,#059669);}
+    .btn-success:hover{box-shadow:0 10px 25px rgba(16,185,129,.4);}
+    
+    .back{text-align:center;margin-top:25px;}
+    .back a{color:#2563eb;font-weight:bold;font-size:1.1rem;text-decoration:none;}
+    
+    footer{background:#1e293b;color:white;padding:25px;text-align:center;margin-top:40px;border-radius:16px;}
+    
+    @media(max-width:768px){
+      .item-row{grid-template-columns:1fr;gap:10px;}
+      .totals{grid-template-columns:1fr;}
+      .action-buttons{grid-template-columns:1fr;}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1><i class="fas fa-file-invoice-dollar"></i> Free Invoice Generator</h1>
+  </header>
+
+  <div class="container">
+    <h2>Create Professional Invoice</h2>
+    
+    <div class="form-group">
+      <label>Your Company</label>
+      <input type="text" id="company" placeholder="Your Business Name" value="SmallToolsPro">
+    </div>
+    
+    <div class="form-group">
+      <label>Client Name</label>
+      <input type="text" id="client" placeholder="Client Name" value="ABC Corp">
+    </div>
+    
+    <div class="form-group">
+      <label>Invoice Number</label>
+      <input type="text" id="invoiceNo" placeholder="INV-001" value="INV-001">
+    </div>
+    
+    <div class="form-group">
+      <label>Date</label>
+      <input type="date" id="date">
+    </div>
+    
+    <h3 style="color:#2563eb;margin:25px 0 15px 0;">Add Items</h3>
+    <div class="items-section">
+      <div class="item-row">
+        <input type="text" id="item1_desc" placeholder="Item Description" value="Web Development">
+        <input type="number" id="item1_qty" placeholder="Qty" value="1">
+        <input type="number" id="item1_rate" placeholder="Rate $" value="500">
+        <input type="number" id="item1_disc" placeholder="Disc %" value="0">
+        <span id="item1_total">$500</span>
+      </div>
+      <div class="item-row">
+        <input type="text" id="item2_desc" placeholder="Item Description">
+        <input type="number" id="item2_qty" placeholder="Qty">
+        <input type="number" id="item2_rate" placeholder="Rate $">
+        <input type="number" id="item2_disc" placeholder="Disc %">
+        <span id="item2_total">$0</span>
+      </div>
+    </div>
+    
+    <div class="form-group">
+      <label>Tax (%)</label>
+      <input type="number" id="tax" placeholder="0" value="0" step="0.1">
+    </div>
+    
+    <div class="totals">
+      <div>
+        <div class="total-item">Subtotal</div>
+        <div class="total-value" id="subtotal">$500</div>
+      </div>
+      <div>
+        <div class="total-item">Total</div>
+        <div class="total-value" id="total">$500</div>
+      </div>
+    </div>
+    
+    <div class="action-buttons">
+      <button class="btn" onclick="addItemRow()">➕ Add Item</button>
+      <button class="btn btn-success" onclick="generatePDF()">📄 Download PDF</button>
+    </div>
+    
+    <div class="back">
+      <a href="index.html">← Back to Home</a>
+    </div>
+  </div>
+
+  <footer>
+    <p>© 2025 SmallToolsPro.com | Free Online Tools | Professional Invoices</p>
+  </footer>
+
+  <script>
+    // Set today's date
+    document.getElementById('date').valueAsDate = new Date();
+    
+    // Calculate item totals
+    function calculateItem(row) {
+      const qty = parseFloat(document.getElementById(`item${row}_qty`).value) || 0;
+      const rate = parseFloat(document.getElementById(`item${row}_rate`).value) || 0;
+      const disc = parseFloat(document.getElementById(`item${row}_disc`).value) || 0;
+      const total = qty * rate * (1 - disc/100);
+      document.getElementById(`item${row}_total`).textContent = `$${total.toFixed(2)}`;
+      calculateTotal();
+    }
+    
+    // Calculate grand total
+    function calculateTotal() {
+      let subtotal = 0;
+      for(let i=1; i<=10; i++) {
+        const total = document.getElementById(`item${i}_total`);
+        if(total) subtotal += parseFloat(total.textContent.replace('$','')) || 0;
+      }
+      const taxRate = parseFloat(document.getElementById('tax').value) || 0;
+      const tax = subtotal * (taxRate/100);
+      const total = subtotal + tax;
+      
+      document.getElementById('subtotal').textContent = `$${subtotal.toFixed(2)}`;
+      document.getElementById('total').textContent = `$${total.toFixed(2)}`;
+    }
+    
+    // Event listeners
+    document.querySelectorAll('input').forEach(input => {
+      input.addEventListener('input', function() {
+        const id = this.id;
+        if(id.includes('_qty') || id.includes('_rate') || id.includes('_disc')) {
+          const row = id.match(/item(d+)/)[1];
+          calculateItem(row);
+        } else if(id === 'tax') {
+          calculateTotal();
+        }
+      });
+    });
+    
+    // Add new item row
+    function addItemRow() {
+      const itemsSection = document.querySelector('.items-section');
+      const rowNum = itemsSection.children.length + 1;
+      const newRow = document.createElement('div');
+      newRow.className = 'item-row';
+      newRow.innerHTML = `
+        <input type="text" id="item${rowNum}_desc" placeholder="Item Description">
+        <input type="number" id="item${rowNum}_qty" placeholder="Qty">
+        <input type="number" id="item${rowNum}_rate" placeholder="Rate $">
+        <input type="number" id="item${rowNum}_disc" placeholder="Disc %">
+        <span id="item${rowNum}_total">$0</span>
+        <button onclick="this.parentElement.remove();calculateTotal()">🗑️</button>
+      `;
+      itemsSection.appendChild(newRow);
+      calculateTotal();
+    }
+    
+    // Generate PDF
+    function generatePDF() {
+      const { jsPDF } = window.jspdf;
+      const doc = new jsPDF();
+      
+      doc.setFontSize(20);
+      doc.text('INVOICE', 105, 20, {align: 'center'});
+      
+      doc.setFontSize(12);
+      doc.text(document.getElementById('company').value, 20, 40);
+      doc.text(`Invoice: ${document.getElementById('invoiceNo').value}`, 20, 55);
+      doc.text(`Date: ${document.getElementById('date').value}`, 20, 65);
+      
+      doc.text(document.getElementById('client').value, 120, 40);
+      
+      let y = 90;
+      doc.text('Description', 20, y); doc.text('Qty', 80, y); doc.text('Rate', 100, y); doc.text('Total', 140, y); y+=10;
+      
+      for(let i=1; i<=10; i++) {
+        const desc = document.getElementById(`item${i}_desc`);
+        const qty = document.getElementById(`item${i}_qty`);
+        const rate = document.getElementById(`item${i}_rate`);
+        const totalEl = document.getElementById(`item${i}_total`);
+        if(desc && desc.value) {
+          doc.text(desc.value, 20, y);
+          doc.text(qty.value || '0', 80, y);
+          doc.text(`$${rate.value || '0'}`, 100, y);
+          doc.text(totalEl.textContent, 140, y);
+          y += 10;
+        }
+      }
+      
+      doc.text(`Subtotal: ${document.getElementById('subtotal').textContent}`, 140, y); y+=10;
+      doc.text(`Total: ${document.getElementById('total').textContent}`, 140, y);
+      
+      doc.save(`invoice-${document.getElementById('invoiceNo').value}.pdf`);
+    }
+  </script>
+</body>
+</html>
