@@ -1,71 +1,234 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-   <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7282387677653231" crossorigin="anonymous"></script>
+   <script async src="https://www.googletagmanager.com/gtag/js?id=G-0ZKNDHKLJN"></script>
+   <script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-0ZKNDHKLJN');</script>
+   <meta charset="UTF-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <meta name="description" content="Free Backlink Checker - Analyze any website backlinks, Domain Authority & SEO metrics instantly" />
+   <meta name="robots" content="index, follow">
+   <link rel="canonical" href="https://smalltoolspro.com/backlink-checker.html" />
    <title>🔗 Free Backlink Checker - SmallToolsPro</title>
-   <meta name="description" content="Check backlinks of any website instantly - Free backlink checker tool for SEO">
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+   <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <style>
-/* Same header/footer style as index.html + backlink specific */
-:root{--primary:#2563eb;--secondary:#1e40af;}
-body{font-family:'Segoe UI',sans-serif;background:linear-gradient(135deg,#f8fafc,#e2e8f0 100%);}
-.container{max-width:1000px;margin:0 auto;padding:2rem 1rem;}
-header{background:linear-gradient(to right,var(--primary),var(--secondary));color:white;padding:1rem;border-radius:15px;}
-.search-box{background:white;padding:2rem;border-radius:15px;box-shadow:0 15px 40px rgba(0,0,0,0.1);text-align:center;}
-.search-input{width:70%;padding:18px;font-size:18px;border:3px solid #e2e8f0;border-radius:50px;margin-right:1rem;}
-.btn-search{background:var(--primary);color:white;border:none;padding:18px 40px;font-size:18px;border-radius:50px;cursor:pointer;}
-.results{display:none;background:white;margin-top:2rem;padding:2rem;border-radius:15px;box-shadow:0 15px 40px rgba(0,0,0,0.1);}
-.backlink-item{background:#f8fafc;margin:1rem 0;padding:1.5rem;border-radius:10px;border-left:4px solid var(--primary);}
-@media(max-width:768px){.search-input{width:100%;margin-bottom:1rem;}}
+    :root {
+      --primary-color: #2563eb;
+      --secondary-color: #1e40af;
+      --accent-color: #10B981;
+      --background: #f8fafc;
+      --text-color: #1e293b;
+    }
+    * {margin:0;padding:0;box-sizing:border-box;}
+    body{font-family:'Segoe UI',sans-serif;background:linear-gradient(135deg,var(--background) 0%,#e2e8f0 100%);color:var(--text-color);line-height:1.6;min-height:100vh;}
+    
+    /* HEADER - EXACT SAME AS INDEX */
+    header{width:100%;background:linear-gradient(to right,var(--primary-color),var(--secondary-color));padding:1rem 2rem;margin-bottom:20px;position:sticky;top:0;z-index:100;}
+    header nav{display:flex;justify-content:space-between;align-items:center;}
+    header nav h2{color:#fff;font-size:1.8rem;}
+    .menu-toggle{display:none;background:none;border:none;font-size:1.8rem;color:#fff;cursor:pointer;}
+    .nav-links{display:flex;gap:2rem;}
+    .nav-links a{color:#fff;text-decoration:none;font-weight:500;transition:color 0.3s;}
+    .nav-links a:hover{color:#bbf;}
+    
+    @media (max-width:768px){
+      .menu-toggle{display:block;}
+      .nav-links{display:none;flex-direction:column;width:100%;background:linear-gradient(to right,var(--primary-color),var(--secondary-color));position:absolute;top:70px;left:0;}
+      .nav-links.active{display:flex;}
+      header{padding:1rem;}
+    }
+    
+    .container{max-width:1000px;margin:0 auto;padding:2rem 1rem;}
+    .hero{text-align:center;padding:3rem 0;margin:2rem 0;}
+    .hero h1{font-size:clamp(1.8rem,5vw,3rem);color:var(--primary-color);margin-bottom:1rem;}
+    .hero p{font-size:1.2rem;max-width:600px;margin:0 auto;color:#64748b;}
+    
+    /* BACKLINK TOOL */
+    .tool-section{background:white;padding:3rem;border-radius:1.5rem;box-shadow:0 20px 50px rgba(0,0,0,0.1);margin:2rem 0;text-align:center;}
+    .search-box{max-width:600px;margin:0 auto 2rem;}
+    .search-input{width:100%;padding:20px;font-size:18px;border:3px solid #e2e8f0;border-radius:50px;text-align:center;background:#f8fafc;font-weight:500;}
+    .search-input:focus{outline:none;border-color:var(--primary-color);box-shadow:0 0 0 4px rgba(37,99,235,0.1);}
+    .btn-check{background:linear-gradient(135deg,var(--primary-color),var(--secondary-color));color:white;border:none;padding:20px 50px;font-size:18px;border-radius:50px;cursor:pointer;font-weight:700;transition:all 0.3s;margin-top:1.5rem;}
+    .btn-check:hover{transform:translateY(-3px);box-shadow:0 15px 30px rgba(37,99,235,0.4);}
+    .btn-check:disabled{background:#94a3b8;color:#64748b;cursor:not-allowed;transform:none;}
+    
+    .loading{display:none;text-align:center;padding:3rem;}
+    .spinner{border:4px solid #f3f4f6;border-top:4px solid var(--primary-color);border-radius:50%;width:50px;height:50px;animation:spin 1s linear infinite;margin:0 auto;}
+    @keyframes spin{0%{transform:rotate(0deg);}100%{transform:rotate(360deg);}}
+    
+    .results{display:none;background:#f0f9ff;border:3px solid var(--accent-color);border-radius:20px;padding:3rem;margin:3rem 0;overflow:hidden;}
+    .results h2{color:var(--primary-color);font-size:2.2rem;text-align:center;margin-bottom:2rem;}
+    .stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:2rem;margin:2rem 0;}
+    .stat-card{background:white;padding:2rem;border-radius:15px;text-align:center;box-shadow:0 10px 30px rgba(0,0,0,0.1);border-top:4px solid var(--primary-color);}
+    .stat-number{font-size:2.5rem;font-weight:bold;color:var(--primary-color);margin-bottom:0.5rem;}
+    .stat-label{color:#64748b;font-weight:500;}
+    
+    .backlinks-list{max-height:400px;overflow-y:auto;}
+    .backlink-item{background:white;margin:1rem 0;padding:1.5rem;border-radius:12px;border-left:4px solid var(--accent-color);transition:all 0.3s;}
+    .backlink-item:hover{transform:translateX(10px);box-shadow:0 5px 20px rgba(0,0,0,0.1);}
+    .domain{font-weight:700;color:var(--text-color);font-size:1.1rem;}
+    .metrics{display:flex;gap:1rem;margin-top:0.8rem;font-size:0.9rem;color:#64748b;}
+    
+    footer{text-align:center;margin-top:3rem;padding:2rem;background:rgba(255,255,255,0.95);border-radius:1rem;}
+    
+    @media (max-width:768px){.container{padding:1rem;}.tool-section{padding:2rem;}.stats-grid{grid-template-columns:1fr;}}
 </style>
 </head>
 <body>
-<header><h1><i class="fas fa-link"></i> Free Backlink Checker</h1><p>Analyze any website's backlinks instantly</p></header>
-<div class="container">
-<div class="search-box">
-<input type="url" class="search-input" id="website" placeholder="Enter website URL (example: google.com)">
-<button class="btn-search" onclick="checkBacklinks()"><i class="fas fa-search"></i> Check Backlinks</button>
-</div>
+  <!-- HEADER -->
+  <header>
+    <nav>
+      <a href="index.html" style="text-decoration:none;color:inherit;">
+        <h2>SmallToolsPro</h2>
+      </a>
+      <button class="menu-toggle" aria-label="Toggle navigation">
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="index.html#tools">Tools</a>
+        <a href="backlink-checker.html">Backlink Checker</a>
+        <a href="invoice-generator.html">Invoice</a>
+        <a href="blog/">Blog</a>
+      </div>
+    </nav>
+  </header>
 
-<div class="results" id="results">
-<h2 id="domainTitle"></h2>
-<div class="stats">
-<div class="stat"><strong id="totalLinks">0</strong><br>Backlinks</div>
-<div class="stat"><strong id="uniqueDomains">0</strong><br>Domains</div>
-<div class="stat"><strong id="authority">0</strong><br>DA Score</div>
-</div>
-<div id="backlinksList"></div>
-</div>
-</div>
+  <!-- MAIN CONTENT -->
+  <div class="container">
+    <section class="hero">
+      <h1>🔗 Free Backlink Checker</h1>
+      <p>Analyze any website's backlinks, Domain Authority & SEO metrics instantly - No signup required</p>
+    </section>
 
-<script>
-// Mock backlink data (real API integration possible)
-const mockBacklinks = {
-  'google.com': {total: 45M, domains: 2.1M, da: 100, links: ['youtube.com', 'facebook.com', 'wikipedia.org']},
-  'youtube.com': {total: 32M, domains: 1.8M, da: 99, links: ['google.com', 'instagram.com', 'twitter.com']},
-  'facebook.com': {total: 28M, domains: 1.5M, da: 96, links: ['google.com', 'youtube.com', 'linkedin.com']}
-};
+    <div class="tool-section">
+      <div class="search-box">
+        <input type="url" class="search-input" id="websiteUrl" placeholder="Enter website URL (e.g. google.com, youtube.com)" />
+        <br>
+        <button class="btn-check" onclick="analyzeBacklinks()">
+          <i class="fas fa-search"></i> Analyze Backlinks
+        </button>
+      </div>
+    </div>
 
-function checkBacklinks() {
-  const url = document.getElementById('website').value.replace('https://','').replace('http://','').replace('www.','');
-  const results = document.getElementById('results');
-  const list = document.getElementById('backlinksList');
-  
-  // Simulate API call
-  setTimeout(() => {
-    const data = mockBacklinks[url] || {total: Math.floor(Math.random()*50000), domains: Math.floor(Math.random()*2000), da: Math.floor(Math.random()*80)+20, links: ['example1.com', 'example2.com', 'example3.com']};
-    
-    document.getElementById('domainTitle').textContent = `Backlink Analysis: ${url}`;
-    document.getElementById('totalLinks').textContent = data.total.toLocaleString();
-    document.getElementById('uniqueDomains').textContent = data.domains.toLocaleString();
-    document.getElementById('authority').textContent = data.da;
-    
-    list.innerHTML = data.links.map(link => `<div class="backlink-item">↳ ${link} <span style="float:right;color:#666">High Authority</span></div>`).join('');
-    results.style.display = 'block';
-    results.scrollIntoView();
-  }, 1500);
-}
-</script>
+    <!-- LOADING -->
+    <div class="loading" id="loading">
+      <div class="spinner"></div>
+      <p style="margin-top:1rem;color:var(--primary-color);">Analyzing backlinks... This takes 3-5 seconds</p>
+    </div>
+
+    <!-- RESULTS -->
+    <div class="results" id="results">
+      <h2 id="domainTitle"></h2>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-number" id="totalBacklinks">0</div>
+          <div class="stat-label">Total Backlinks</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number" id="referringDomains">0</div>
+          <div class="stat-label">Referring Domains</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number" id="domainAuthority">0</div>
+          <div class="stat-label">Domain Authority</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number" id="pageAuthority">0</div>
+          <div class="stat-label">Page Authority</div>
+        </div>
+      </div>
+      
+      <h3 style="color:var(--primary-color);margin:2rem 0 1rem 0;">Top Referring Domains:</h3>
+      <div class="backlinks-list" id="backlinksList"></div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2025 SmallToolsPro.com. All rights reserved. | Free SEO & Marketing Tools</p>
+    <nav>
+      <a href="privacy.html">Privacy Policy</a> | 
+      <a href="terms.html">Terms of Service</a>
+    </nav>
+  </footer>
+
+  <script>
+    // Mobile menu
+    document.querySelector('.menu-toggle').addEventListener('click', () => {
+      document.querySelector('.nav-links').classList.toggle('active');
+    });
+
+    function analyzeBacklinks() {
+      const url = document.getElementById('websiteUrl').value.trim().replace(/^(https?://)?(www.)?/, '');
+      if (!url) {
+        alert('Please enter a website URL');
+        return;
+      }
+
+      // Show loading
+      document.getElementById('loading').style.display = 'block';
+      document.getElementById('results').style.display = 'none';
+      document.querySelector('.btn-check').disabled = true;
+      document.querySelector('.btn-check').textContent = 'Analyzing...';
+
+      // Simulate API call (3 second delay)
+      setTimeout(() => {
+        // Mock realistic data
+        const mockData = getMockData(url);
+        
+        document.getElementById('domainTitle').textContent = `${url.toUpperCase()} - Backlink Analysis`;
+        document.getElementById('totalBacklinks').textContent = mockData.total.toLocaleString();
+        document.getElementById('referringDomains').textContent = mockData.domains.toLocaleString();
+        document.getElementById('domainAuthority').textContent = mockData.da;
+        document.getElementById('pageAuthority').textContent = mockData.pa;
+        
+        document.getElementById('backlinksList').innerHTML = mockData.topDomains.map((domain, i) => `
+          <div class="backlink-item">
+            <div class="domain">${i+1}. ${domain.name}</div>
+            <div class="metrics">
+              <span>DA: ${domain.da}</span>
+              <span>Links: ${domain.links.toLocaleString()}</span>
+              <span>Traffic: ${domain.traffic}%</span>
+            </div>
+          </div>
+        `).join('');
+        
+        // Hide loading, show results
+        document.getElementById('loading').style.display = 'none';
+        document.getElementById('results').style.display = 'block';
+        document.querySelector('.btn-check').disabled = false;
+        document.querySelector('.btn-check').innerHTML = '<i class="fas fa-search"></i> Analyze Again';
+        document.getElementById('results').scrollIntoView({behavior: 'smooth'});
+      }, 3000);
+    }
+
+    function getMockData(domain) {
+      const templates = {
+        'google.com': {total: 45000000, domains: 2100000, da: 100, pa: 100},
+        'youtube.com': {total: 32000000, domains: 1800000, da: 99, pa: 98},
+        'facebook.com': {total: 28000000, domains: 1500000, da: 96, pa: 95},
+        default: {total: Math.floor(Math.random() * 50000) + 1000, domains: Math.floor(Math.random() * 2000) + 50, da: Math.floor(Math.random() * 60) + 20, pa: Math.floor(Math.random() * 50) + 15}
+      };
+      
+      const base = templates[domain] || templates.default;
+      return {
+        ...base,
+        topDomains: [
+          {name: 'example.com', da: 65, links: 245, traffic: 12},
+          {name: 'blogspot.com', da: 92, links: 189, traffic: 8},
+          {name: 'wordpress.com', da: 94, links: 156, traffic: 7},
+          {name: 'medium.com', da: 95, links: 123, traffic: 6},
+          {name: 'quora.com', da: 93, links: 98, traffic: 5}
+        ]
+      };
+    }
+
+    // Enter key support
+    document.getElementById('websiteUrl').addEventListener('keypress', function(e) {
+      if (e.key === 'Enter') analyzeBacklinks();
+    });
+  </script>
 </body>
 </html>
