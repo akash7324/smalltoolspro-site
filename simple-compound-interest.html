@@ -1,95 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- same GA + Ads + meta pattern as above -->
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7282387677653231" crossorigin="anonymous"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-0ZKNDHKLJN"></script>
+  <script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-0ZKNDHKLJN');</script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://smalltoolspro.com/simple-compound-interest" />
   <title>Simple & Compound Interest Calculator - SmallToolsPro</title>
-  <meta name="description" content="Calculate simple and compound interest for loans and savings. See interest amount and final value with different compounding frequencies." />
+  <meta name="description" content="Calculate simple and compound interest for loans and savings." />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <!-- reuse same CSS from previous page (copy-paste) -->
-  <!-- ... CSS same as first file ... -->
-</head>
-<body>
-<!-- header nav same as first file -->
-
-<div class="container">
-  <div class="tool-section">
-    <h2>Simple & Compound Interest Calculator</h2>
-
-    <label for="principal">Principal Amount:</label>
-    <input type="number" id="principal" placeholder="Enter principal amount" step="0.01" />
-
-    <label for="rate">Annual Interest Rate (%):</label>
-    <input type="number" id="rate" placeholder="Enter interest rate" step="0.01" />
-
-    <label for="time">Time (Years):</label>
-    <input type="number" id="time" placeholder="Enter time in years" step="0.01" />
-
-    <label for="frequency">Compounding Frequency (for compound interest):</label>
-    <select id="frequency" style="width:100%;padding:10px;border:1px solid #ccc;border-radius:4px;margin-bottom:10px;">
-      <option value="1">Yearly</option>
-      <option value="2">Half-yearly</option>
-      <option value="4">Quarterly</option>
-      <option value="12">Monthly</option>
-    </select>
-
-    <button onclick="calculateInterest()">Calculate Interest</button>
-    <div class="result" id="interestResult"></div>
-    <div class="back-link"><a href="index.html">← Back to Home</a></div>
-  </div>
-
-  <div class="description">
-    <h3>About This Tool</h3>
-    <p>
-      Compare simple and compound interest for the same principal, rate, and time to understand how compounding grows your money.
-    </p>
-  </div>
-
-  <div class="faq">
-    <h3>FAQ</h3>
-    <ul>
-      <li><strong>Q:</strong> Which formula is used?<br><em>A:</em> Simple interest uses P×R×T/100 and compound interest uses P(1+R/N)^(N×T).</li>
-      <li><strong>Q:</strong> What does frequency mean?<br><em>A:</em> It is how many times per year interest is added (monthly, quarterly, etc.).</li>
-    </ul>
-  </div>
-</div>
-
-<!-- footer same as first file -->
-
-<script>
-  function calculateInterest() {
-    const P = parseFloat(document.getElementById('principal').value);
-    const R = parseFloat(document.getElementById('rate').value);
-    const T = parseFloat(document.getElementById('time').value);
-    const N = parseInt(document.getElementById('frequency').value, 10);
-
-    if (isNaN(P) || isNaN(R) || isNaN(T) || P <= 0 || R <= 0 || T <= 0) {
-      document.getElementById('interestResult').innerText = 'Please enter valid values.';
-      return;
-    }
-
-    const simpleInterest = (P * R * T) / 100;
-    const amountSimple = P + simpleInterest;
-
-    const ratePerPeriod = R / 100 / N;
-    const amountCompound = P * Math.pow(1 + ratePerPeriod, N * T);
-    const compoundInterest = amountCompound - P;
-
-    const text = 
-      `Simple Interest: ${simpleInterest.toFixed(2)} (Total: ${amountSimple.toFixed(2)})
-` +
-      `Compound Interest: ${compoundInterest.toFixed(2)} (Total: ${amountCompound.toFixed(2)})`;
-
-    document.getElementById('interestResult').innerText = text;
-  }
-
-  document.querySelector('.menu-toggle').addEventListener('click', function () {
-    document.querySelector('.nav-links').classList.toggle('active');
-  });
-</script>
-</body>
-</html>
+  <link rel="icon" href="favicon.svg"
