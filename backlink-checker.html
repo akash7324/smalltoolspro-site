@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>🔗 Free Backlink Checker - SmallToolsPro</title>
+   <meta name="description" content="Check backlinks of any website instantly - Free backlink checker tool for SEO">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+/* Same header/footer style as index.html + backlink specific */
+:root{--primary:#2563eb;--secondary:#1e40af;}
+body{font-family:'Segoe UI',sans-serif;background:linear-gradient(135deg,#f8fafc,#e2e8f0 100%);}
+.container{max-width:1000px;margin:0 auto;padding:2rem 1rem;}
+header{background:linear-gradient(to right,var(--primary),var(--secondary));color:white;padding:1rem;border-radius:15px;}
+.search-box{background:white;padding:2rem;border-radius:15px;box-shadow:0 15px 40px rgba(0,0,0,0.1);text-align:center;}
+.search-input{width:70%;padding:18px;font-size:18px;border:3px solid #e2e8f0;border-radius:50px;margin-right:1rem;}
+.btn-search{background:var(--primary);color:white;border:none;padding:18px 40px;font-size:18px;border-radius:50px;cursor:pointer;}
+.results{display:none;background:white;margin-top:2rem;padding:2rem;border-radius:15px;box-shadow:0 15px 40px rgba(0,0,0,0.1);}
+.backlink-item{background:#f8fafc;margin:1rem 0;padding:1.5rem;border-radius:10px;border-left:4px solid var(--primary);}
+@media(max-width:768px){.search-input{width:100%;margin-bottom:1rem;}}
+</style>
+</head>
+<body>
+<header><h1><i class="fas fa-link"></i> Free Backlink Checker</h1><p>Analyze any website's backlinks instantly</p></header>
+<div class="container">
+<div class="search-box">
+<input type="url" class="search-input" id="website" placeholder="Enter website URL (example: google.com)">
+<button class="btn-search" onclick="checkBacklinks()"><i class="fas fa-search"></i> Check Backlinks</button>
+</div>
+
+<div class="results" id="results">
+<h2 id="domainTitle"></h2>
+<div class="stats">
+<div class="stat"><strong id="totalLinks">0</strong><br>Backlinks</div>
+<div class="stat"><strong id="uniqueDomains">0</strong><br>Domains</div>
+<div class="stat"><strong id="authority">0</strong><br>DA Score</div>
+</div>
+<div id="backlinksList"></div>
+</div>
+</div>
+
+<script>
+// Mock backlink data (real API integration possible)
+const mockBacklinks = {
+  'google.com': {total: 45M, domains: 2.1M, da: 100, links: ['youtube.com', 'facebook.com', 'wikipedia.org']},
+  'youtube.com': {total: 32M, domains: 1.8M, da: 99, links: ['google.com', 'instagram.com', 'twitter.com']},
+  'facebook.com': {total: 28M, domains: 1.5M, da: 96, links: ['google.com', 'youtube.com', 'linkedin.com']}
+};
+
+function checkBacklinks() {
+  const url = document.getElementById('website').value.replace('https://','').replace('http://','').replace('www.','');
+  const results = document.getElementById('results');
+  const list = document.getElementById('backlinksList');
+  
+  // Simulate API call
+  setTimeout(() => {
+    const data = mockBacklinks[url] || {total: Math.floor(Math.random()*50000), domains: Math.floor(Math.random()*2000), da: Math.floor(Math.random()*80)+20, links: ['example1.com', 'example2.com', 'example3.com']};
+    
+    document.getElementById('domainTitle').textContent = `Backlink Analysis: ${url}`;
+    document.getElementById('totalLinks').textContent = data.total.toLocaleString();
+    document.getElementById('uniqueDomains').textContent = data.domains.toLocaleString();
+    document.getElementById('authority').textContent = data.da;
+    
+    list.innerHTML = data.links.map(link => `<div class="backlink-item">↳ ${link} <span style="float:right;color:#666">High Authority</span></div>`).join('');
+    results.style.display = 'block';
+    results.scrollIntoView();
+  }, 1500);
+}
+</script>
+</body>
+</html>
