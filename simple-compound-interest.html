@@ -3,12 +3,172 @@
 <head>
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7282387677653231" crossorigin="anonymous"></script>
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-0ZKNDHKLJN"></script>
-  <script>window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}gtag('js', new Date());gtag('config', 'G-0ZKNDHKLJN');</script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-0ZKNDHKLJN');
+  </script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://smalltoolspro.com/simple-compound-interest" />
   <title>Simple & Compound Interest Calculator - SmallToolsPro</title>
-  <meta name="description" content="Calculate simple and compound interest for loans and savings." />
+  <meta name="description" content="Calculate simple and compound interest for loans, savings and investments. Compare both interest types instantly." />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <link rel="icon" href="favicon.svg"
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <style>
+    :root{--primary-color:#2563eb;--secondary-color:#1e40af;--accent-color:#10B981;--background:#f8fafc;--text-color:#1e293b;}
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{
+      font-family:'Segoe UI',sans-serif;
+      display:flex;flex-direction:column;justify-content:center;align-items:center;
+      background:linear-gradient(135deg,var(--background) 0%,#e2e8f0 100%);
+      color:var(--text-color);line-height:1.6;min-height:100vh;
+    }
+    header{
+      width:100%;background:linear-gradient(to right,var(--primary-color),var(--secondary-color));
+      padding:1rem 2rem;margin-bottom:20px;position:sticky;top:0;z-index:100;
+    }
+    header nav{display:flex;justify-content:space-between;align-items:center;}
+    header nav h2{color:#fff;font-size:1.8rem;}
+    .menu-toggle{display:none;background:none;border:none;font-size:1.8rem;color:#fff;cursor:pointer;}
+    .nav-links{display:flex;gap:2rem;}
+    .nav-links a{color:#fff;text-decoration:none;font-weight:500;transition:color .3s ease;}
+    .nav-links a:hover{color:var(--primary-color);}
+    @media(max-width:768px){
+      .menu-toggle{display:block;}
+      .nav-links{display:none;flex-direction:column;width:100%;
+        background:linear-gradient(to right,var(--primary-color),var(--secondary-color));
+        position:absolute;top:70px;left:0;
+      }
+      .nav-links a{margin:.5rem 0;padding:.5rem 1rem;}
+      .nav-links.active{display:flex;}
+    }
+    .container{
+      max-width:500px;width:100%;background:#fff;padding:20px 30px;border-radius:8px;
+      box-shadow:0 2px 8px rgba(0,0,0,.1);margin-bottom:20px;
+    }
+    .tool-section h2{text-align:center;margin-bottom:1rem;color:var(--primary-color);}
+    .tool-section label{display:block;margin:10px 0 5px;font-weight:bold;}
+    .tool-section input{
+      width:100%;padding:10px;border:1px solid #ccc;border-radius:4px;margin-bottom:10px;font-size:1rem;
+    }
+    .tool-section select{
+      width:100%;padding:10px;border:1px solid #ccc;border-radius:4px;margin-bottom:10px;font-size:1rem;
+    }
+    .tool-section button{
+      width:100%;padding:10px;background:var(--primary-color);color:#fff;border:none;border-radius:4px;
+      margin-top:10px;cursor:pointer;transition:background .3s ease;font-size:1rem;
+    }
+    .tool-section button:hover{background:var(--secondary-color);}
+    .result{margin-top:15px;text-align:center;font-weight:bold;color:var(--primary-color);font-size:1.1rem;white-space:pre-line;}
+    .back-link{margin-top:15px;text-align:center;}
+    .back-link a{text-decoration:none;color:var(--primary-color);font-weight:bold;}
+    .back-link a:hover{text-decoration:underline;}
+    .description,.faq{
+      background:#fff;padding:20px 30px;border-radius:8px;box-shadow:0 2px 8px rgba(0,0,0,.1);
+      max-width:600px;width:100%;margin:20px auto;
+    }
+    .description h3,.faq h3{text-align:center;margin-bottom:10px;color:var(--primary-color);}
+    .description p,.faq li{font-size:1rem;line-height:1.6;margin-bottom:10px;}
+    .faq ul{list-style:none;padding-left:0;}
+    footer{
+      width:100%;background:#fff;padding:1rem;text-align:center;border-radius:8px;
+      box-shadow:0 2px 8px rgba(0,0,0,.1);margin-top:20px;
+    }
+    footer nav a{color:var(--text-color);text-decoration:none;margin:0 .5rem;font-weight:500;transition:color .3s ease;}
+    footer nav a:hover{color:var(--primary-color);}
+  </style>
+</head>
+<body>
+<header>
+  <nav>
+    <a href="index.html" style="text-decoration:none;color:inherit;"><h2>SmallToolsPro</h2></a>
+    <button class="menu-toggle" aria-label="Toggle navigation"><i class="fas fa-bars"></i></button>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="index.html#tools">Tools</a>
+      <a href="index.html#about">About</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </nav>
+</header>
+
+<div class="container">
+  <div class="tool-section">
+    <h2>Simple & Compound Interest</h2>
+    <label for="principal">Principal Amount:</label>
+    <input type="number" id="principal" placeholder="Enter principal amount" step="0.01" />
+    <label for="rate">Interest Rate (%):</label>
+    <input type="number" id="rate" placeholder="Enter annual interest rate" step="0.01" />
+    <label for="time">Time (Years):</label>
+    <input type="number" id="time" placeholder="Enter time in years" step="0.01" />
+    <label for="frequency">Compounding Frequency:</label>
+    <select id="frequency">
+      <option value="1">Yearly</option>
+      <option value="2">Half-yearly</option>
+      <option value="4">Quarterly</option>
+      <option value="12" selected>Monthly</option>
+    </select>
+    <button onclick="calculateInterest()">Calculate Interest</button>
+    <div class="result" id="interestResult"></div>
+    <div class="back-link"><a href="index.html">← Back to Home</a></div>
+  </div>
+
+  <div class="description">
+    <h3>About This Tool</h3>
+    <p>
+      Compare simple and compound interest for the same principal, rate, and time to understand how compounding grows your money.
+    </p>
+  </div>
+
+  <div class="faq">
+    <h3>FAQ</h3>
+    <ul>
+      <li><strong>Q:</strong> Which formula is used?<br><em>A:</em> Simple: P×R×T/100, Compound: P(1+R/N)^(N×T)</li>
+      <li><strong>Q:</strong> What does frequency mean?<br><em>A:</em> How many times per year interest is added (monthly, quarterly, etc.)</li>
+    </ul>
+  </div>
+</div>
+
+<footer>
+  <nav>
+    <a href="privacy.html">Privacy Policy</a> |
+    <a href="terms.html">Terms of Service</a> |
+    <a href="about.html">About Us</a>
+  </nav>
+  <p>© 2025 SmallToolsPro.com. All rights reserved.</p>
+</footer>
+
+<script>
+  function calculateInterest() {
+    const P = parseFloat(document.getElementById('principal').value);
+    const R = parseFloat(document.getElementById('rate').value);
+    const T = parseFloat(document.getElementById('time').value);
+    const N = parseInt(document.getElementById('frequency').value, 10);
+
+    if (isNaN(P) || isNaN(R) || isNaN(T) || P <= 0 || R <= 0 || T <= 0) {
+      document.getElementById('interestResult').innerText = 'Please enter valid values.';
+      return;
+    }
+
+    const simpleInterest = (P * R * T) / 100;
+    const amountSimple = P + simpleInterest;
+    
+    const ratePerPeriod = R / 100 / N;
+    const amountCompound = P * Math.pow(1 + ratePerPeriod, N * T);
+    const compoundInterest = amountCompound - P;
+
+    const text = `Simple Interest: ₹${simpleInterest.toFixed(2)} (Total: ₹${amountSimple.toFixed(2)})
+Compound Interest: ₹${compoundInterest.toFixed(2)} (Total: ₹${amountCompound.toFixed(2)})`;
+    
+    document.getElementById('interestResult').innerText = text;
+  }
+
+  document.querySelector('.menu-toggle').addEventListener('click', function () {
+    document.querySelector('.nav-links').classList.toggle('active');
+  });
+</script>
+</body>
+  </html>
