@@ -44,7 +44,7 @@
     .container {
       max-width: 1200px;
       margin: 0 auto;
-      padding: 2rem 1rem; /* Reduced padding for mobile */
+      padding: 2rem 1rem;
     }
     
     /* HEADER */
@@ -69,7 +69,6 @@
       font-size: 1.8rem;
     }
 
-    /* Hide the hamburger by default */
     .menu-toggle {
       display: none;
       background: none;
@@ -79,7 +78,6 @@
       cursor: pointer;
     }
 
-    /* Navigation links styling */
     .nav-links {
       display: flex;
       gap: 2rem;
@@ -96,9 +94,8 @@
       color: var(--primary-color);
     }
 
-    /* Mobile-specific styles */
+    /* MOBILE HEADER */
     @media (max-width: 768px) {
-      /* Show hamburger and hide nav links initially */
       .menu-toggle {
         display: block;
       }
@@ -118,7 +115,6 @@
         padding: 0.5rem 1rem;
       }
       
-      /* When active, display the navigation */
       .nav-links.active {
         display: flex;
       }
@@ -132,14 +128,14 @@
       }
     }
   
-    /* HERO SECTION - FIXED */
+    /* HERO SECTION */
     .hero {
       text-align: center;
-      padding: 2rem 0; /* Increased padding */
-      margin: 2rem 0; /* Increased margin */
+      padding: 2rem 0;
+      margin: 2rem 0;
     }
     .hero h1 {
-      font-size: clamp(1.5rem, 4vw, 2.5rem); /* Responsive font size */
+      font-size: clamp(1.5rem, 4vw, 2.5rem);
       color: var(--primary-color);
       margin-bottom: 1rem;
       font-weight: 700;
@@ -151,44 +147,24 @@
       margin: 0 auto;
     }
     
-    /* AD SECTIONS */
-    .ad-section {
-      width: 100%;
-      text-align: center;
-      margin: 20px 0;
-      padding: 0.5rem;
-      background: #fff;
-      border-radius: 0.5rem;
-      font-style: italic;
-      color: #64748b;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-    }
-    .ad-section ins {
-      display: inline-block;
-      width: 100%;
-      height: auto;
-      max-width: 728px;
-      margin: 0 auto;
-    }
-    
-    /* TOOLS SECTION - MAIN FIX */
+    /* TOOLS SECTION - MOBILE RESPONSIVE */
     #tools .tool-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Slightly larger for desktop */
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 1.5rem;
       margin: 2rem 0;
     }
     
-    /* MOBILE GRID FIX - CRITICAL */
+    /* MOBILE GRID FIX - SINGLE COLUMN */
     @media (max-width: 768px) {
       #tools .tool-grid {
-        grid-template-columns: 1fr !important; /* Single column on mobile */
+        grid-template-columns: 1fr !important;
         gap: 1rem;
         margin: 1.5rem 0;
       }
       
       .container {
-        padding: 1rem 0.5rem; /* Reduced padding on mobile */
+        padding: 1rem 0.5rem;
       }
       
       .hero {
@@ -217,7 +193,7 @@
       justify-content: center;
     }
     
-    /* Color variations for tool cards */
+    /* 21 Tool Card Colors */
     .tool-card:nth-child(1)  { background: hsl(210,80%,95%); }
     .tool-card:nth-child(2)  { background: hsl(160,80%,95%); }
     .tool-card:nth-child(3)  { background: hsl(320,80%,95%); }
@@ -233,12 +209,12 @@
     .tool-card:nth-child(13) { background: hsl(100,80%,95%); }
     .tool-card:nth-child(14) { background: hsl(360,80%,95%); }
     .tool-card:nth-child(15) { background: hsl(80,80%,95%); }
-    .tool-card:nth-child(16) { background: hsl(120,80%,95%); }  
+    .tool-card:nth-child(16) { background: hsl(120,80%,95%); }
     .tool-card:nth-child(17) { background: hsl(20,80%,95%); }
     .tool-card:nth-child(18) { background: hsl(220,80%,95%); }
     .tool-card:nth-child(19) { background: hsl(160,80%,95%); }
     .tool-card:nth-child(20) { background: hsl(0,80%,95%); }
-    .tool-card:nth-child(21) { background: hsl(280,80%,95%); } 
+    .tool-card:nth-child(21) { background: hsl(280,80%,95%); }
     
     .tool-card:hover {
       transform: translateY(-5px);
@@ -259,7 +235,7 @@
       font-size: 0.9rem;
     }
     
-    /* SITE INFORMATION SECTION */
+    /* SITE INFO */
     .site-info {
       background: #fff;
       padding: 2rem;
@@ -313,7 +289,7 @@
       color: var(--primary-color); 
     }
     
-    /* Extra small screens */
+    /* EXTRA SMALL SCREENS */
     @media (max-width: 360px) {
       .tool-card {
         padding: 1.2rem 1rem;
@@ -329,11 +305,9 @@
   <!-- HEADER -->
   <header>
     <nav>
-      <!-- Clickable website name -->
       <a href="index.html" style="text-decoration: none; color: inherit;">
         <h2>SmallToolsPro</h2>
       </a>
-      <!-- Hamburger menu button for smartphones -->
       <button class="menu-toggle" aria-label="Toggle navigation">
         <i class="fas fa-bars"></i>
       </button>
@@ -355,10 +329,9 @@
       <p>Smart tools for modern life calculations - Finance, Crypto, SEO & More</p>
     </section>
     
-    <!-- TOOLS SECTION -->
+    <!-- TOOLS SECTION - 21 TOOLS -->
     <section id="tools">
       <div class="tool-grid">
-        <!-- Tool Cards -->
         <div class="tool-card">
           <a href="crypto-profit.html">
             ₿ Crypto Profit Calculator
@@ -474,22 +447,22 @@
           </a>
         </div>
         <div class="tool-card">
-          <a href="domain-authority.html">
-            🌐 Domain Authority Checker
-            <p>Check your website's authority score</p>
+          <a href="currency-converter.html">
+            💱 Currency Converter
+            <p>Convert currencies with real-time rates</p>
           </a>
         </div>
       </div>
     </section>
     
-    <!-- SITE INFORMATION SECTION -->
+    <!-- SITE INFORMATION -->
     <section class="site-info" id="about">
       <h3>About Our Tools</h3>
       <p>
-        SmallToolsPro offers a comprehensive suite of online calculators and utilities designed to help you make informed decisions quickly and easily. Our tools cover a wide range of needs—from finance and crypto calculations to SEO optimization and image processing.
+        SmallToolsPro offers 21+ comprehensive online calculators and utilities designed to help you make informed decisions quickly and easily. Our tools cover finance, crypto, SEO, image processing and more.
       </p>
       <p>
-        Explore our tools to simplify your daily tasks. All calculators work offline and provide instant results.
+        All calculators work instantly with no signup required. Privacy protected.
       </p>
       <p>
         <a href="privacy.html">Privacy Policy</a> |
@@ -509,12 +482,12 @@
   </footer>
   
   <script>
-    // Toggle the navigation menu on small screens
+    // Mobile menu toggle
     document.querySelector('.menu-toggle').addEventListener('click', function() {
       document.querySelector('.nav-links').classList.toggle('active');
     });
     
-    // Close menu when clicking on a link
+    // Close menu on link click
     document.querySelectorAll('.nav-links a').forEach(link => {
       link.addEventListener('click', () => {
         document.querySelector('.nav-links').classList.remove('active');
