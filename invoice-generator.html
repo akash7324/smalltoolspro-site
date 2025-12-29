@@ -1,130 +1,319 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>💼 Invoice Generator - SmallToolsPro</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        *{margin:0;padding:0;box-sizing:border-box;}
-        body{font-family:'Segoe UI',sans-serif;background:linear-gradient(135deg,#f8fafc 0%,#e2e8f0 100%);color:#1e293b;padding:15px;min-height:100vh;}
-        .container{max-width:800px;margin:0 auto;}
-        header{background:linear-gradient(135deg,#2563eb,#1e40af);color:white;padding:1.5rem;border-radius:15px;margin-bottom:1.5rem;text-align:center;box-shadow:0 10px 30px rgba(37,99,235,0.3);}
-        header h1{font-size:clamp(1.5rem,6vw,2.2rem);margin-bottom:0.3rem;}
-        .invoice-form{background:white;padding:2rem;border-radius:15px;box-shadow:0 15px 40px rgba(0,0,0,0.1);margin-bottom:1.5rem;}
-        .form-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin-bottom:1.5rem;}
-        .form-group{margin-bottom:1rem;}
-        label{display:block;margin-bottom:0.4rem;font-weight:600;color:#1e293b;font-size:0.9rem;}
-        input{width:100%;padding:12px;border:2px solid #e2e8f0;border-radius:8px;font-size:16px;transition:all 0.3s;}
-        input:focus{outline:none;border-color:#2563eb;box-shadow:0 0 0 3px rgba(37,99,235,0.1);}
-        .items-container{background:#f8fafc;border:2px solid #e2e8f0;border-radius:10px;padding:1.5rem;margin:1rem 0;}
-        .item-row{display:grid;grid-template-columns:2fr 1fr 1fr 1fr 40px;gap:0.8rem;align-items:center;margin-bottom:1rem;padding:1rem;background:white;border-radius:8px;border:1px solid #e2e8f0;}
-        .item-row input{padding:10px;border:2px solid #e2e8f0;border-radius:6px;}
-        .item-row input[readonly]{background:#f1f5f9;color:#475569;font-weight:600;}
-        .remove-item{background:#ef4444;color:white;border:none;width:36px;height:36px;border-radius:50%;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;}
-        .remove-item:hover{background:#dc2626;}
-        .btn-group{display:flex;gap:1rem;flex-wrap:wrap;}
-        .btn{padding:14px 28px;border:none;border-radius:10px;font-size:16px;font-weight:600;cursor:pointer;transition:all 0.3s;display:inline-flex;align-items:center;gap:0.5rem;text-decoration:none;}
-        .btn-primary{background:linear-gradient(135deg,#2563eb,#1e40af);color:white;}
-        .btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 20px rgba(37,99,235,0.4);}
-        .btn-success{background:linear-gradient(135deg,#10B981,#059669);color:white;}
-        .btn-success:hover{transform:translateY(-2px);}
-        .btn-add{background:linear-gradient(135deg,#8b5cf6,#7c3aed);color:white;padding:10px 20px;font-size:14px;}
-        #invoice-preview{display:none;background:white;padding:2rem;border-radius:15px;box-shadow:0 20px 50px rgba(0,0,0,0.15);margin-top:1.5rem;}
-        .invoice-header{display:flex;justify-content:space-between;margin-bottom:2rem;padding-bottom:1rem;border-bottom:3px solid #2563eb;}
-        .company-info h2{color:#2563eb;font-size:1.8rem;}
-        .invoice-meta h1{color:#2563eb;font-size:2.2rem;}
-        .bill-to{background:#f8fafc;padding:1.5rem;border-radius:10px;margin-bottom:1.5rem;border-left:4px solid #10B981;}
-        .invoice-table{width:100%;border-collapse:collapse;margin:1.5rem 0;background:white;border-radius:10px;overflow:hidden;box-shadow:0 5px 15px rgba(0,0,0,0.08);}
-        .invoice-table th{background:linear-gradient(135deg,#2563eb,#1e40af);color:white;padding:15px;text-align:left;font-weight:600;}
-        .invoice-table td{padding:14px;border-bottom:1px solid #f1f5f9;}
-        .total-row{background:#fef3c7 !important;font-size:1.3rem;font-weight:bold;color:#92400e;}
-        @media (max-width:768px){.invoice-header{flex-direction:column;text-align:center;gap:1.5rem;}.item-row{grid-template-columns:2fr 1fr 1fr 80px;}}
-        @media (max-width:480px){.item-row{grid-template-columns:1fr;gap:0.5rem;}.remove-item{justify-self:end;}}
-    </style>
+   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7282387677653231" crossorigin="anonymous"></script>
+   <script async src="https://www.googletagmanager.com/gtag/js?id=G-0ZKNDHKLJN"></script>
+   <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-0ZKNDHKLJN');
+   </script>
+   <meta charset="UTF-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+   <meta name="description" content="Free Online Invoice Generator - Create professional invoices and download PDF instantly" />
+   <meta name="robots" content="index, follow">
+   <link rel="canonical" href="https://smalltoolspro.com/invoice-generator.html" />
+   <title>💼 Invoice Generator - SmallToolsPro</title>
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+   <link rel="icon" href="favicon.svg" type="image/svg+xml">
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+<style>
+    :root {
+      --primary-color: #2563eb;
+      --secondary-color: #1e40af;
+      --accent-color: #10B981;
+      --background: #f8fafc;
+      --text-color: #1e293b;
+    }
+    * {margin:0;padding:0;box-sizing:border-box;}
+    body{font-family:'Segoe UI',sans-serif;background:linear-gradient(135deg,var(--background) 0%,#e2e8f0 100%);color:var(--text-color);line-height:1.6;min-height:100vh;}
+    
+    /* HEADER */
+    header{width:100%;background:linear-gradient(to right,var(--primary-color),var(--secondary-color));padding:1rem 2rem;margin-bottom:20px;position:sticky;top:0;z-index:100;}
+    header nav{display:flex;justify-content:space-between;align-items:center;}
+    header nav h2{color:#fff;font-size:1.8rem;}
+    .menu-toggle{display:none;background:none;border:none;font-size:1.8rem;color:#fff;cursor:pointer;}
+    .nav-links{display:flex;gap:2rem;}
+    .nav-links a{color:#fff;text-decoration:none;font-weight:500;transition:color 0.3s;}
+    .nav-links a:hover{color:var(--primary-color);}
+    
+    @media (max-width:768px){
+      .menu-toggle{display:block;}
+      .nav-links{display:none;flex-direction:column;width:100%;background:linear-gradient(to right,var(--primary-color),var(--secondary-color));position:absolute;top:70px;left:0;}
+      .nav-links a{margin:0.5rem 0;padding:0.5rem 1rem;}
+      .nav-links.active{display:flex;}
+      header{padding:1rem;}
+      header nav h2{font-size:1.5rem;}
+    }
+    
+    .container{max-width:900px;margin:0 auto;padding:2rem 1rem;}
+    .hero{text-align:center;padding:2rem 0;margin:2rem 0;}
+    .hero h1{font-size:clamp(1.5rem,4vw,2.5rem);color:var(--primary-color);margin-bottom:1rem;font-weight:700;}
+    .hero p{font-size:1.1rem;color:var(--text-color);max-width:500px;margin:0 auto;}
+    
+    /* FORM */
+    .invoice-form{background:white;padding:2.5rem;border-radius:1.5rem;box-shadow:0 15px 40px rgba(0,0,0,0.1);margin:2rem 0;}
+    .form-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.5rem;margin-bottom:2rem;}
+    .form-group{margin-bottom:1.5rem;}
+    label{display:block;margin-bottom:0.5rem;font-weight:600;color:var(--text-color);}
+    input{width:100%;padding:14px;border:2px solid #e2e8f0;border-radius:10px;font-size:16px;transition:all 0.3s;background:#fafbfc;}
+    input:focus{outline:none;border-color:var(--primary-color);box-shadow:0 0 0 3px rgba(37,99,235,0.1);background:white;}
+    
+    .items-container{background:#f8fafc;border:2px solid #e2e8f0;border-radius:12px;padding:1.5rem;margin:1.5rem 0;}
+    .item-row{display:grid;grid-template-columns:2fr 1fr 1fr 1fr 40px;gap:1rem;align-items:center;margin-bottom:1rem;padding:1rem;background:white;border-radius:8px;border:1px solid #e2e8f0;}
+    .item-row input{padding:12px;border:2px solid #e2e8f0;border-radius:8px;}
+    .item-row input[readonly]{background:#f1f5f9;color:#475569;font-weight:600;}
+    .remove-item{background:#ef4444;color:white;border:none;width:36px;height:36px;border-radius:50%;cursor:pointer;font-size:16px;display:flex;align-items:center;justify-content:center;transition:all 0.3s;}
+    .remove-item:hover{background:#dc2626;transform:scale(1.1);}
+    
+    .btn-group{display:flex;gap:1rem;flex-wrap:wrap;margin-top:2rem;}
+    .btn{padding:16px 32px;border:none;border-radius:12px;font-size:16px;font-weight:600;cursor:pointer;transition:all 0.3s;display:inline-flex;align-items:center;gap:0.5rem;text-decoration:none;}
+    .btn-primary{background:linear-gradient(135deg,var(--primary-color),var(--secondary-color));color:white;}
+    .btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 25px rgba(37,99,235,0.4);}
+    .btn-success{background:linear-gradient(135deg,var(--accent-color),#059669);color:white;}
+    .btn-success:hover{transform:translateY(-2px);}
+    .btn-add{background:linear-gradient(135deg,#8b5cf6,#7c3aed);color:white;padding:12px 20px;font-size:14px;}
+    
+    #invoice-preview{display:none;background:white;padding:2.5rem;border-radius:1.5rem;box-shadow:0 20px 50px rgba(0,0,0,0.15);margin:2rem 0;}
+    .invoice-header{display:flex;justify-content:space-between;margin-bottom:2rem;padding-bottom:1rem;border-bottom:3px solid var(--primary-color);}
+    .company-info h2{color:var(--primary-color);font-size:2rem;}
+    .invoice-meta h1{color:var(--primary-color);font-size:2.5rem;}
+    .bill-to{background:#f8fafc;padding:1.5rem;border-radius:10px;margin-bottom:2rem;border-left:4px solid var(--accent-color);}
+    .invoice-table{width:100%;border-collapse:collapse;margin:2rem 0;background:white;border-radius:12px;overflow:hidden;box-shadow:0 5px 15px rgba(0,0,0,0.08);}
+    .invoice-table th{background:linear-gradient(135deg,var(--primary-color),var(--secondary-color));color:white;padding:18px;text-align:left;font-weight:600;}
+    .invoice-table td{padding:16px;border-bottom:1px solid #f1f5f9;}
+    .total-row{background:#fef3c7 !important;font-size:1.4rem;font-weight:bold;color:#92400e;}
+    
+    footer{text-align:center;margin-top:3rem;padding:2rem 1rem;background:rgba(255,255,255,0.95);border-radius:1rem;margin-bottom:2rem;}
+    footer nav a{color:var(--text-color);text-decoration:none;margin:0 0.5rem;transition:color 0.3s;}
+    footer nav a:hover{color:var(--primary-color);}
+    
+    @media (max-width:768px){
+      .item-row{grid-template-columns:2fr 1fr 1fr 80px;}
+      .invoice-header{flex-direction:column;text-align:center;gap:2rem;}
+      .form-grid{grid-template-columns:1fr;}
+      .container{padding:1rem 0.5rem;}
+    }
+    @media (max-width:480px){
+      .item-row{grid-template-columns:1fr;gap:0.5rem;}
+      .remove-item{justify-self:end;}
+    }
+</style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>💼 Invoice Generator</h1>
-            <p>Create & Download Professional PDF Invoices</p>
-        </header>
+  <!-- HEADER -->
+  <header>
+    <nav>
+      <a href="index.html" style="text-decoration:none;color:inherit;">
+        <h2>SmallToolsPro</h2>
+      </a>
+      <button class="menu-toggle" aria-label="Toggle navigation">
+        <i class="fas fa-bars"></i>
+      </button>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="index.html#tools">Tools</a>
+        <a href="invoice-generator.html">Invoice</a>
+        <a href="blog/">Blog</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </nav>
+  </header>
 
-        <div class="invoice-form">
-            <div class="form-grid">
-                <div class="form-group">
-                    <label>Invoice #</label>
-                    <input type="text" id="invoiceNo" value="INV-2025-001">
-                </div>
-                <div class="form-group">
-                    <label>Date</label>
-                    <input type="date" id="invoiceDate">
-                </div>
-                <div class="form-group">
-                    <label>Your Company</label>
-                    <input type="text" id="yourCompany" value="SmallToolsPro" placeholder="Your Business">
-                </div>
-                <div class="form-group">
-                    <label>Client Name</label>
-                    <input type="text" id="clientName" placeholder="Client Name">
-                </div>
-                <div class="form-group">
-                    <label>Client Email</label>
-                    <input type="email" id="clientEmail" placeholder="email@example.com">
-                </div>
-            </div>
+  <!-- MAIN CONTENT -->
+  <div class="container">
+    <section class="hero">
+      <h1>💼 Professional Invoice Generator</h1>
+      <p>Create, preview and download PDF invoices instantly - Free & No Signup</p>
+    </section>
 
-            <div class="items-container" id="items-container">
-                <div class="item-row">
-                    <input type="text" class="item-desc" placeholder="Description">
-                    <input type="number" class="item-qty" placeholder="Qty" min="1">
-                    <input type="number" class="item-rate" placeholder="Rate ₹" step="0.01">
-                    <input type="number" class="item-amount" placeholder="Amount ₹" readonly>
-                    <button class="remove-item" onclick="removeItem(this)">×</button>
-                </div>
-            </div>
-            <button class="btn btn-add" onclick="addItem()">+ Add Item</button>
-
-            <div class="btn-group" style="margin-top:2rem;">
-                <button class="btn btn-primary" onclick="generateInvoice()">
-                    <i class="fas fa-magic"></i> Generate
-                </button>
-                <button class="btn btn-success" onclick="downloadPDF()" id="downloadBtn" disabled>
-                    <i class="fas fa-download"></i> PDF Download
-                </button>
-            </div>
+    <div class="invoice-form">
+      <div class="form-grid">
+        <div class="form-group">
+          <label>Invoice Number *</label>
+          <input type="text" id="invoiceNo" placeholder="INV-2025-001">
         </div>
-
-        <div id="invoice-preview">
-            <div id="invoice"></div>
+        <div class="form-group">
+          <label>Date *</label>
+          <input type="date" id="invoiceDate">
         </div>
+        <div class="form-group">
+          <label>Your Company Name *</label>
+          <input type="text" id="yourCompany" placeholder="Enter your business name">
+        </div>
+        <div class="form-group">
+          <label>Client Name *</label>
+          <input type="text" id="clientName" placeholder="Enter client full name">
+        </div>
+        <div class="form-group">
+          <label>Client Email</label>
+          <input type="email" id="clientEmail" placeholder="client@example.com">
+        </div>
+      </div>
+
+      <div class="items-container" id="items-container">
+        <div class="item-row">
+          <input type="text" class="item-desc" placeholder="Enter service/product description">
+          <input type="number" class="item-qty" placeholder="Qty" min="1">
+          <input type="number" class="item-rate" placeholder="Rate (₹)" step="0.01">
+          <input type="number" class="item-amount" placeholder="Amount (₹)" readonly>
+          <button class="remove-item" onclick="removeItem(this)">×</button>
+        </div>
+      </div>
+      
+      <button class="btn btn-add" onclick="addItem()">+ Add More Item</button>
+      
+      <div class="btn-group">
+        <button class="btn btn-primary" onclick="generateInvoice()">
+          <i class="fas fa-magic"></i> Generate Invoice
+        </button>
+        <button class="btn btn-success" onclick="downloadPDF()" id="downloadBtn" disabled>
+          <i class="fas fa-download"></i> Download PDF
+        </button>
+      </div>
     </div>
 
-    <script>
-        document.getElementById('invoiceDate').valueAsDate=new Date();
-        document.addEventListener('input',e=>{
-            if(e.target.classList.contains('item-qty')||e.target.classList.contains('item-rate')){
-                let row=e.target.closest('.item-row'),qty=parseFloat(row.querySelector('.item-qty').value)||0,rate=parseFloat(row.querySelector('.item-rate').value)||0;
-                row.querySelector('.item-amount').value=(qty*rate).toFixed(2);
-            }
-        });
-        function addItem(){let c=document.getElementById('items-container'),r=document.createElement('div');r.className='item-row';r.innerHTML=`<input type="text" class="item-desc" placeholder="Description"><input type="number" class="item-qty" placeholder="Qty" min="1"><input type="number" class="item-rate" placeholder="Rate ₹" step="0.01"><input type="number" class="item-amount" placeholder="Amount ₹" readonly><button class="remove-item" onclick="removeItem(this)">×</button>`;c.appendChild(r);}
-        function removeItem(b){if(document.querySelectorAll('.item-row').length>1)b.closest('.item-row').remove();}
-        function generateInvoice(){
-            let n=document.getElementById('invoiceNo').value,d=document.getElementById('invoiceDate').value,c=document.getElementById('yourCompany').value,cl=document.getElementById('clientName').value,ce=document.getElementById('clientEmail').value,t=0,i='',h=false;
-            document.querySelectorAll('.item-row').forEach(r=>{
-                let desc=r.querySelector('.item-desc').value.trim(),qty=r.querySelector('.item-qty').value,rate=r.querySelector('.item-rate').value,amt=r.querySelector('.item-amount').value;
-                if(desc&&qty&&rate&&amt>0){h=true;i+=`<tr><td>${desc}</td><td>${qty}</td><td>₹${parseFloat(rate).toFixed(2)}</td><td>₹${amt}</td></tr>`;t+=parseFloat(amt);}
-            });
-            if(!c||!cl||!h){alert('Fill company, client & add items!');return;}
-            document.getElementById('invoice').innerHTML=`<div class="invoice-header"><div class="company-info"><h2>${c}</h2><p>Invoice: ${n} | ${new Date(d).toLocaleDateString('en-IN')}</p></div><div class="invoice-meta"><h1>INVOICE</h1></div></div><div class="bill-to"><strong>Bill To:</strong><br><br><strong>${cl}</strong><br>${ce||'No email'}</div><table class="invoice-table"><thead><tr><th>Description</th><th>Qty</th><th>Rate</th><th>Amount</th></tr></thead><tbody>${i}<tr class="total-row"><td colspan="3"><strong>TOTAL</strong></td><td><strong>₹${t.toFixed(2)}</strong></td></tr></tbody></table><div style="margin-top:2rem;padding-top:1.5rem;border-top:2px dashed #cbd5e1;text-align:center;color:#64748b;"><p>Thank you for your business!</p><p>Payment due within 30 days</p></div>`;
-            document.getElementById('invoice-preview').style.display='block';document.getElementById('downloadBtn').disabled=false;document.getElementById('invoice-preview').scrollIntoView();
+    <div id="invoice-preview">
+      <div id="invoice"></div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2025 SmallToolsPro.com. All rights reserved.</p>
+    <nav>
+      <a href="privacy.html">Privacy Policy</a> |
+      <a href="terms.html">Terms of Service</a>
+    </nav>
+  </footer>
+
+  <script>
+    // Set today's date only (no pre-filled values)
+    document.getElementById('invoiceDate').valueAsDate = new Date();
+    
+    // Auto calculate amounts
+    document.addEventListener('input', function(e) {
+      if (e.target.classList.contains('item-qty') || e.target.classList.contains('item-rate')) {
+        let row = e.target.closest('.item-row');
+        let qty = parseFloat(row.querySelector('.item-qty').value) || 0;
+        let rate = parseFloat(row.querySelector('.item-rate').value) || 0;
+        row.querySelector('.item-amount').value = (qty * rate).toFixed(2);
+      }
+    });
+    
+    function addItem() {
+      let container = document.getElementById('items-container');
+      let row = document.createElement('div');
+      row.className = 'item-row';
+      row.innerHTML = `
+        <input type="text" class="item-desc" placeholder="Enter service/product description">
+        <input type="number" class="item-qty" placeholder="Qty" min="1">
+        <input type="number" class="item-rate" placeholder="Rate (₹)" step="0.01">
+        <input type="number" class="item-amount" placeholder="Amount (₹)" readonly>
+        <button class="remove-item" onclick="removeItem(this)">×</button>
+      `;
+      container.appendChild(row);
+    }
+    
+    function removeItem(btn) {
+      if (document.querySelectorAll('.item-row').length > 1) {
+        btn.closest('.item-row').remove();
+      }
+    }
+    
+    function generateInvoice() {
+      let invoiceNo = document.getElementById('invoiceNo').value.trim();
+      let date = document.getElementById('invoiceDate').value;
+      let company = document.getElementById('yourCompany').value.trim();
+      let client = document.getElementById('clientName').value.trim();
+      let email = document.getElementById('clientEmail').value.trim();
+      let total = 0;
+      let itemsHTML = '';
+      
+      // Validation
+      if (!invoiceNo || !date || !company || !client) {
+        alert('Please fill all required fields (*)');
+        return;
+      }
+      
+      document.querySelectorAll('.item-row').forEach(row => {
+        let desc = row.querySelector('.item-desc').value.trim();
+        let qty = row.querySelector('.item-qty').value;
+        let rate = row.querySelector('.item-rate').value;
+        let amount = row.querySelector('.item-amount').value;
+        
+        if (desc && qty && rate && parseFloat(amount) > 0) {
+          itemsHTML += `<tr><td>${desc}</td><td>${qty}</td><td>₹${parseFloat(rate).toFixed(2)}</td><td>₹${amount}</td></tr>`;
+          total += parseFloat(amount);
         }
-        function downloadPDF(){
-            let p=document.getElementById('invoice-preview');if(!p.style.display)p.style.display='block';
-            html2pdf().set({filename:`invoice-${document.getElementById('invoiceNo').value}.pdf`,html2canvas:{scale:2},jsPDF:{format:'a4',orientation:'portrait'}}).from(document.getElementById('invoice')).save();
-        }
-    </script>
+      });
+      
+      if (total === 0 || itemsHTML === '') {
+        alert('Please add at least one valid item with description, quantity and rate!');
+        return;
+      }
+      
+      document.getElementById('invoice').innerHTML = `
+        <div class="invoice-header">
+          <div class="company-info">
+            <h2>${company}</h2>
+            <p>Invoice: ${invoiceNo} | ${new Date(date).toLocaleDateString('en-IN')}</p>
+          </div>
+          <div class="invoice-meta">
+            <h1>INVOICE</h1>
+          </div>
+        </div>
+        <div class="bill-to">
+          <strong>Bill To:</strong><br><br>
+          <strong>${client}</strong><br>
+          ${email ? email : 'No email provided'}
+        </div>
+        <table class="invoice-table">
+          <thead>
+            <tr>
+              <th>Description</th>
+              <th>Qty</th>
+              <th>Rate</th>
+              <th>Amount</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${itemsHTML}
+            <tr class="total-row">
+              <td colspan="3"><strong>TOTAL</strong></td>
+              <td><strong>₹${total.toFixed(2)}</strong></td>
+            </tr>
+          </tbody>
+        </table>
+        <div style="margin-top:3rem;padding-top:2rem;border-top:2px dashed #cbd5e1;text-align:center;color:#64748b;">
+          <p>Thank you for your business!</p>
+          <p>Payment due within 30 days | Generated by SmallToolsPro</p>
+        </div>
+      `;
+      
+      document.getElementById('invoice-preview').style.display = 'block';
+      document.getElementById('downloadBtn').disabled = false;
+      document.getElementById('invoice-preview').scrollIntoView({behavior:'smooth'});
+    }
+    
+    function downloadPDF() {
+      html2pdf()
+        .set({
+          filename: `invoice-${document.getElementById('invoiceNo').value || '001'}.pdf`,
+          margin: 0.5,
+          image: {type: 'jpeg', quality: 0.98},
+          html2canvas: {scale: 2},
+          jsPDF: {format: 'a4', orientation: 'portrait'}
+        })
+        .from(document.getElementById('invoice'))
+        .save();
+    }
+    
+    // Mobile menu toggle
+    document.querySelector('.menu-toggle').addEventListener('click', function() {
+      document.querySelector('.nav-links').classList.toggle('active');
+    });
+  </script>
 </body>
-</html>
+    </html>
