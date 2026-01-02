@@ -1,32 +1,21 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <!-- White background as requested -->
-  <rect width="64" height="64" fill="white"/>
-  
-  <!-- Crossed hammer + gear tools EXACTLY matching your latest screenshot (no STP text) -->
-  <g opacity="0.95">
-    <!-- Gear/cog (right side, metallic silver gradient) -->
-    <g transform="translate(42, 32)">
-      <!-- Gear body -->
-      <circle cx="0" cy="0" r="12" fill="#e0e0e0" stroke="#b0b0b0" stroke-width="1.5"/>
-      <!-- Gear teeth (8 outer cogs) -->
-      <g stroke="#c0c0c0" stroke-width="2.5" stroke-linecap="round" fill="none">
-        <path d="M 12 0 L 17 0 M -12 0 L -17 0"/>
-        <path d="M 0 12 L 0 17 M 0 -12 L 0 -17"/>
-        <path transform="rotate(45 0 0)" d="M 8.5 0 L 12.5 0 M -8.5 0 L -12.5 0"/>
-        <path transform="rotate(135 0 0)" d="M 0 8.5 L 0 12.5 M 0 -8.5 L 0 -12.5"/>
-      </g>
-      <!-- Gear center hole -->
-      <circle cx="0" cy="0" r="3" fill="#a0a0a0"/>
-    </g>
-    
-    <!-- Hammer (left side, crossed over gear, metallic silver) -->
-    <g transform="translate(22, 28) rotate(-15)">
-      <!-- Hammer head (rectangular) -->
-      <rect x="-6" y="-10" width="12" height="6" rx="2" fill="#d0d0d0" stroke="#a0a0a0" stroke-width="1.2"/>
-      <!-- Hammer handle (wooden/gray grip) -->
-      <rect x="-2" y=" -4" width="4" height="24" rx="2" fill="#b8b8b8" stroke="#909090" stroke-width="1"/>
-      <!-- Handle end grip -->
-      <rect x="-3" y="20" width="6" height="4" rx="2" fill="#a8a8a8"/>
-    </g>
+  <rect width="64" height="64" rx="8" fill="white"/>
+
+  <!-- Screwdriver -->
+  <g transform="rotate(-45 32 32)">
+    <rect x="28" y="6" width="8" height="30" rx="3" fill="#1E6BFF"/>
+    <rect x="26" y="36" width="12" height="18" rx="4" fill="#1E6BFF"/>
+    <circle cx="32" cy="50" r="2" fill="white"/>
+  </g>
+
+  <!-- Wrench -->
+  <g transform="rotate(45 32 32)">
+    <path d="M40 10
+             a10 10 0 0 0 -8 8
+             l5 5
+             a10 10 0 0 0 8 -8
+             z"
+          fill="#1E6BFF"/>
+    <rect x="30" y="22" width="8" height="32" rx="4" fill="#1E6BFF"/>
   </g>
 </svg>
