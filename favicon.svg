@@ -1,24 +1,24 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <!-- Dark circular gradient background -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
   <defs>
-    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+    <!-- Dark gradient background matching your site's dark theme from screenshot -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#121212"/>
       <stop offset="100%" stop-color="#000000"/>
     </linearGradient>
   </defs>
-  <circle cx="32" cy="32" r="32" fill="url(#bgGradient)"/>
   
-  <!-- Crossed tools icon matching exact image shape: screwdriver under wrench, cyan stroke -->
-  <g fill="none" stroke="#00B0FF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10">
-    <!-- Screwdriver (underneath) -->
-    <!-- Shaft -->
-    <path d="M 16 42 L 16 28 Q 16 22 22 22 L 48 22 Q 54 22 54 28 L 54 42"/>
-    <!-- Tip flathead -->
-    <path d="M 24 22 L 46 4 L 50 8 L 28 30"/>
-    <!-- Wrench (on top, crossed) -->
-    <!-- Jaw/opening -->
-    <path d="M 10 18 Q 20 10 32 18 Q 44 26 40 38 Q 36 50 24 46 Q 12 42 16 30 Z"/>
-    <!-- Handle -->
-    <path d="M 26 38 L 54 58"/>
+  <!-- Site-themed circular background -->
+  <circle cx="32" cy="32" r="31.5" fill="url(#bgGrad)" stroke="#333" stroke-width="1"/>
+  
+  <!-- Precise crossed tools icon from your reference image: screwdriver under wrench, cyan blue outline for SmallToolsPro modern look -->
+  <g fill="none" stroke="#00BFFF" stroke-width="3.8" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" opacity="0.95">
+    <!-- Screwdriver handle (oval thick, rounded ends) -->
+    <path d="M15 38 Q15 30 22 30 Q40 30 47 38 Q47 46 40 46 L22 46 Q15 46 15 38 Z"/>
+    <!-- Screwdriver shaft and flat tip -->
+    <path d="M25 30 L25 15 L42 15 L42 8 L45 11 L28 28"/>
+    <!-- Wrench jaw (curved C-shape open end) -->
+    <path d="M8 15 Q18 8 28 15 Q38 22 35 33 Q32 44 22 41 Q12 38 15 27 Z"/>
+    <!-- Wrench handle extension -->
+    <path d="M28 33 L48 53"/>
   </g>
 </svg>
