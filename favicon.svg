@@ -1,18 +1,24 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
-  <!-- Crossed screwdriver and wrench icon, matching uploaded image exactly -->
-  <!-- Screwdriver (behind, at slight angle) -->
-  <g stroke="#2196F3" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke-miterlimit="10">
-    <!-- Screwdriver handle -->
-    <path d="M 20 50 L 20 30 Q 20 25 25 25 L 44 25 Q 49 25 49 30 L 49 50"/>
-    <!-- Screwdriver shaft/tip -->
-    <path d="M 27 25 L 42 10 L 44 12 L 29 27"/>
-  </g>
+  <!-- Dark circular gradient background -->
+  <defs>
+    <linearGradient id="bgGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#121212"/>
+      <stop offset="100%" stop-color="#000000"/>
+    </linearGradient>
+  </defs>
+  <circle cx="32" cy="32" r="32" fill="url(#bgGradient)"/>
   
-  <!-- Wrench (in front, crossed over screwdriver) -->
-  <g stroke="#2196F3" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" fill="none" stroke-miterlimit="10" transform="translate(0,2)">
-    <!-- Wrench head opening -->
-    <path d="M 12 12 Q 18 8 24 12 Q 30 16 26 24 Q 22 32 14 28 Q 6 24 10 16 Z"/>
-    <!-- Wrench handle -->
-    <path d="M 20 24 L 44 48"/>
+  <!-- Crossed tools icon matching exact image shape: screwdriver under wrench, cyan stroke -->
+  <g fill="none" stroke="#00B0FF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10">
+    <!-- Screwdriver (underneath) -->
+    <!-- Shaft -->
+    <path d="M 16 42 L 16 28 Q 16 22 22 22 L 48 22 Q 54 22 54 28 L 54 42"/>
+    <!-- Tip flathead -->
+    <path d="M 24 22 L 46 4 L 50 8 L 28 30"/>
+    <!-- Wrench (on top, crossed) -->
+    <!-- Jaw/opening -->
+    <path d="M 10 18 Q 20 10 32 18 Q 44 26 40 38 Q 36 50 24 46 Q 12 42 16 30 Z"/>
+    <!-- Handle -->
+    <path d="M 26 38 L 54 58"/>
   </g>
 </svg>
