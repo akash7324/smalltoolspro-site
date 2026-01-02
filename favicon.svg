@@ -1,12 +1,13 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100">
-  <!-- Screwdriver handle -->
-  <rect x="50" y="10" width="8" height="25" rx="4" fill="#007BFF"/>
-  <!-- Screwdriver shaft -->
-  <rect x="48" y="35" width="12" height="35" rx="2" fill="#007BFF"/>
-  <!-- Screwdriver tip -->
-  <rect x="46" y="70" width="16" height="8" rx="1" fill="#007BFF"/>
-  <!-- Wrench handle -->
-  <path d="M 10 50 Q 20 40 30 45 L 40 55 Q 45 60 40 65 L 30 70 Q 20 75 10 65 Z" fill="#007BFF"/>
-  <!-- Wrench jaw -->
-  <path d="M 42 52 L 55 48 L 58 55 L 45 59 Z" fill="#007BFF"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" style="background: #000;">
+  <!-- Screwdriver rotated and positioned -->
+  <g transform="translate(60,20) rotate(-45)">
+    <rect x="-4" y="-10" width="8" height="25" rx="4" fill="#007BFF"/>
+    <rect x="-6" y="15" width="12" height="40" rx="2" fill="#007BFF"/>
+    <rect x="-8" y="55" width="16" height="10" rx="2" fill="#007BFF"/>
+  </g>
+  <!-- Wrench rotated and positioned -->
+  <g transform="translate(60,100) rotate(45)">
+    <path d="M 0 -35 L 25 -30 Q 32 -25 30 -15 L 20 -5 Q 15 0 10 5 L 5 15 Q 0 25 -5 25 L -15 20 Q -25 15 -30 5 L -25 -5 Q -20 -15 -10 -20 Z" fill="#007BFF" transform="scale(0.8)"/>
+    <path d="M 20 -25 L 35 -28 L 40 -15 L 28 -10 Z" fill="#007BFF" transform="scale(0.8)"/>
+  </g>
 </svg>
