@@ -1,13 +1,18 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" style="background: #000;">
-  <!-- Screwdriver rotated and positioned -->
-  <g transform="translate(60,20) rotate(-45)">
-    <rect x="-4" y="-10" width="8" height="25" rx="4" fill="#007BFF"/>
-    <rect x="-6" y="15" width="12" height="40" rx="2" fill="#007BFF"/>
-    <rect x="-8" y="55" width="16" height="10" rx="2" fill="#007BFF"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" style="background:#000">
+  <!-- Screwdriver: handle, shaft, tip - rotated -45 degrees -->
+  <g transform="rotate(-45 50 50)">
+    <!-- Handle -->
+    <rect x="45" y="5" width="10" height="30" rx="5" fill="#4dabf7"/>
+    <!-- Shaft -->
+    <rect x="47" y="35" width="6" height="45" rx="3" fill="#4dabf7"/>
+    <!-- Tip -->
+    <polygon points="48,80 52,80 54,85 46,85" fill="#4dabf7"/>
   </g>
-  <!-- Wrench rotated and positioned -->
-  <g transform="translate(60,100) rotate(45)">
-    <path d="M 0 -35 L 25 -30 Q 32 -25 30 -15 L 20 -5 Q 15 0 10 5 L 5 15 Q 0 25 -5 25 L -15 20 Q -25 15 -30 5 L -25 -5 Q -20 -15 -10 -20 Z" fill="#007BFF" transform="scale(0.8)"/>
-    <path d="M 20 -25 L 35 -28 L 40 -15 L 28 -10 Z" fill="#007BFF" transform="scale(0.8)"/>
+  <!-- Wrench: handle curve and jaws - rotated 45 degrees -->
+  <g transform="rotate(45 50 50)">
+    <!-- Main wrench body -->
+    <path d="M10,40 Q15,25 25,30 L45,50 Q50,55 45,60 L25,65 Q15,70 10,60 L5,50 Z" fill="#4dabf7"/>
+    <!-- Wrench jaws -->
+    <path d="M45,45 L60,42 L63,50 L50,53 Z" fill="#4dabf7"/>
   </g>
 </svg>
