@@ -101,14 +101,13 @@
       right: 0;
       z-index: 1000;
       width: 100%;
-      padding: 0 20px;
     }
 
     .header-container {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 15px 0;
+      padding: 15px 20px;
       max-width: 1200px;
       margin: 0 auto;
     }
@@ -136,7 +135,7 @@
       color: var(--primary);
     }
 
-    /* Navigation Menu */
+    /* Navigation Menu - FIXED STRUCTURE */
     nav {
       display: flex;
       align-items: center;
@@ -508,20 +507,22 @@
       font-size: 0.9rem;
     }
 
-    /* Responsive Styles */
+    /* Responsive Styles - FIXED MOBILE MENU */
     @media (max-width: 768px) {
       body {
         padding-top: 60px;
       }
       
       .header-container {
-        padding: 10px 0;
+        padding: 10px 15px;
       }
       
+      /* Mobile Menu Button - Show on mobile */
       .mobile-menu-btn {
         display: block;
       }
       
+      /* Navigation Menu - Hidden by default on mobile */
       .nav-links {
         position: fixed;
         top: 0;
@@ -535,6 +536,7 @@
         box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
         transition: right 0.3s ease;
         z-index: 1000;
+        display: flex !important; /* Important to override inline styles */
       }
       
       .nav-links.active {
@@ -552,6 +554,24 @@
         font-size: 1.1rem;
         border-bottom: 1px solid #f1f5f9;
         width: 100%;
+      }
+      
+      /* Overlay when menu is open */
+      .nav-links::before {
+        content: '';
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        z-index: -1;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+      }
+      
+      .nav-links.active::before {
+        opacity: 1;
       }
       
       .about-hero h1 {
@@ -614,6 +634,11 @@
       .mission-card h3 {
         font-size: 1.5rem;
       }
+      
+      .btn {
+        padding: 10px 20px;
+        font-size: 0.95rem;
+      }
     }
 
     @media (max-width: 360px) {
@@ -623,6 +648,12 @@
       
       .about-card {
         padding: 25px 15px;
+      }
+      
+      .team-avatar {
+        width: 100px;
+        height: 100px;
+        font-size: 40px;
       }
     }
   </style>
@@ -828,4 +859,139 @@
           </div>
         </div>
         
-        <div class="footer-c
+        <div class="footer-col">
+          <h3>Quick Links</h3>
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/#all-tools">All Tools</a></li>
+            <li><a href="/#categories">Categories</a></li>
+            <li><a href="/blog/">Blog</a></li>
+            <li><a href="/contact.html">Contact</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-col">
+          <h3>Categories</h3>
+          <ul>
+            <li><a href="/#categories">Crypto Tools</a></li>
+            <li><a href="/#categories">Finance Calculators</a></li>
+            <li><a href="/#categories">SEO & Marketing</a></li>
+            <li><a href="/#categories">Image Tools</a></li>
+            <li><a href="/#categories">Health Tools</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-col">
+          <h3>Legal</h3>
+          <ul>
+            <li><a href="/privacy.html">Privacy Policy</a></li>
+            <li><a href="/terms.html">Terms of Service</a></li>
+            <li><a href="/disclaimer.html">Disclaimer</a></li>
+            <li><a href="/cookies.html">Cookie Policy</a></li>
+            <li><a href="/contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="copyright">
+        <p>&copy; 2025 SmallToolsPro.com. All rights reserved. | Free online tools for everyone</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile Menu Toggle - FIXED VERSION
+    document.addEventListener('DOMContentLoaded', function() {
+      const menuBtn = document.querySelector('.mobile-menu-btn');
+      const navLinks = document.querySelector('.nav-links');
+      const body = document.body;
+      
+      console.log("Mobile menu script loaded");
+      console.log("Menu button:", menuBtn);
+      console.log("Nav links:", navLinks);
+      
+      // Toggle mobile menu
+      function toggleMenu() {
+        console.log("Toggle menu clicked");
+        navLinks.classList.toggle('active');
+        
+        // Change icon
+        if (navLinks.classList.contains('active')) {
+          menuBtn.innerHTML = '<i class="fas fa-times"></i>';
+          body.style.overflow = 'hidden'; // Prevent scrolling when menu is open
+        } else {
+          menuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+          body.style.overflow = ''; // Re-enable scrolling
+        }
+      }
+      
+      // Add click event to menu button
+      if (menuBtn) {
+        menuBtn.addEventListener('click', toggleMenu);
+      } else {
+        console.error("Menu button not found!");
+      }
+      
+      // Close menu when clicking a link
+      navLinks.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          navLinks.classList.remove('active');
+          menuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+          body.style.overflow = ''; // Re-enable scrolling
+        });
+      });
+      
+      // Close menu when clicking outside
+      document.addEventListener('click', function(e) {
+        if (!navLinks.contains(e.target) && !menuBtn.contains(e.target) && navLinks.classList.contains('active')) {
+          navLinks.classList.remove('active');
+          menuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+          body.style.overflow = ''; // Re-enable scrolling
+        }
+      });
+      
+      // Close menu on escape key
+      document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape' && navLinks.classList.contains('active')) {
+          navLinks.classList.remove('active');
+          menuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+          body.style.overflow = ''; // Re-enable scrolling
+        }
+      });
+      
+      // Animate stats
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            const statNumbers = document.querySelectorAll('.stat-number');
+            const targetValues = [21, 50, 100, 24];
+            
+            statNumbers.forEach((stat, index) => {
+              let current = 0;
+              const target = targetValues[index];
+              const increment = target / 50;
+              
+              const timer = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                  stat.textContent = target + (index === 2 ? '%' : index === 3 ? '/7' : '+');
+                  clearInterval(timer);
+                } else {
+                  stat.textContent = Math.floor(current) + (index === 2 ? '%' : index === 3 ? '/7' : '+');
+                }
+              }, 30);
+            });
+            
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.5 });
+      
+      const statsSection = document.querySelector('.stats-section');
+      if (statsSection) {
+        observer.observe(statsSection);
+      }
+    });
+  </script>
+</body>
+</html>
