@@ -1,997 +1,994 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7282387677653231"
-     crossorigin="anonymous"></script>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-0ZKNDHKLJN"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){ dataLayer.push(arguments); }
-    gtag('js', new Date());
-    gtag('config', 'G-0ZKNDHKLJN');
-  </script>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="About SmallToolsPro - Your one-stop solution for reliable online tools." />
-  <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://smalltoolspro.com/about" />
-  <title>About Us - SmallToolsPro</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
-  <link rel="icon" href="favicon.svg" type="image/svg+xml">
-  <style>
-    :root {
-      --primary: #2563eb;
-      --primary-dark: #1e40af;
-      --secondary: #10B981;
-      --accent: #8B5CF6;
-      --light: #f8fafc;
-      --dark: #1e293b;
-      --gray: #64748b;
-      --border-radius: 10px;
-      --shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-      --transition: all 0.3s ease;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: 'Roboto', sans-serif;
-      line-height: 1.6;
-      color: var(--dark);
-      background: #f8fafc;
-      overflow-x: hidden;
-      padding-top: 80px;
-    }
-
-    h1, h2, h3, h4, h5 {
-      font-family: 'Poppins', sans-serif;
-      font-weight: 600;
-      line-height: 1.3;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    .container {
-      width: 100%;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
-
-    .btn {
-      display: inline-block;
-      padding: 12px 28px;
-      background: var(--primary);
-      color: white;
-      border-radius: var(--border-radius);
-      font-weight: 500;
-      transition: var(--transition);
-      border: none;
-      cursor: pointer;
-      font-size: 16px;
-      text-align: center;
-    }
-
-    .btn:hover {
-      background: var(--primary-dark);
-      transform: translateY(-2px);
-      box-shadow: 0 7px 20px rgba(37, 99, 235, 0.3);
-    }
-
-    /* Fixed Header */
-    header {
-      background: white;
-      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      z-index: 1000;
-      width: 100%;
-    }
-
-    .header-container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 15px 20px;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      z-index: 1001;
-    }
-
-    .logo-icon {
-      font-size: 28px;
-      color: var(--primary);
-    }
-
-    .logo-text {
-      font-family: 'Poppins', sans-serif;
-      font-size: 1.8rem;
-      font-weight: 700;
-      color: var(--dark);
-    }
-
-    .logo-text span {
-      color: var(--primary);
-    }
-
-    /* Navigation Menu - FIXED STRUCTURE */
-    nav {
-      display: flex;
-      align-items: center;
-    }
-
-    .nav-links {
-      display: flex;
-      list-style: none;
-      gap: 30px;
-    }
-
-    .nav-links li a {
-      font-weight: 500;
-      transition: var(--transition);
-      position: relative;
-      padding: 5px 0;
-      color: var(--dark);
-    }
-
-    .nav-links li a:hover {
-      color: var(--primary);
-    }
-
-    .nav-links li a.active {
-      color: var(--primary);
-    }
-
-    .nav-links li a.active::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 2px;
-      background: var(--primary);
-    }
-
-    /* Mobile Menu Button */
-    .mobile-menu-btn {
-      display: none;
-      background: none;
-      border: none;
-      font-size: 1.8rem;
-      color: var(--dark);
-      cursor: pointer;
-      padding: 5px;
-      z-index: 1002;
-    }
-
-    /* Hero Section for About Page */
-    .about-hero {
-      padding: 100px 0 60px;
-      background: linear-gradient(135deg, #e0f2fe 0%, #f0f9ff 100%);
-      text-align: center;
-    }
-
-    .about-hero h1 {
-      font-size: 3rem;
-      margin-bottom: 20px;
-      color: var(--dark);
-    }
-
-    .about-hero h1 span {
-      color: var(--primary);
-    }
-
-    .about-hero p {
-      font-size: 1.2rem;
-      color: var(--gray);
-      max-width: 700px;
-      margin: 0 auto 30px;
-    }
-
-    /* About Content */
-    .about-content {
-      padding: 80px 0;
-    }
-
-    .section-title {
-      text-align: center;
-      margin-bottom: 50px;
-    }
-
-    .section-title h2 {
-      font-size: 2.5rem;
-      margin-bottom: 15px;
-      color: var(--dark);
-    }
-
-    .section-title p {
-      color: var(--gray);
-      font-size: 1.1rem;
-      max-width: 700px;
-      margin: 0 auto;
-    }
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 40px;
-      margin-top: 40px;
-    }
-
-    .about-card {
-      background: white;
-      border-radius: var(--border-radius);
-      padding: 40px 30px;
-      text-align: center;
-      transition: var(--transition);
-      box-shadow: var(--shadow);
-    }
-
-    .about-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-    }
-
-    .about-icon {
-      width: 80px;
-      height: 80px;
-      background: rgba(37, 99, 235, 0.1);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 25px;
-      font-size: 32px;
-      color: var(--primary);
-    }
-
-    .about-card h3 {
-      margin-bottom: 15px;
-      font-size: 1.5rem;
-      color: var(--dark);
-    }
-
-    .about-card p {
-      color: var(--gray);
-      line-height: 1.7;
-    }
-
-    /* Mission & Vision */
-    .mission-vision {
-      background: linear-gradient(135deg, #f0f9ff 0%, #f5f3ff 100%);
-      padding: 80px 0;
-    }
-
-    .mission-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
-      gap: 40px;
-      margin-top: 40px;
-    }
-
-    @media (max-width: 768px) {
-      .mission-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    .mission-card {
-      background: white;
-      border-radius: var(--border-radius);
-      padding: 40px;
-      transition: var(--transition);
-      box-shadow: var(--shadow);
-    }
-
-    .mission-card h3 {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-      margin-bottom: 20px;
-      font-size: 1.8rem;
-      color: var(--primary);
-    }
-
-    .mission-card p {
-      color: var(--gray);
-      line-height: 1.7;
-      font-size: 1.1rem;
-    }
-
-    /* Team Section */
-    .team-section {
-      padding: 80px 0;
-    }
-
-    .team-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 30px;
-      margin-top: 40px;
-    }
-
-    .team-card {
-      background: white;
-      border-radius: var(--border-radius);
-      padding: 30px;
-      text-align: center;
-      transition: var(--transition);
-      box-shadow: var(--shadow);
-    }
-
-    .team-card:hover {
-      transform: translateY(-5px);
-    }
-
-    .team-avatar {
-      width: 120px;
-      height: 120px;
-      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-      border-radius: 50%;
-      margin: 0 auto 20px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 48px;
-      color: white;
-    }
-
-    .team-card h4 {
-      margin-bottom: 10px;
-      font-size: 1.3rem;
-    }
-
-    .team-card .role {
-      color: var(--primary);
-      font-weight: 500;
-      margin-bottom: 15px;
-    }
-
-    .team-card p {
-      color: var(--gray);
-      font-size: 0.95rem;
-    }
-
-    /* Stats Section */
-    .stats-section {
-      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-      color: white;
-      padding: 80px 0;
-      text-align: center;
-    }
-
-    .stats-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 30px;
-      margin-top: 40px;
-    }
-
-    .stat-card {
-      padding: 30px;
-    }
-
-    .stat-number {
-      font-size: 3rem;
-      font-weight: 700;
-      margin-bottom: 10px;
-    }
-
-    .stat-label {
-      font-size: 1.1rem;
-      opacity: 0.9;
-    }
-
-    /* CTA Section */
-    .cta-section {
-      padding: 80px 0;
-      text-align: center;
-    }
-
-    .cta-section h2 {
-      font-size: 2.5rem;
-      margin-bottom: 20px;
-      color: var(--dark);
-    }
-
-    .cta-section p {
-      font-size: 1.2rem;
-      color: var(--gray);
-      max-width: 700px;
-      margin: 0 auto 40px;
-    }
-
-    /* Footer */
-    footer {
-      background: var(--dark);
-      color: white;
-      padding: 70px 0 20px;
-      width: 100%;
-    }
-
-    .footer-content {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 40px;
-      margin-bottom: 50px;
-    }
-
-    .footer-col h3 {
-      font-size: 1.3rem;
-      margin-bottom: 25px;
-      position: relative;
-      padding-bottom: 10px;
-    }
-
-    .footer-col h3::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 50px;
-      height: 2px;
-      background: var(--primary);
-    }
-
-    .footer-col ul {
-      list-style: none;
-    }
-
-    .footer-col ul li {
-      margin-bottom: 12px;
-    }
-
-    .footer-col ul li a {
-      color: #adb5bd;
-      transition: var(--transition);
-    }
-
-    .footer-col ul li a:hover {
-      color: white;
-      padding-left: 5px;
-    }
-
-    .footer-col p {
-      color: #adb5bd;
-      margin-bottom: 20px;
-    }
-
-    .social-links {
-      display: flex;
-      gap: 15px;
-      margin-top: 20px;
-    }
-
-    .social-links a {
-      width: 40px;
-      height: 40px;
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: var(--transition);
-    }
-
-    .social-links a:hover {
-      background: var(--primary);
-      transform: translateY(-3px);
-    }
-
-    .copyright {
-      text-align: center;
-      padding-top: 20px;
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
-      color: #adb5bd;
-      font-size: 0.9rem;
-    }
-
-    /* Responsive Styles - FIXED MOBILE MENU */
-    @media (max-width: 768px) {
-      body {
-        padding-top: 60px;
-      }
-      
-      .header-container {
-        padding: 10px 15px;
-      }
-      
-      /* Mobile Menu Button - Show on mobile */
-      .mobile-menu-btn {
-        display: block;
-      }
-      
-      /* Navigation Menu - Hidden by default on mobile */
-      .nav-links {
-        position: fixed;
-        top: 0;
-        right: -100%;
-        width: 280px;
-        height: 100vh;
-        background: white;
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 80px 30px 30px;
-        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
-        transition: right 0.3s ease;
-        z-index: 1000;
-        display: flex !important; /* Important to override inline styles */
-      }
-      
-      .nav-links.active {
-        right: 0;
-      }
-      
-      .nav-links li {
-        width: 100%;
-        margin-bottom: 15px;
-      }
-      
-      .nav-links li a {
-        display: block;
-        padding: 10px 0;
-        font-size: 1.1rem;
-        border-bottom: 1px solid #f1f5f9;
-        width: 100%;
-      }
-      
-      /* Overlay when menu is open */
-      .nav-links::before {
-        content: '';
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(0, 0, 0, 0.5);
-        z-index: -1;
-        opacity: 0;
-        transition: opacity 0.3s ease;
-      }
-      
-      .nav-links.active::before {
-        opacity: 1;
-      }
-      
-      .about-hero h1 {
-        font-size: 2.2rem;
-      }
-      
-      .about-hero p {
-        font-size: 1.1rem;
-        padding: 0 15px;
-      }
-      
-      .section-title h2 {
-        font-size: 2rem;
-      }
-      
-      .about-grid {
-        grid-template-columns: 1fr;
-        gap: 30px;
-      }
-      
-      .about-card {
-        padding: 30px 20px;
-      }
-      
-      .mission-card {
-        padding: 30px 20px;
-      }
-      
-      .team-grid {
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      }
-      
-      .stats-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
-      }
-      
-      .stat-number {
-        font-size: 2.5rem;
-      }
-    }
-
-    @media (max-width: 576px) {
-      .about-hero {
-        padding: 60px 0 40px;
-      }
-      
-      .about-hero h1 {
-        font-size: 1.8rem;
-      }
-      
-      .section-title h2 {
-        font-size: 1.8rem;
-      }
-      
-      .stats-grid {
-        grid-template-columns: 1fr;
-      }
-      
-      .mission-card h3 {
-        font-size: 1.5rem;
-      }
-      
-      .btn {
-        padding: 10px 20px;
-        font-size: 0.95rem;
-      }
-    }
-
-    @media (max-width: 360px) {
-      .logo-text {
-        font-size: 1.5rem;
-      }
-      
-      .about-card {
-        padding: 25px 15px;
-      }
-      
-      .team-avatar {
-        width: 100px;
-        height: 100px;
-        font-size: 40px;
-      }
-    }
-  </style>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7282387677653231" crossorigin="anonymous"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0ZKNDHKLJN"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-0ZKNDHKLJN');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="About SmallToolsPro - Your one-stop solution for reliable online tools.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://smalltoolspro.com/about">
+    <title>About Us - SmallToolsPro</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1e40af;
+            --secondary: #10B981;
+            --accent: #8B5CF6;
+            --light: #f8fafc;
+            --dark: #1e293b;
+            --gray: #64748b;
+            --border-radius: 10px;
+            --shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--dark);
+            background: #f8fafc;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            background: var(--primary);
+            color: white;
+            border-radius: var(--border-radius);
+            font-weight: 500;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            text-align: center;
+        }
+
+        .btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 7px 20px rgba(37, 99, 235, 0.3);
+        }
+
+        .btn-secondary {
+            background: var(--secondary);
+        }
+
+        .btn-secondary:hover {
+            background: #0da271;
+        }
+
+        /* Header Styles */
+        header {
+            background: white;
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            width: 100%;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            font-size: 28px;
+            color: var(--primary);
+        }
+
+        .logo-text {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--dark);
+        }
+
+        .logo-text span {
+            color: var(--primary);
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links li a {
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+            padding: 5px 0;
+            color: var(--dark);
+        }
+
+        .nav-links li a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links li a.active {
+            color: var(--primary);
+        }
+
+        .nav-links li a.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--primary);
+        }
+
+        /* Mobile Menu Button */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.8rem;
+            color: var(--dark);
+            cursor: pointer;
+            padding: 5px;
+            z-index: 1002;
+        }
+
+        /* Main Content */
+        main {
+            padding-top: 80px;
+        }
+
+        /* Hero Section */
+        .about-hero {
+            padding: 100px 0 60px;
+            background: linear-gradient(135deg, #e0f2fe 0%, #f0f9ff 100%);
+            text-align: center;
+        }
+
+        .about-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+
+        .about-hero h1 span {
+            color: var(--primary);
+        }
+
+        .about-hero p {
+            font-size: 1.2rem;
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto 30px;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+
+        .section-title p {
+            color: var(--gray);
+            font-size: 1.1rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* About Grid */
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .about-card {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 40px 30px;
+            text-align: center;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+        }
+
+        .about-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-icon {
+            width: 80px;
+            height: 80px;
+            background: rgba(37, 99, 235, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 32px;
+            color: var(--primary);
+        }
+
+        .about-card h3 {
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        .about-card p {
+            color: var(--gray);
+            line-height: 1.7;
+        }
+
+        /* Mission & Vision */
+        .mission-vision {
+            background: linear-gradient(135deg, #f0f9ff 0%, #f5f3ff 100%);
+        }
+
+        .mission-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .mission-card {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 40px;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+        }
+
+        .mission-card h3 {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+            color: var(--primary);
+        }
+
+        .mission-card p {
+            color: var(--gray);
+            line-height: 1.7;
+            font-size: 1.1rem;
+        }
+
+        /* Values Section */
+        .values-section .team-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .team-card {
+            background: white;
+            border-radius: var(--border-radius);
+            padding: 30px;
+            text-align: center;
+            transition: var(--transition);
+            box-shadow: var(--shadow);
+        }
+
+        .team-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .team-avatar {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            border-radius: 50%;
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            color: white;
+        }
+
+        .team-card h4 {
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+
+        .team-card .role {
+            color: var(--primary);
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+
+        .team-card p {
+            color: var(--gray);
+            font-size: 0.95rem;
+        }
+
+        /* Stats Section */
+        .stats-section {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .stat-card {
+            padding: 30px;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+
+        .cta-section p {
+            font-size: 1.2rem;
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto 40px;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 70px 0 20px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .footer-col h3 {
+            font-size: 1.3rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--primary);
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-col ul li a {
+            color: #adb5bd;
+            transition: var(--transition);
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+            padding-left: 5px;
+        }
+
+        .footer-col p {
+            color: #adb5bd;
+            margin-bottom: 20px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background: var(--primary);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #adb5bd;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 1024px) {
+            .mission-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding-top: 60px;
+            }
+            
+            main {
+                padding-top: 60px;
+            }
+            
+            /* Mobile Menu Button */
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            /* Navigation Menu for Mobile */
+            .nav-links {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 280px;
+                height: 100vh;
+                background: white;
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 80px 30px 30px;
+                box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+                transition: right 0.3s ease;
+                z-index: 1000;
+            }
+            
+            .nav-links.active {
+                right: 0;
+            }
+            
+            .nav-links li {
+                width: 100%;
+                margin-bottom: 15px;
+            }
+            
+            .nav-links li a {
+                display: block;
+                padding: 10px 0;
+                font-size: 1.1rem;
+                border-bottom: 1px solid #f1f5f9;
+                width: 100%;
+            }
+            
+            /* Overlay for mobile menu */
+            .nav-overlay {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.5);
+                z-index: 999;
+            }
+            
+            .nav-overlay.active {
+                display: block;
+            }
+            
+            /* Content adjustments */
+            .about-hero h1 {
+                font-size: 2.2rem;
+            }
+            
+            .about-hero p {
+                font-size: 1.1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .about-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .about-card {
+                padding: 30px 20px;
+            }
+            
+            .mission-card {
+                padding: 30px 20px;
+            }
+            
+            .mission-card h3 {
+                font-size: 1.5rem;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+            
+            .stat-number {
+                font-size: 2.5rem;
+            }
+            
+            section {
+                padding: 60px 0;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .about-hero {
+                padding: 60px 0 40px;
+            }
+            
+            .about-hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .section-title h2 {
+                font-size: 1.8rem;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .btn {
+                padding: 10px 20px;
+                font-size: 0.95rem;
+            }
+            
+            .team-avatar {
+                width: 100px;
+                height: 100px;
+                font-size: 40px;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .logo-text {
+                font-size: 1.5rem;
+            }
+            
+            .about-card {
+                padding: 25px 15px;
+            }
+            
+            .mission-card {
+                padding: 25px 15px;
+            }
+        }
+    </style>
 </head>
 <body>
-  <!-- Fixed Header -->
-  <header>
-    <div class="header-container">
-      <a href="/" class="logo">
-        <div class="logo-icon">
-          <i class="fas fa-tools"></i>
-        </div>
-        <div class="logo-text">Small<span>Tools</span>Pro</div>
-      </a>
-      
-      <!-- Mobile Menu Button -->
-      <button class="mobile-menu-btn" aria-label="Toggle menu">
-        <i class="fas fa-bars"></i>
-      </button>
-      
-      <!-- Navigation Menu -->
-      <nav>
-        <ul class="nav-links">
-          <li><a href="/">Home</a></li>
-          <li><a href="/#all-tools">Tools</a></li>
-          <li><a href="/#categories">Categories</a></li>
-          <li><a href="/about" class="active">About</a></li>
-          <li><a href="/contact.html">Contact</a></li>
-          <li><a href="/blog/">Blog</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
-
-  <!-- Hero Section -->
-  <section class="about-hero">
-    <div class="container">
-      <h1>About <span>SmallToolsPro</span></h1>
-      <p>Your trusted partner for reliable online tools. We're on a mission to simplify everyday tasks with our powerful, free tool collection.</p>
-      <a href="/#all-tools" class="btn">Explore Our Tools</a>
-    </div>
-  </section>
-
-  <!-- About Content -->
-  <section class="about-content">
-    <div class="container">
-      <div class="section-title">
-        <h2>Our Story</h2>
-        <p>SmallToolsPro was born from a simple idea: everyone deserves access to powerful, reliable tools without the complexity.</p>
-      </div>
-      
-      <div class="about-grid">
-        <div class="about-card">
-          <div class="about-icon">
-            <i class="fas fa-lightbulb"></i>
-          </div>
-          <h3>Our Beginning</h3>
-          <p>Founded in 2023 by a team of developers and designers who were frustrated with overly complex online tools. We wanted to create something simple yet powerful.</p>
-        </div>
-        
-        <div class="about-card">
-          <div class="about-icon">
-            <i class="fas fa-rocket"></i>
-          </div>
-          <h3>Our Growth</h3>
-          <p>From just 5 basic calculators to over 21 specialized tools, we've grown by listening to our users and constantly improving our offerings.</p>
-        </div>
-        
-        <div class="about-card">
-          <div class="about-icon">
-            <i class="fas fa-heart"></i>
-          </div>
-          <h3>Our Philosophy</h3>
-          <p>We believe tools should be intuitive, fast, and accessible to everyone. No registration required, no hidden fees, just pure utility.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Mission & Vision -->
-  <section class="mission-vision">
-    <div class="container">
-      <div class="section-title">
-        <h2>Mission & Vision</h2>
-      </div>
-      
-      <div class="mission-grid">
-        <div class="mission-card">
-          <h3><i class="fas fa-bullseye"></i> Our Mission</h3>
-          <p>To empower individuals and businesses with free, easy-to-use online tools that simplify complex calculations and tasks. We're committed to providing reliable solutions that help you make informed decisions quickly and efficiently.</p>
-        </div>
-        
-        <div class="mission-card">
-          <h3><i class="fas fa-eye"></i> Our Vision</h3>
-          <p>To become the world's most trusted platform for online tools, recognized for our commitment to quality, privacy, and user experience. We envision a future where everyone has access to the tools they need to succeed.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Team Section -->
-  <section class="team-section">
-    <div class="container">
-      <div class="section-title">
-        <h2>Our Values</h2>
-        <p>The principles that guide everything we do at SmallToolsPro</p>
-      </div>
-      
-      <div class="team-grid">
-        <div class="team-card">
-          <div class="team-avatar">
-            <i class="fas fa-user-shield"></i>
-          </div>
-          <h4>Privacy First</h4>
-          <p class="role">Core Principle</p>
-          <p>All calculations happen in your browser. We never store or share your data.</p>
-        </div>
-        
-        <div class="team-card">
-          <div class="team-avatar">
-            <i class="fas fa-bolt"></i>
-          </div>
-          <h4>Speed & Efficiency</h4>
-          <p class="role">Performance</p>
-          <p>Our tools are optimized for instant results with minimal loading times.</p>
-        </div>
-        
-        <div class="team-card">
-          <div class="team-avatar">
-            <i class="fas fa-hand-holding-heart"></i>
-          </div>
-          <h4>User Focus</h4>
-          <p class="role">Design Philosophy</p>
-          <p>Every tool is designed with the user experience as the top priority.</p>
-        </div>
-        
-        <div class="team-card">
-          <div class="team-avatar">
-            <i class="fas fa-sync-alt"></i>
-          </div>
-          <h4>Continuous Improvement</h4>
-          <p class="role">Development Approach</p>
-          <p>We regularly update and improve our tools based on user feedback.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Stats Section -->
-  <section class="stats-section">
-    <div class="container">
-      <div class="section-title">
-        <h2>By The Numbers</h2>
-        <p>Our impact in numbers</p>
-      </div>
-      
-      <div class="stats-grid">
-        <div class="stat-card">
-          <div class="stat-number">21+</div>
-          <div class="stat-label">Free Tools</div>
-        </div>
-        
-        <div class="stat-card">
-          <div class="stat-number">50K+</div>
-          <div class="stat-label">Monthly Users</div>
-        </div>
-        
-        <div class="stat-card">
-          <div class="stat-number">100%</div>
-          <div class="stat-label">Privacy Safe</div>
-        </div>
-        
-        <div class="stat-card">
-          <div class="stat-number">24/7</div>
-          <div class="stat-label">Availability</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA Section -->
-  <section class="cta-section">
-    <div class="container">
-      <h2>Ready to Get Started?</h2>
-      <p>Join thousands of satisfied users who rely on SmallToolsPro for their daily tasks. No registration required - start using our tools right away!</p>
-      <a href="/" class="btn">Go to Homepage</a>
-      <a href="/#all-tools" class="btn" style="background: var(--secondary); margin-left: 15px;">Explore Tools</a>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer>
-    <div class="container">
-      <div class="footer-content">
-        <div class="footer-col">
-          <h3>SmallToolsPro</h3>
-          <p>Your ultimate collection of 21+ free online tools for finance, crypto, SEO, image processing, and more.</p>
-          <div class="social-links">
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-facebook-f"></i></a>
-            <a href="#"><i class="fab fa-github"></i></a>
-            <a href="#"><i class="fab fa-linkedin-in"></i></a>
-          </div>
-        </div>
-        
-        <div class="footer-col">
-          <h3>Quick Links</h3>
-          <ul>
-            <li><a href="/">Home</a></li>
-            <li><a href="/#all-tools">All Tools</a></li>
-            <li><a href="/#categories">Categories</a></li>
-            <li><a href="/blog/">Blog</a></li>
-            <li><a href="/contact.html">Contact</a></li>
-          </ul>
-        </div>
-        
-        <div class="footer-col">
-          <h3>Categories</h3>
-          <ul>
-            <li><a href="/#categories">Crypto Tools</a></li>
-            <li><a href="/#categories">Finance Calculators</a></li>
-            <li><a href="/#categories">SEO & Marketing</a></li>
-            <li><a href="/#categories">Image Tools</a></li>
-            <li><a href="/#categories">Health Tools</a></li>
-          </ul>
-        </div>
-        
-        <div class="footer-col">
-          <h3>Legal</h3>
-          <ul>
-            <li><a href="/privacy.html">Privacy Policy</a></li>
-            <li><a href="/terms.html">Terms of Service</a></li>
-            <li><a href="/disclaimer.html">Disclaimer</a></li>
-            <li><a href="/cookies.html">Cookie Policy</a></li>
-            <li><a href="/contact.html">Contact Us</a></li>
-          </ul>
-        </div>
-      </div>
-      
-      <div class="copyright">
-        <p>&copy; 2025 SmallToolsPro.com. All rights reserved. | Free online tools for everyone</p>
-      </div>
-    </div>
-  </footer>
-
-  <script>
-    // Mobile Menu Toggle - FIXED VERSION
-    document.addEventListener('DOMContentLoaded', function() {
-      const menuBtn = document.querySelector('.mobile-menu-btn');
-      const navLinks = document.querySelector('.nav-links');
-      const body = document.body;
-      
-      console.log("Mobile menu script loaded");
-      console.log("Menu button:", menuBtn);
-      console.log("Nav links:", navLinks);
-      
-      // Toggle mobile menu
-      function toggleMenu() {
-        console.log("Toggle menu clicked");
-        navLinks.classList.toggle('active');
-        
-        // Change icon
-        if (navLinks.classList.contains('active')) {
-          menuBtn.innerHTML = '<i class="fas fa-times"></i>';
-          body.style.overflow = 'hidden'; // Prevent scrolling when menu is open
-        } else {
-          menuBtn.innerHTML = '<i class="fas fa-bars"></i>';
-          body.style.overflow = ''; // Re-enable scrolling
-        }
-      }
-      
-      // Add click event to menu button
-      if (menuBtn) {
-        menuBtn.addEventListener('click', toggleMenu);
-      } else {
-        console.error("Menu button not found!");
-      }
-      
-      // Close menu when clicking a link
-      navLinks.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-          navLinks.classList.remove('active');
-          menuBtn.innerHTML = '<i class="fas fa-bars"></i>';
-          body.style.overflow = ''; // Re-enable scrolling
-        });
-      });
-      
-      // Close menu when clicking outside
-      document.addEventListener('click', function(e) {
-        if (!navLinks.contains(e.target) && !menuBtn.contains(e.target) && navLinks.classList.contains('active')) {
-          navLinks.classList.remove('active');
-          menuBtn.innerHTML = '<i class="fas fa-bars"></i>';
-          body.style.overflow = ''; // Re-enable scrolling
-        }
-      });
-      
-      // Close menu on escape key
-      document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && navLinks.classList.contains('active')) {
-          navLinks.classList.remove('active');
-          menuBtn.innerHTML = '<i class="fas fa-bars"></i>';
-          body.style.overflow = ''; // Re-enable scrolling
-        }
-      });
-      
-      // Animate stats
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            const statNumbers = document.querySelectorAll('.stat-number');
-            const targetValues = [21, 50, 100, 24];
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <a href="/" class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-tools"></i>
+                </div>
+                <div class="logo-text">Small<span>Tools</span>Pro</div>
+            </a>
             
-            statNumbers.forEach((stat, index) => {
-              let current = 0;
-              const target = targetValues[index];
-              const increment = target / 50;
-              
-              const timer = setInterval(() => {
-                current += increment;
-                if (current >= target) {
-                  stat.textContent = target + (index === 2 ? '%' : index === 3 ? '/7' : '+');
-                  clearInterval(timer);
+            <button class="mobile-menu-btn" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/#all-tools">Tools</a></li>
+                    <li><a href="/#categories">Categories</a></li>
+                    <li><a href="/about" class="active">About</a></li>
+                    <li><a href="/contact.html">Contact</a></li>
+                    <li><a href="/blog/">Blog</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="nav-overlay"></div>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="about-hero">
+            <div class="container">
+                <h1>About <span>SmallToolsPro</span></h1>
+                <p>Your trusted partner for reliable online tools. We're on a mission to simplify everyday tasks with our powerful, free tool collection.</p>
+                <a href="/#all-tools" class="btn">Explore Our Tools</a>
+            </div>
+        </section>
+
+        <!-- Our Story -->
+        <section class="about-content">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Our Story</h2>
+                    <p>SmallToolsPro was born from a simple idea: everyone deserves access to powerful, reliable tools without the complexity.</p>
+                </div>
+                
+                <div class="about-grid">
+                    <div class="about-card">
+                        <div class="about-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                        <h3>Our Beginning</h3>
+                        <p>Founded in 2023 by a team of developers and designers who were frustrated with overly complex online tools. We wanted to create something simple yet powerful.</p>
+                    </div>
+                    
+                    <div class="about-card">
+                        <div class="about-icon">
+                            <i class="fas fa-rocket"></i>
+                        </div>
+                        <h3>Our Growth</h3>
+                        <p>From just 5 basic calculators to over 21 specialized tools, we've grown by listening to our users and constantly improving our offerings.</p>
+                    </div>
+                    
+                    <div class="about-card">
+                        <div class="about-icon">
+                            <i class="fas fa-heart"></i>
+                        </div>
+                        <h3>Our Philosophy</h3>
+                        <p>We believe tools should be intuitive, fast, and accessible to everyone. No registration required, no hidden fees, just pure utility.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Mission & Vision -->
+        <section class="mission-vision">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Mission & Vision</h2>
+                </div>
+                
+                <div class="mission-grid">
+                    <div class="mission-card">
+                        <h3><i class="fas fa-bullseye"></i> Our Mission</h3>
+                        <p>To empower individuals and businesses with free, easy-to-use online tools that simplify complex calculations and tasks. We're committed to providing reliable solutions that help you make informed decisions quickly and efficiently.</p>
+                    </div>
+                    
+                    <div class="mission-card">
+                        <h3><i class="fas fa-eye"></i> Our Vision</h3>
+                        <p>To become the world's most trusted platform for online tools, recognized for our commitment to quality, privacy, and user experience. We envision a future where everyone has access to the tools they need to succeed.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Our Values -->
+        <section class="values-section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>Our Values</h2>
+                    <p>The principles that guide everything we do at SmallToolsPro</p>
+                </div>
+                
+                <div class="team-grid">
+                    <div class="team-card">
+                        <div class="team-avatar">
+                            <i class="fas fa-user-shield"></i>
+                        </div>
+                        <h4>Privacy First</h4>
+                        <p class="role">Core Principle</p>
+                        <p>All calculations happen in your browser. We never store or share your data.</p>
+                    </div>
+                    
+                    <div class="team-card">
+                        <div class="team-avatar">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h4>Speed & Efficiency</h4>
+                        <p class="role">Performance</p>
+                        <p>Our tools are optimized for instant results with minimal loading times.</p>
+                    </div>
+                    
+                    <div class="team-card">
+                        <div class="team-avatar">
+                            <i class="fas fa-hand-holding-heart"></i>
+                        </div>
+                        <h4>User Focus</h4>
+                        <p class="role">Design Philosophy</p>
+                        <p>Every tool is designed with the user experience as the top priority.</p>
+                    </div>
+                    
+                    <div class="team-card">
+                        <div class="team-avatar">
+                            <i class="fas fa-sync-alt"></i>
+                        </div>
+                        <h4>Continuous Improvement</h4>
+                        <p class="role">Development Approach</p>
+                        <p>We regularly update and improve our tools based on user feedback.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="stats-section">
+            <div class="container">
+                <div class="section-title">
+                    <h2>By The Numbers</h2>
+                    <p>Our impact in numbers</p>
+                </div>
+                
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">21+</div>
+                        <div class="stat-label">Free Tools</div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-number">50K+</div>
+                        <div class="stat-label">Monthly Users</div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label">Privacy Safe</div>
+                    </div>
+                    
+                    <div class="stat-card">
+                        <div class="stat-number">24/7</div>
+                        <div class="stat-label">Availability</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="container">
+                <h2>Ready to Get Started?</h2>
+                <p>Join thousands of satisfied users who rely on SmallToolsPro for their daily tasks. No registration required - start using our tools right away!</p>
+                <a href="/" class="btn">Go to Homepage</a>
+                <a href="/#all-tools" class="btn btn-secondary" style="margin-left: 15px;">Explore Tools</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <h3>SmallToolsPro</h3>
+                    <p>Your ultimate collection of 21+ free online tools for finance, crypto, SEO, image processing, and more.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="/#all-tools">All Tools</a></li>
+                        <li><a href="/#categories">Categories</a></li>
+                        <li><a href="/blog/">Blog</a></li>
+                        <li><a href="/contact.html">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Categories</h3>
+                    <ul>
+                        <li><a href="/#categories">Crypto Tools</a></li>
+                        <li><a href="/#categories">Finance Calculators</a></li>
+                        <li><a href="/#categories">SEO & Marketing</a></li>
+                        <li><a href="/#categories">Image Tools</a></li>
+                        <li><a href="/#categories">Health Tools</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="/privacy.html">Privacy Policy</a></li>
+                        <li><a href="/terms.html">Terms of Service</a></li>
+                        <li><a href="/disclaimer.html">Disclaimer</a></li>
+                        <li><a href="/cookies.html">Cookie Policy</a></li>
+                        <li><a href="/contact.html">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 SmallToolsPro.com. All rights reserved. | Free online tools for everyone</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle - Fixed Version
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuBtn = document.querySelector('.mobile-menu-btn');
+            const navLinks = document.querySelector('.nav-links');
+            const overlay = document.querySelector('.nav-overlay');
+            const body = document.body;
+            
+            // Toggle mobile menu
+            function toggleMenu() {
+                navLinks.classList.toggle('active');
+                overlay.classList.toggle('active');
+                
+                // Change icon
+                if (navLinks.classList.contains('active')) {
+                    menuBtn.innerHTML = '<i class="fas fa-times"></i>';
+                    body.style.overflow = 'hidden';
                 } else {
-                  stat.textContent = Math.floor(current) + (index === 2 ? '%' : index === 3 ? '/7' : '+');
+                    menuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+                    body.style.overflow = '';
                 }
-              }, 30);
+            }
+            
+            // Menu button click
+            if (menuBtn) {
+                menuBtn.addEventListener('click', toggleMenu);
+            }
+            
+            // Overlay click to close menu
+            if (overlay) {
+                overlay.addEventListener('click', toggleMenu);
+            }
+            
+            // Close menu when clicking a link
+            if (navLinks) {
+                navLinks.querySelectorAll('a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        if (navLinks.classList.contains('active')) {
+                            toggleMenu();
+                        }
+                    });
+                });
+            }
+            
+            // Close menu on escape key
+            document.addEventListener('keydown', function(e) {
+                if (e.key === 'Escape' && navLinks.classList.contains('active')) {
+                    toggleMenu();
+                }
             });
             
-            observer.unobserve(entry.target);
-          }
+            // Animate stats
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const statNumbers = document.querySelectorAll('.stat-number');
+                        const targetValues = [21, 50, 100, 24];
+                        
+                        statNumbers.forEach((stat, index) => {
+                            let current = 0;
+                            const target = targetValues[index];
+                            const increment = target / 50;
+                            
+                            const timer = setInterval(() => {
+                                current += increment;
+                                if (current >= target) {
+                                    stat.textContent = target + (index === 2 ? '%' : index === 3 ? '/7' : '+');
+                                    clearInterval(timer);
+                                } else {
+                                    stat.textContent = Math.floor(current) + (index === 2 ? '%' : index === 3 ? '/7' : '+');
+                                }
+                            }, 30);
+                        });
+                        
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.5 });
+            
+            const statsSection = document.querySelector('.stats-section');
+            if (statsSection) {
+                observer.observe(statsSection);
+            }
         });
-      }, { threshold: 0.5 });
-      
-      const statsSection = document.querySelector('.stats-section');
-      if (statsSection) {
-        observer.observe(statsSection);
-      }
-    });
-  </script>
+    </script>
 </body>
 </html>
